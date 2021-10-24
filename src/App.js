@@ -1,14 +1,15 @@
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Projects from "./pages/Projects/Projects";
-import Experience from "./pages/Experience/Experience";
-import Contact from "./pages/Contact/Contact";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Experience from "./pages/Experience";
+import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 
-
+//auto import alt + space
 function App() {
   return (
+    
     <BrowserRouter>
       <div className="App">
         <Navbar/>
@@ -26,7 +27,7 @@ function App() {
             <Projects />
           </Route>
           <Route path="/contact">
-            <Contact />
+            <Contact/>
           </Route>
         </Switch>
       </div>
