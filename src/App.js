@@ -5,6 +5,7 @@ import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer"
 
 //auto import alt + space
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Contact/>
           </Route>
         </Switch>
+        <Footer/>
       </div>
     </BrowserRouter>
   );

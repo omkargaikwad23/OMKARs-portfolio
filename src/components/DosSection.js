@@ -22,6 +22,9 @@ const ServicesItemsStyles = styled.div`
       margin-top: 5rem;
       gap: 5rem;
     }
+    .section__title{
+      font-size: medium;
+    }
   }
 `;
 
@@ -29,7 +32,7 @@ export default function DosSection() {
   return (
     <ServicesItemsStyles>
       <div className="container">
-        <SectionTitle subheading="What do I do?" heading="Self Proclamations" />
+        <SectionTitle subheading="What do I do?" className="section__title" heading="My Roles" />
         <div className="services__allItems">
           <ServicesSectionItem
             icon={<MdCode />}
