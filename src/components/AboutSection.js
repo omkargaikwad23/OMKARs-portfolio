@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import Button from './Button';
-import PText from './PText';
-import SectionTitle from './SectionTitle';
-import AboutImg from '../assets/images/meLamp.jpg';
+import React from "react";
+import styled from "styled-components";
+import Button from "./Button";
+import PText from "./PText";
+import SectionTitle from "./SectionTitle";
+import AboutImg from "../assets/images/meLamp.jpg";
 
 const AboutSectionStyles = styled.div`
   padding: 10rem 0;
@@ -31,10 +31,10 @@ const AboutSectionStyles = styled.div`
     gap: 2rem;
     margin-top: 2rem;
   }
-  .aboutSection__right{
+  .aboutSection__right {
     padding: 12rem;
   }
-  .aboutImg{
+  .aboutImg {
     border: 2px solid var(--gray-1);
     height: auto;
     object-fit: contain;
@@ -90,9 +90,8 @@ export default function AboutSection() {
             heading="About Me"
           />
           <PText>
-            I am a freelance website designer and developer from Chittagong,
-            Bangladesh. I create professional websites. I love art and always
-            try to show unique views to the audience through my design.
+            I am computer engineering student having keen interest in
+            competitive programming and web development.
           </PText>
           <div className="aboutSection__buttons">
             <Button btnText="Works" btnLink="/projects" />

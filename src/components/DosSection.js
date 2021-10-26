@@ -1,9 +1,9 @@
 import React from 'react';
 import { MdCode } from 'react-icons/md';
-import {BsBookHalf} from 'react-icons/bs';
+import {FaGraduationCap} from 'react-icons/fa';
 import styled from 'styled-components';
 import SectionTitle from './SectionTitle';
-import ServicesSectionItem from './WhatIdoItem';
+import ServicesSectionItem from './DosItem';
 import {VscGraphLine} from "react-icons/vsc"
 
 const ServicesItemsStyles = styled.div`
@@ -45,7 +45,7 @@ export default function DosSection() {
             desc="I love problem solving. I do competitive programming on various coding platforms."
           />
           <ServicesSectionItem
-            icon={<BsBookHalf />}
+            icon={<FaGraduationCap />}
             title="study"
             desc="I am a computer engineering student. I study DSA, DBMS, CN, OS, etc subjects."
           />

@@ -1,7 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import FooterCol from './FooterCol';
-import PText from './PText';
+import React from "react";
+import styled from "styled-components";
+import FooterCol from "./FooterCol";
+import PText from "./PText";
+import { BsInstagram, BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
 
 const FooterStyle = styled.div`
   background-color: var(--deep-dark);
@@ -26,10 +27,25 @@ const FooterStyle = styled.div`
     background-color: var(--dark-bg);
     text-align: left;
     padding: 1rem 0;
+    display: flex;
+    flex-direction: row;
     margin-top: 5rem;
     .para {
       margin-left: 0;
     }
+  }
+  .socialLogos {
+    display: flex;
+    font-size: 20px;
+    flex-direction: row;
+  }
+  .copyright__msg{
+    width: fit-content;
+  }
+  .socialLogo {
+    margin: 0 4px;
+    width: 20px;
+    height: 20px;
   }
   @media only screen and (max-width: 768px) {
     .container {
@@ -40,7 +56,7 @@ const FooterStyle = styled.div`
       }
     }
     .footer__col1 .para {
-      max-width: 100%;
+      width: 100%;
     }
     .copyright {
       .container {
@@ -48,6 +64,11 @@ const FooterStyle = styled.div`
           margin-top: 0;
         }
       }
+    }
+    .socialLogos {
+      font-size: 1px;
+      max-width: 100px;
+      /* flex-direction: row; */
     }
   }
 `;
@@ -59,70 +80,47 @@ export default function Footer() {
         <div className="footer__col1">
           <h1 className="footer__col1__title">Omkar Gaikwad</h1>
           <PText>
-            A persistent, hard worker and a quick learner who loves problem- solving by simple and scalable solutions.
+            A persistent, hard worker and a quick learner who loves problem-
+            solving by simple and scalable solutions.
           </PText>
         </div>
         <div className="footer__col2">
-          {/* <FooterCol
-            heading="Important Links"
-            links={[
-              {
-                title: 'Home',
-                path: '/',
-                type: 'Link',
-              },
-              {
-                type: 'Link',
-                title: 'About',
-                path: '/about',
-              },
-              {
-                type: 'Link',
-                title: 'Projects',
-                path: '/projects',
-              },
-              {
-                type: 'Link',
-                title: 'Contact',
-                path: '/contact',
-              },
-            ]}
-          /> */}
+          
         </div>
         <div className="footer__col3">
           <FooterCol
             heading="Contact Info"
             links={[
               {
-                title: '+919579714193',
-                path: 'tel:+919579714193',
+                title: "+919579714193",
+                path: "tel:+919579714193",
               },
               {
-                title: 'omkargaikwad9552@gmail.com',
-                path: 'mailto:omkargaikwad9552@gmail.com',
+                title: "omkargaikwad9552@gmail.com",
+                path: "mailto:omkargaikwad9552@gmail.com",
               },
               {
-                title: 'Pune, India',
-                path: 'http://google.com/maps',
+                title: "Pune, India",
+                path: "http://google.com/maps",
               },
             ]}
           />
         </div>
         <div className="footer__col4">
           <FooterCol
-            heading="social Links"
+            heading="Social Links"
             links={[
               {
-                title: 'Facebook',
-                path: 'http://facebook.com',
+                title: "Facebook",
+                path: "http://facebook.com",
               },
               {
-                title: 'Twitter',
-                path: 'http://twitter.com',
+                title: "Twitter",
+                path: "http://twitter.com",
               },
               {
-                title: 'Instagram',
-                path: 'http://instagram.com',
+                title: "Instagram",
+                path: "http://instagram.com",
               },
             ]}
           />
@@ -130,12 +128,15 @@ export default function Footer() {
       </div>
       <div className="copyright">
         <div className="container">
-          <PText>
-            © 2021 - Omkar Gaikwad 
-            {/*| Designed By{' '} <a target="_blank" rel="noreferrer" href="http://webcifar.com">
-              web cifar
-            </a>{' '} */}
+          <PText className="copyright__msg">
+            © 2021 - Omkar Gaikwad
           </PText>
+          <div className="socialLogos">
+            <BsInstagram className="socialLogo" />
+            <BsGithub className="socialLogo" />
+            <BsFacebook className="socialLogo" />
+            <BsLinkedin className="socialLogo" />
+          </div>
         </div>
       </div>
     </FooterStyle>
