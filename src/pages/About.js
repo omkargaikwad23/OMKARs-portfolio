@@ -6,6 +6,7 @@ import AboutImg from "../assets/images/meIdea.jpg";
 import AboutInfoItem from "../components/AboutInfoItem";
 // import ContactBanner from '../components/ContactBanner';
 import Education from "../components/Education";
+import CodingProfiles from "../components/CodingProfiles";
 
 const AboutPageStyles = styled.div`
   padding: 20rem 0 10rem 0;
@@ -132,6 +133,10 @@ export default function About() {
                 title="Tools"
                 items={["VS code", "GitHub", "Postman", "Eclipse"]}
               />
+            </div>
+            <div className="about__info__item">
+              <h1 className="about__info__heading">Coding Profiles</h1>
+              <CodingProfiles />
             </div>
           </div>
         </div>

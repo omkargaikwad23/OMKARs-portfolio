@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-
+import React, { useRef, useState } from "react";
+import styled from "styled-components";
+import emailjs from "emailjs-com";
+import{ init } from 'emailjs-com';
+init("user_KkjPy1fq6wpuZYBELSAiz");
 const FormStyle = styled.form`
   width: 100%;
   .form-group {
@@ -26,7 +28,7 @@ const FormStyle = styled.form`
     min-height: 250px;
     resize: vertical;
   }
-  button[type='submit'] {
+  button[type="submit"] {
     background-color: var(--gray-1);
     color: var(--black);
     font-size: 2rem;
@@ -39,50 +41,78 @@ const FormStyle = styled.form`
   }
 `;
 
+
+const userId = process.env.REACT_APP_USERID;
+
 export default function ContactForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const form = useRef();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    // console.log(e.current);
+    emailjs
+      .sendForm(
+        "service_og30hof",
+        "email_temp_id",
+        form.current,
+        userId
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  };
+
   return (
     <>
       <FormStyle>
-        <div className="form-group">
-          <label htmlFor="name">
-            Your Name
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">
-            Your Email
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label htmlFor="message">
-            Your message
-            <textarea
-              type="text"
-              id="message"
-              name="message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-          </label>
-        </div>
-        <button type="submit">Send</button>
+        <form ref={form} onSubmit={sendEmail}>
+          <div className="form-group">
+            <label htmlFor="name">
+              Your Name
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">
+              Your Email
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label htmlFor="message">
+              Your message
+              <textarea
+                type="text"
+                id="message"
+                name="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+            </label>
+          </div>
+          <button type="submit">Send</button>
+        </form>
       </FormStyle>
     </>
   );
