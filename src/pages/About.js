@@ -2,9 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import PText from "../components/PText";
 import Button from "../components/Button";
-import AboutImg from "../assets/images/meIdea.jpg";
+import AboutImg from "../assets/images/meLamp.jpg";
 import AboutInfoItem from "../components/AboutInfoItem";
-// import ContactBanner from '../components/ContactBanner';
 import Education from "../components/Education";
 import CodingProfiles from "../components/CodingProfiles";
 
@@ -86,7 +85,7 @@ export default function About() {
                 Hi, I am <span>Omkar Gaikwad</span>
               </p>
               <h2 className="about__heading">
-                A Web Developer & Competitive Programmer
+                A Web Developer <br/>& Competitive Programmer
               </h2>
               <div className="about__info">
                 <PText>

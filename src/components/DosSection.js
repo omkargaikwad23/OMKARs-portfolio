@@ -32,7 +32,7 @@ export default function DosSection() {
   return (
     <ServicesItemsStyles>
       <div className="container">
-        <SectionTitle subheading="What do I do?" className="section__title" heading="My Roles" />
+        <SectionTitle subheading="Self proclamation" className="section__title" heading="What I do?" />
         <div className="services__allItems">
           <ServicesSectionItem
             icon={<MdCode />}
@@ -42,12 +42,12 @@ export default function DosSection() {
           <ServicesSectionItem
             icon={<VscGraphLine />}
             title="cp"
-            desc="I love problem solving. I do competitive programming on various coding platforms."
+            desc="I love problem solving. I keep solving problems on various coding platforms."
           />
           <ServicesSectionItem
             icon={<FaGraduationCap />}
-            title="study"
-            desc="I am a computer engineering student. I study DSA, DBMS, CN, OS, etc subjects."
+            title="Engineering"
+            desc="I am a third year computer engineering student. I studying computer fundamentals and exploring new domains."
           />
         </div>
       </div>

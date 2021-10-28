@@ -85,7 +85,37 @@ export default function Footer() {
           </PText>
         </div>
         <div className="footer__col2">
-          
+          <FooterCol
+            heading="Important Links"
+            links={[
+              {
+                title: 'Home',
+                path: '/',
+                type: 'Link',
+              },
+              {
+                type: 'Link',
+                title: 'About',
+                path: '/about',
+              },
+              
+              {
+                type: 'Link',
+                title: 'Experience',
+                path: '/experience',
+              },
+              {
+                type: 'Link',
+                title: 'Projects',
+                path: '/projects',
+              },
+              {
+                type: 'Link',
+                title: 'Contact',
+                path: '/contact',
+              },
+            ]}
+          />
         </div>
         <div className="footer__col3">
           <FooterCol
@@ -131,12 +161,12 @@ export default function Footer() {
           <PText className="copyright__msg">
             © 2021 - Omkar Gaikwad
           </PText>
-          <div className="socialLogos">
+          {/* <div className="socialLogos">
             <BsInstagram className="socialLogo" />
             <BsGithub className="socialLogo" />
             <BsFacebook className="socialLogo" />
             <BsLinkedin className="socialLogo" />
-          </div>
+          </div> */}
         </div>
       </div>
     </FooterStyle>
