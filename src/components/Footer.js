@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import FooterCol from "./FooterCol";
 import PText from "./PText";
-import { BsInstagram, BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
+// import { BsInstagram, BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
 
 const FooterStyle = styled.div`
   background-color: var(--deep-dark);
@@ -86,7 +86,7 @@ export default function Footer() {
         </div>
         <div className="footer__col2">
           <FooterCol
-            heading="Important Links"
+            heading="Links"
             links={[
               {
                 title: 'Home',

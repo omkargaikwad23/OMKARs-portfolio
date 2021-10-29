@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ProjectImg from '../assets/images/projects/mybrary.png';
+import Ptext from './PText';
 
 const ProjectItemStyles = styled.div`
   .projectItem__img {
@@ -29,6 +30,18 @@ const ProjectItemStyles = styled.div`
     font-family: 'RobotoMono Regular';
     margin-top: 1rem;
   }
+  .projectItem__tech{
+    display: flex;
+    flex-wrap: wrap;
+    position: initial;
+    margin-top: 1rem;
+  }
+  .projectItem__tech__name{
+    background-color: black;
+    padding: 0.8rem;
+    margin: 0.5rem 0.8rem 0rem 0rem;
+    border-radius: 0.5rem;
+  }
   @media only screen and (max-width: 768px) {
     .projectItem__img {
       height: 350px;
@@ -45,14 +58,21 @@ export default function ProjectItem({
 }) {
   return (
     <ProjectItemStyles>
-      <Link target="_blank" href={url} className="projectItem__img">
+      <a target="_blank" href={url} className="projectItem__img" rel="noreferrer">
         <img src={img} alt="project img" />
-      </Link>
+      </a>
       <div className="projectItem__info">
         <Link to="#">
           <h3 className="projectItem__title">{title}</h3>
         </Link>
         <p className="projectItem__desc">{desc}</p>
+        <div className="projectItem__tech">
+          {tech.map((item, index) => (
+            <div className="projectItem__tech__name">
+              <Ptext >{item}</Ptext> 
+            </div>
+          ))}
+        </div>
       </div>
     </ProjectItemStyles>
   );

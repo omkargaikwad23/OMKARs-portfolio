@@ -47,7 +47,7 @@ const CardStyles = styled.div`
   @media only screen and (max-width: 768px) {
     .card__container {
       padding: 2rem 1rem;
-      margin: 0rem -2rem;
+      margin: 0rem -1.5rem;
     }
     .card__header {
       display: contents;
@@ -57,7 +57,7 @@ const CardStyles = styled.div`
       width: 100%;
     }
     .card__org {
-      font-size: 2.6rem;
+      font-size: 2.4rem;
     }
     .card__duration {
       text-align: start;
