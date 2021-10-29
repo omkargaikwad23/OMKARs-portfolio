@@ -1,3 +1,4 @@
+import React  from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -6,6 +7,8 @@ import Experience from "./pages/Experience";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
+import ScrollToTop from "./components/ScrollToTop";
+
 
 //auto import alt + space
 function App() {
@@ -14,6 +17,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar/>
+        <ScrollToTop/> 
         <Switch>
           <Route exact path="/">
             <Home />
@@ -32,6 +36,7 @@ function App() {
           </Route>
         </Switch>
         <Footer/>
+       
       </div>
     </BrowserRouter>
   );

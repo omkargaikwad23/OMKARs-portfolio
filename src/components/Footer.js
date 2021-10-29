@@ -30,22 +30,25 @@ const FooterStyle = styled.div`
     display: flex;
     flex-direction: row;
     margin-top: 5rem;
-    .para {
-      margin-left: 0;
-    }
   }
-  .socialLogos {
+  .para {
+    margin-left: 0;
+  }
+  /* .socialLogos {
     display: flex;
     font-size: 20px;
     flex-direction: row;
-  }
-  .copyright__msg{
+  } */
+  /* .copyright__msg{
     width: fit-content;
-  }
-  .socialLogo {
+  } */
+  /* .socialLogo {
     margin: 0 4px;
     width: 20px;
     height: 20px;
+  } */
+  a:hover{
+    color: white;
   }
   @media only screen and (max-width: 768px) {
     .container {
@@ -64,11 +67,6 @@ const FooterStyle = styled.div`
           margin-top: 0;
         }
       }
-    }
-    .socialLogos {
-      font-size: 1px;
-      max-width: 100px;
-      /* flex-direction: row; */
     }
   }
 `;
@@ -141,17 +139,21 @@ export default function Footer() {
             heading="Social Links"
             links={[
               {
-                title: "Facebook",
-                path: "http://facebook.com",
+                title: "LinkedIn",
+                path: "https://www.linkedin.com/in/omkargaikwad23/",
               },
               {
-                title: "Twitter",
-                path: "http://twitter.com",
+                title: "Facebook",
+                path: "https://www.facebook.com/omkar.gaikwad.23/",
               },
               {
                 title: "Instagram",
-                path: "http://instagram.com",
+                path: "https://www.instagram.com/omkar.gaikwad._/",
               },
+              {
+                title: "GitHub",
+                path: "https://github.com/omkargaikwad23"
+              }
             ]}
           />
         </div>
@@ -161,12 +163,6 @@ export default function Footer() {
           <PText className="copyright__msg">
             © 2021 - Omkar Gaikwad
           </PText>
-          {/* <div className="socialLogos">
-            <BsInstagram className="socialLogo" />
-            <BsGithub className="socialLogo" />
-            <BsFacebook className="socialLogo" />
-            <BsLinkedin className="socialLogo" />
-          </div> */}
         </div>
       </div>
     </FooterStyle>

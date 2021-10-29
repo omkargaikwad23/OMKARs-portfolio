@@ -11,6 +11,8 @@ const NavStyles = styled.nav`
   width: 100%;
   padding: 1rem 0;
   background: var(--dark-bg);
+  opacity: 0.9;
+  box-shadow: -0px 8px 10px -10px  rgba(0, 0, 0, 1);
   ul {
     max-width: 1200px;
     margin: 0 auto;

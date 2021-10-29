@@ -5,6 +5,7 @@ import styled from "styled-components";
 const CardStyles = styled.div`
   margin: 3rem 0px;
   .card__container {
+    margin: 4rem 0rem;
     background-color: var(--deep-dark);
     border: 2px solid var(--gray-1);
     padding: 2rem 2rem;
@@ -69,7 +70,7 @@ export default function ExperienceCard({
   role = "Intern",
   duration = "00/0000 - 00/0000",
   org = "My Organization",
-  tasks = ["Working on design and development of a full-stack web application"],
+  tasks = ["Working"],
 }) {
   return (
     <CardStyles>

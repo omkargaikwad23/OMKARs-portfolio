@@ -12,12 +12,8 @@ const CodingProfileStyles = styled.div`
     margin-top: 3rem;
   }
   .profile {
-    border: 2px solid var(--gray-1);
+    margin-top: 3rem;
     background-color: var(--deep-dark);
-    height: 220px;
-    width: 320px;
-    padding: 3rem;
-    margin: 1rem;
     justify-content: center;
   }
   @media only screen and (max-width: 768px) {
@@ -36,7 +32,7 @@ export default function CodingProfiles() {
     <CodingProfileStyles>
       <div className="profilesContainer">
         {CodingHandles.map((profile) => (
-          <a href={profile.url}>
+          <a target="_blank" rel="noreferrer" href={profile.url}>
             <div className="profile">
               <DosItem
                 icon={<profile.icon />}

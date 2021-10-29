@@ -47,7 +47,7 @@ export default function DosSection() {
           <ServicesSectionItem
             icon={<FaGraduationCap />}
             title="Engineering"
-            desc="I am a third year computer engineering student. I studying computer fundamentals and exploring new domains."
+            desc="I am a computer engineering student. I am currently exploring web technologies."
           />
         </div>
       </div>

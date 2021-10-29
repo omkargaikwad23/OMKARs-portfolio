@@ -8,7 +8,7 @@ import Education from "../components/Education";
 import CodingProfiles from "../components/CodingProfiles";
 
 const AboutPageStyles = styled.div`
-  padding: 20rem 0 10rem 0;
+  padding: 10rem 0 10rem 0;
 
   .top-section {
     display: flex;

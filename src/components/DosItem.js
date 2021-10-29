@@ -1,34 +1,42 @@
-import React from 'react';
-import { MdDesktopMac } from 'react-icons/md';
-import styled from 'styled-components';
-import PText from './PText';
+import React from "react";
+import { MdDesktopMac } from "react-icons/md";
+import styled from "styled-components";
+import PText from "./PText";
 
 const ItemStyles = styled.div`
   text-align: center;
-  .servicesItem__icon {
+  .doesItem__icon {
     svg {
-      width: 3rem;
+      width: 4rem;
     }
   }
-  .servicesItem__title {
+  .doesItem__title {
     font-size: 2.5rem;
-    font-family: 'Montserrat SemiBold';
+    font-family: "Montserrat SemiBold";
   }
   .para {
     margin-top: 2rem;
+  }
+  .doesItem {
+    min-height: 220px;
+    width: 320px;
+    padding: 3rem;
+    box-shadow: 12px 9px 42px -6px rgba(0, 0, 0, 1);
   }
 `;
 
 export default function WhatIdoItem({
   icon = <MdDesktopMac />,
-  title = 'Web Design',
+  title = "Web Design",
   desc = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ok",
 }) {
   return (
-    <ItemStyles className="servicesItem">
-      <div className="servicesItem__icon">{icon}</div>
-      <div className="servicesItem__title">{title}</div>
-      <PText>{desc}</PText>
+    <ItemStyles>
+      <div className="doesItem">
+        <div className="doesItem__icon">{icon}</div>
+        <div className="doesItem__title">{title}</div>
+        <PText>{desc}</PText>
+      </div>
     </ItemStyles>
   );
 }
