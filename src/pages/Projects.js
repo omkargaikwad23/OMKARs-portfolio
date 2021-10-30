@@ -22,7 +22,7 @@ const ProjectStyle = styled.div`
     width: 100%;
     font-size: 2rem;
     padding: 0.8rem;
-    color: var(--black);
+    background-color: var(--deep-dark);
     border-radius: 6px;
     outline: none;
     border: none;
@@ -30,11 +30,10 @@ const ProjectStyle = styled.div`
   .projects__searchBar .searchIcon {
     position: absolute;
     width: 2rem;
-
     right: 1rem;
   }
   .projects__searchBar .searchIcon path {
-    color: var(--deep-dark);
+    color: var(--gray-1);
   }
   @media only screen and (max-width: 768px) {
     .projects__searchBar,

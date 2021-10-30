@@ -4,6 +4,7 @@ import DosItem from "./DosItem";
 import styled from "styled-components";
 
 const CodingProfileStyles = styled.div`
+  margin-top: 5rem;
   .profilesContainer {
     display: flex;
     flex-wrap: wrap;
@@ -12,8 +13,7 @@ const CodingProfileStyles = styled.div`
     margin-top: 3rem;
   }
   .profile {
-    margin-top: 3rem;
-    background-color: var(--deep-dark);
+    margin-bottom: 5rem;
     justify-content: center;
   }
   @media only screen and (max-width: 768px) {
@@ -24,6 +24,9 @@ const CodingProfileStyles = styled.div`
     .section__title {
       font-size: medium;
     }
+    .profile {
+      margin-bottom: 3rem;
+    }
   }
 `;
 
@@ -32,7 +35,7 @@ export default function CodingProfiles() {
     <CodingProfileStyles>
       <div className="profilesContainer">
         {CodingHandles.map((profile) => (
-          <a target="_blank" rel="noreferrer" href={profile.url}>
+          <a target="_blank" rel="noopener noreferrer" href={profile.url}>
             <div className="profile">
               <DosItem
                 icon={<profile.icon />}

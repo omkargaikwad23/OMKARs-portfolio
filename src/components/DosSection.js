@@ -10,8 +10,9 @@ const ServicesItemsStyles = styled.div`
   padding: 10rem 0;
   .services__allItems {
     display: flex;
+    flex-wrap: wrap;
     gap: 10rem;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 5rem;
   }
   @media only screen and (max-width: 768px) {
@@ -36,12 +37,12 @@ export default function DosSection() {
         <div className="services__allItems">
           <ServicesSectionItem
             icon={<MdCode />}
-            title="web dev"
+            title="Web Dev"
             desc="I am a full stack web developer. I develop fully functional and beautiful websites."
           />
           <ServicesSectionItem
             icon={<VscGraphLine />}
-            title="cp"
+            title="CP"
             desc="I love problem solving. I keep solving problems on various coding platforms."
           />
           <ServicesSectionItem

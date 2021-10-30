@@ -7,11 +7,11 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   :root{
-    --dark-bg: #262626;
-    --gray-1: #BCB4B4;
-    --deep-dark: #1E1E1E;
-    --gray-2: #363636;
-    --white : white;
+    --dark-bg:  #071E3D;       //total bg, nav, card colors
+    --gray-1: #21E6C1;         // all text
+    --deep-dark: #1F4287;      //footer, nav, education cards
+    --gray-2: #278EA5;        // secondary text color
+    --white : white;      
     --black: black;
   }
   html{
@@ -37,6 +37,9 @@ const GlobalStyles = createGlobalStyle`
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
+  }
+  hr{
+    border: 1px solid #21E6C1;
   }
 `;
 export default GlobalStyles;

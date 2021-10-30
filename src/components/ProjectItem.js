@@ -58,7 +58,7 @@ export default function ProjectItem({
 }) {
   return (
     <ProjectItemStyles>
-      <a target="_blank" href={url} className="projectItem__img" rel="noreferrer">
+      <a target="_blank" href={url} className="projectItem__img" rel="noopener noreferrer">
         <img src={img} alt="project img" />
       </a>
       <div className="projectItem__info">

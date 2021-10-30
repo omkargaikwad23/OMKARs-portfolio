@@ -30,7 +30,7 @@ const HeroStyles = styled.div`
     .hero__name {
       font-size: 7rem;
       font-family: "Montserrat SemiBold";
-      color: var(--white);
+      color: var(--gray-1);
     }
   }
   .hero__img {
@@ -77,7 +77,8 @@ const HeroStyles = styled.div`
   }
   .hero__scrollDown {
     img {
-      max-height: 70px;  
+      max-height: 70px;
+      /* filter: brightness(126%) hue-rotate(151deg) saturate(1000%) contrast(320%);   */
     }
   }
   .hero__social__text{
@@ -94,6 +95,7 @@ const HeroStyles = styled.div`
       }
     }
   }
+  
 
   @media only screen and (max-width: 768px) {
     .hero {
@@ -171,7 +173,7 @@ export default function HeroSection() {
           <div className="hero__social">
             <div className="hero__social__indicator">
               <p>Follow</p>
-              <img src={SocialMediaArrow} alt="down arrow"></img>
+              <img src={SocialMediaArrow} className="sideArrows" alt="down arrow"></img>
             </div>
             <div className="hero__social__text">
               <ul>
@@ -179,7 +181,7 @@ export default function HeroSection() {
                   <a
                     href="https://www.linkedin.com/in/omkargaikwad23/"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     LI
                   </a>
@@ -188,7 +190,7 @@ export default function HeroSection() {
                   <a
                     href="https://www.facebook.com/omkar.gaikwad.23/"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     FB
                   </a>
@@ -197,7 +199,7 @@ export default function HeroSection() {
                   <a
                     href="https://www.instagram.com/omkar.gaikwad._/"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     IG
                   </a>
@@ -206,7 +208,7 @@ export default function HeroSection() {
                   <a
                     href="https://github.com/omkargaikwad23"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     GH
                   </a>

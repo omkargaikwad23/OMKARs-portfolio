@@ -21,7 +21,7 @@ const CardStyles = styled.div`
   .card__role {
     font-family: "Montserrat SemiBold";
     font-size: 2.5rem;
-    color: white;
+    color: var(--gray-2);
   }
   .card__duration {
     display: flex;
@@ -37,9 +37,12 @@ const CardStyles = styled.div`
     li {
       list-style: square;
       font-size: 1.8rem;
-      color: white;
+      color: var(--gray-1);
       margin-top: 0.6rem;
     }
+  }
+  .task__heading{
+    color: var(--gray-2);
   }
   .para {
     margin-left: 0px;
@@ -85,7 +88,7 @@ export default function ExperienceCard({
           <hr />
           <br />
           <Ptext>
-            <i>achievements/tasks</i>
+            <i className="task__heading">achievements/tasks</i>
           </Ptext>
           <div className="card__tasks">
             <ul>

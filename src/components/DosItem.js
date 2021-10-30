@@ -20,6 +20,7 @@ const ItemStyles = styled.div`
   .doesItem {
     min-height: 220px;
     width: 320px;
+    background-color: var(--deep-dark);
     padding: 3rem;
     box-shadow: 12px 9px 42px -6px rgba(0, 0, 0, 1);
   }
@@ -27,7 +28,7 @@ const ItemStyles = styled.div`
 
 export default function WhatIdoItem({
   icon = <MdDesktopMac />,
-  title = "Web Design",
+  title = "Web Developer",
   desc = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ok",
 }) {
   return (

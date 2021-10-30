@@ -6,7 +6,6 @@ import SectionTitle from "./SectionTitle";
 import AboutImg from "../assets/images/meLamp.jpg";
 
 const AboutSectionStyles = styled.div`
-  padding: 10rem 0;
   .container {
     display: flex;
     align-items: center;
@@ -94,7 +93,7 @@ export default function AboutSection() {
             competitive programming and web development.
           </PText>
           <div className="aboutSection__buttons">
-            <Button btnText="Works" btnLink="/projects" />
+            <Button btnText="Projects" btnLink="/projects" />
             <Button btnText="Read More" btnLink="/about" outline />
           </div>
         </div>
