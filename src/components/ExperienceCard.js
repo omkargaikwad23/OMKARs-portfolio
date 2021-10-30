@@ -77,7 +77,7 @@ export default function ExperienceCard({
 }) {
   return (
     <CardStyles>
-      <div className="container">
+      <div className="container" data-aos="fade-up" data-aos-delay="200" data-aos-once>
         <div className="card__container">
           <div className="card__header">
             <span className="card__role">{role}</span>

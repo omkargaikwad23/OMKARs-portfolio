@@ -34,7 +34,7 @@ export default function WhatIdoItem({
 }) {
   return (
     <ItemStyles>
-      <div className="doesItem">
+      <div className="doesItem" data-aos="zoom-out" data-aos-delay="200" data-aos-once>
         <div className="doesItem__icon">{icon}</div>
         <div className="doesItem__title">{title}</div>
         <PText>{desc}</PText>

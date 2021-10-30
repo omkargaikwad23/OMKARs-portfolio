@@ -160,12 +160,12 @@ export default function HeroSection() {
           <h1 className="hero__heading">
             <span>Hello, This is</span>
             <br />
-            <span className="hero__name">Omkar Gaikwad</span>
+            <span className="hero__name"  data-aos="zoom-out" data-aos-delay="400" data-aos-once>Omkar Gaikwad</span>
           </h1>
           <div className="hero__img">
             <img src={Jobs} alt="landing steve jobs" />
           </div>
-          <div className="hero__info">
+          <div className="hero__info"  data-aos="zoom-out" data-aos-delay="400">
             <Ptext>
               I am computer engineering student having keen interest in
               competitive programming and web development.

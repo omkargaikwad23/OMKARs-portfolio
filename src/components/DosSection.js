@@ -4,7 +4,7 @@ import {FaGraduationCap} from 'react-icons/fa';
 import styled from 'styled-components';
 import SectionTitle from './SectionTitle';
 import ServicesSectionItem from './DosItem';
-import {VscGraphLine} from "react-icons/vsc"
+import {VscGraphLine} from "react-icons/vsc";
 
 const ServicesItemsStyles = styled.div`
   padding: 10rem 0;
@@ -43,7 +43,7 @@ export default function DosSection() {
           <ServicesSectionItem
             icon={<VscGraphLine />}
             title="CP"
-            desc="I love problem solving. I keep solving problems on various coding platforms."
+            desc="I love problem solving. I am doing competitive coding from 5th semester."
           />
           <ServicesSectionItem
             icon={<FaGraduationCap />}

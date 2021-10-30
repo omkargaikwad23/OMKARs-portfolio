@@ -36,8 +36,9 @@ padding: 5rem 0rem;
   }
   .aboutImg {
     border: 2px solid var(--gray-1);
-    height: auto;
+    /* height: auto; */
     object-fit: contain;
+    height: 90%;
     /* padding: 3rem; */
   }
   @media only screen and (max-width: 950px) {
@@ -84,7 +85,7 @@ export default function AboutSection() {
   return (
     <AboutSectionStyles>
       <div className="container">
-        <div className="aboutSection__left">
+        <div className="aboutSection__left"  data-aos="zoom-out" data-aos-delay="200" data-aos-once>
           <SectionTitle
             subheading="Let me introduce myself"
             heading="About Me"
@@ -98,7 +99,7 @@ export default function AboutSection() {
             <Button btnText="Read More" btnLink="/about" outline />
           </div>
         </div>
-        <div className="aboutSection__right">
+        <div className="aboutSection__right" data-aos="zoom-out" data-aos-delay="200" data-aos-once>
           <img className="aboutImg" src={AboutImg} alt="Img" />
         </div>
       </div>

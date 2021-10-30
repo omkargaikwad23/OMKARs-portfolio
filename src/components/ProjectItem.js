@@ -37,7 +37,7 @@ const ProjectItemStyles = styled.div`
     margin-top: 1rem;
   }
   .projectItem__tech__name{
-    background-color: black;
+    background-color: var(--gray-2);
     padding: 0.8rem;
     margin: 0.5rem 0.8rem 0rem 0rem;
     border-radius: 0.5rem;
@@ -57,7 +57,7 @@ export default function ProjectItem({
   url
 }) {
   return (
-    <ProjectItemStyles>
+    <ProjectItemStyles  data-aos="zoom-out-up" data-aos-delay="200">
       <a target="_blank" href={url} className="projectItem__img" rel="noopener noreferrer">
         <img src={img} alt="project img" />
       </a>

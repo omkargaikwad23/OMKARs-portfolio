@@ -43,14 +43,16 @@ export default function AboutInfoItem({
 }) {
   return (
     <AboutItemStyles>
-      <h1 className="title">{title}</h1>
-      <div className="items">
-        {items.map((item, index) => (
-          <div className="item" key={index}>
-            <PText>{item}</PText>
-          </div>
-        ))}
-      </div>
+      {/* <div data-aos="fade-up" data-aos-delay="100"> */}
+        <h1 className="title">{title}</h1>
+        <div className="items">
+          {items.map((item, index) => (
+            <div className="item" data-aos="fade-right" data-aos-delay="200" data-aos-once key={index}>
+              <PText>{item}</PText>
+            </div>
+          ))}
+        </div>
+      {/* </div> */}
     </AboutItemStyles>
   );
 }

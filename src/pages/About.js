@@ -46,7 +46,7 @@ const AboutPageStyles = styled.div`
       border: 2px solid var(--gray-1);
     }
   }
-  .sub_container{
+  .sub_container {
     padding-left: 5rem;
   }
   .about__info__items {
@@ -74,7 +74,7 @@ const AboutPageStyles = styled.div`
     .about__info__heading {
       font-size: 3rem;
     }
-    .sub_container{
+    .sub_container {
       padding: 0px;
     }
   }
@@ -86,7 +86,7 @@ export default function About() {
       <AboutPageStyles>
         <div className="container">
           <div className="top-section">
-            <div className="left">
+            <div className="left" data-aos="fade-up" data-aos-delay="200" data-aos-once>
               <p className="about__subheading">
                 Hi, I am <span>Omkar Gaikwad</span>
               </p>
@@ -111,19 +111,19 @@ export default function About() {
               </div>
               <Button btnText="Download CV" btnLink="#" />
             </div>
-            <div className="right">
-              <img src={AboutImg} alt="me" />
+            <div className="right" data-aos="fade-up" data-aos-delay="200" data-aos-once>
+              <img src={AboutImg} alt="Omkar Gaikwad" />
             </div>
           </div>
+
           <div className="about__info__items">
             <div className="about__info__item">
-              <h1 className="about__info__heading">Education</h1>
+              <h1 className="about__info__heading" data-aos="fade-right" data-aos-delay="200" data-aos-once>Education</h1>
               <Education />
             </div>
-            <h1 className="about__info__heading">Tech Stack</h1>
+            <h1 className="about__info__heading" data-aos="fade-right" data-aos-delay="100" data-aos-once>Tech Stack</h1>
             <div className="sub_container">
               <div className="about__info__item">
-
                 <AboutInfoItem
                   title="Languages"
                   items={["C++", "Python", "Java"]}
@@ -132,7 +132,7 @@ export default function About() {
                   title="FrontEnd"
                   items={["HTML", "CSS", "JavaScript", "REACT"]}
                 />
-                <AboutInfoItem title="BackEnd" items={["Node", "Express"]} />
+                <AboutInfoItem  title="BackEnd" items={["Node", "Express"]} />
                 <AboutInfoItem title="Databases" items={["NoSQL", "MongoDB"]} />
                 <AboutInfoItem title="Design" items={["Figma"]} />
                 <AboutInfoItem
@@ -142,7 +142,7 @@ export default function About() {
               </div>
             </div>
             <div className="about__info__item">
-              <h1 className="about__info__heading">Coding Profiles</h1>
+              <h1 className="about__info__heading" data-aos="fade-right" data-aos-delay="200" data-aos-once>Coding Profiles</h1>
               <CodingProfiles />
             </div>
           </div>
