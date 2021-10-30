@@ -8,24 +8,16 @@ const CodingProfileStyles = styled.div`
   .profilesContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
     justify-content: space-evenly;
     margin-top: 3rem;
   }
   .profile {
-    margin-bottom: 5rem;
+    margin: 3rem;
     justify-content: center;
   }
   @media only screen and (max-width: 768px) {
-    .profilesContainer {
-      max-width: 350px;
-      margin-top: 2rem;
-    }
-    .section__title {
-      font-size: medium;
-    }
     .profile {
-      margin-bottom: 3rem;
+      padding: 2rem -4rem;
     }
   }
 `;

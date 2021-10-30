@@ -41,5 +41,10 @@ const GlobalStyles = createGlobalStyle`
   hr{
     border: 1px solid #21E6C1;
   }
+  @media only screen and (max-width: 740px) {
+    html{
+      font-size: 12px;
+    }
+  }
 `;
 export default GlobalStyles;

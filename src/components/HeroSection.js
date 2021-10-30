@@ -23,7 +23,7 @@ const HeroStyles = styled.div`
     font-size: 2rem;
     margin-bottom: -4rem;
     position: relative;
-    span{
+    span {
       display: inline-block;
       width: 100%;
     }
@@ -53,10 +53,10 @@ const HeroStyles = styled.div`
     bottom: 20px;
     width: 50px;
   }
-  .hero__social{
+  .hero__social {
     left: 50px;
   }
-  .hero__scrollDown{
+  .hero__scrollDown {
     right: 50px;
   }
   .hero__social__indicator,
@@ -81,12 +81,12 @@ const HeroStyles = styled.div`
       /* filter: brightness(126%) hue-rotate(151deg) saturate(1000%) contrast(320%);   */
     }
   }
-  .hero__social__text{
+  .hero__social__text {
     ul {
       li {
         margin-bottom: 1rem;
       }
-      a{
+      a {
         display: inline-block;
         font-size: 1.6rem;
         transform: rotate(-90deg);
@@ -95,7 +95,6 @@ const HeroStyles = styled.div`
       }
     }
   }
-  
 
   @media only screen and (max-width: 768px) {
     .hero {
@@ -122,6 +121,7 @@ const HeroStyles = styled.div`
         width: 20px;
         p {
           font-size: 1.2rem;
+          margin-bottom: 2rem;
         }
         img {
           max-height: 22px;
@@ -138,12 +138,15 @@ const HeroStyles = styled.div`
         }
       }
     }
+    .sideArrows{
+      margin-top: 1000px;
+    }
     .hero__scrollDown {
       right: 0;
       width: 20px;
       gap: 1rem;
       p {
-        font-size: 1.3rem;
+        font-size: 1rem;
       }
     }
   }
@@ -163,7 +166,10 @@ export default function HeroSection() {
             <img src={Jobs} alt="landing steve jobs" />
           </div>
           <div className="hero__info">
-            <Ptext>I am computer engineering student having keen interest in competitive programming and web development.</Ptext>
+            <Ptext>
+              I am computer engineering student having keen interest in
+              competitive programming and web development.
+            </Ptext>
             <Button
               btnLink="/about"
               btnText="About me"
@@ -173,7 +179,11 @@ export default function HeroSection() {
           <div className="hero__social">
             <div className="hero__social__indicator">
               <p>Follow</p>
-              <img src={SocialMediaArrow} className="sideArrows" alt="down arrow"></img>
+              <img
+                src={SocialMediaArrow}
+                className="sideArrows"
+                alt="down arrow"
+              ></img>
             </div>
             <div className="hero__social__text">
               <ul>
@@ -217,9 +227,9 @@ export default function HeroSection() {
             </div>
           </div>
           <div className="hero__scrollDown">
-              <p>SCROLL</p>
-              <img src={ScrollDownArrow} alt="ScrollDown Arrow" />
-            </div>
+            <p>SCROLL</p>
+            <img src={ScrollDownArrow} alt="ScrollDown Arrow" />
+          </div>
         </div>
       </div>
     </HeroStyles>

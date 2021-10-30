@@ -46,6 +46,9 @@ const AboutPageStyles = styled.div`
       border: 2px solid var(--gray-1);
     }
   }
+  .sub_container{
+    padding-left: 5rem;
+  }
   .about__info__items {
     margin-top: 15rem;
   }
@@ -71,6 +74,9 @@ const AboutPageStyles = styled.div`
     .about__info__heading {
       font-size: 3rem;
     }
+    .sub_container{
+      padding: 0px;
+    }
   }
 `;
 
@@ -85,7 +91,7 @@ export default function About() {
                 Hi, I am <span>Omkar Gaikwad</span>
               </p>
               <h2 className="about__heading">
-                A Web Developer <br/>& Competitive Programmer
+                A Web Developer <br />& Competitive Programmer
               </h2>
               <div className="about__info">
                 <PText>
@@ -114,24 +120,26 @@ export default function About() {
               <h1 className="about__info__heading">Education</h1>
               <Education />
             </div>
-            <div className="about__info__item">
-              <h1 className="about__info__heading">Tech Stack</h1>
+            <h1 className="about__info__heading">Tech Stack</h1>
+            <div className="sub_container">
+              <div className="about__info__item">
 
-              <AboutInfoItem
-                title="Languages"
-                items={["C++", "Python", "Java"]}
-              />
-              <AboutInfoItem
-                title="FrontEnd"
-                items={["HTML", "CSS", "JavaScript", "REACT"]}
-              />
-              <AboutInfoItem title="BackEnd" items={["Node", "Express"]} />
-              <AboutInfoItem title="Databases" items={["NoSQL", "MongoDB"]} />
-              <AboutInfoItem title="Design" items={["Figma"]} />
-              <AboutInfoItem
-                title="Tools"
-                items={["VS code", "GitHub", "Postman", "Eclipse"]}
-              />
+                <AboutInfoItem
+                  title="Languages"
+                  items={["C++", "Python", "Java"]}
+                />
+                <AboutInfoItem
+                  title="FrontEnd"
+                  items={["HTML", "CSS", "JavaScript", "REACT"]}
+                />
+                <AboutInfoItem title="BackEnd" items={["Node", "Express"]} />
+                <AboutInfoItem title="Databases" items={["NoSQL", "MongoDB"]} />
+                <AboutInfoItem title="Design" items={["Figma"]} />
+                <AboutInfoItem
+                  title="Tools"
+                  items={["VS code", "GitHub", "Postman", "Eclipse"]}
+                />
+              </div>
             </div>
             <div className="about__info__item">
               <h1 className="about__info__heading">Coding Profiles</h1>

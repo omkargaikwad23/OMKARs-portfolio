@@ -18,6 +18,7 @@ const ItemStyles = styled.div`
     margin-top: 2rem;
   }
   .doesItem {
+    margin: auto;
     min-height: 220px;
     width: 320px;
     background-color: var(--deep-dark);

@@ -23,6 +23,14 @@ const ItemStyles = styled.div`
   svg {
     width: 3.5rem;
   }
+  @media only screen and (max-width: 768px){
+    svg {
+      width: 2.4rem;
+    }
+    .icon {
+      padding: 1rem;
+    }
+  }
 `;
 
 export default function ContactInfoItem({
