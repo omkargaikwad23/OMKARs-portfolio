@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import Ptext from "./PText";
-import Jobs from "../assets/images/jobs.jpg";
+import LandingImg from "../assets/images/laptop.jpg";
 import SocialMediaArrow from "../assets/images/social-media-arrow.svg";
 import ScrollDownArrow from "../assets/images/scroll-down-arrow.svg";
 import styled from "styled-components";
@@ -39,7 +39,7 @@ const HeroStyles = styled.div`
     height: 450px;
     margin: 0 auto;
     border: 2px solid var(--gray-1);
-    /* object-fit: contain; */
+    object-fit: contain;
   }
   .hero__info {
     margin-top: -18rem;
@@ -138,7 +138,7 @@ const HeroStyles = styled.div`
         }
       }
     }
-    .sideArrows{
+    .sideArrows {
       margin-top: 1000px;
     }
     .hero__scrollDown {
@@ -160,15 +160,22 @@ export default function HeroSection() {
           <h1 className="hero__heading">
             <span>Hello, This is</span>
             <br />
-            <span className="hero__name"  data-aos="zoom-out" data-aos-delay="400" data-aos-once>Omkar Gaikwad</span>
+            <span
+              className="hero__name"
+              data-aos="zoom-out"
+              data-aos-delay="400"
+              data-aos-once
+            >
+              Omkar Gaikwad
+            </span>
           </h1>
           <div className="hero__img">
-            <img src={Jobs} alt="landing steve jobs" />
+            <img src={LandingImg} alt="landing" />
           </div>
-          <div className="hero__info"  data-aos="zoom-out" data-aos-delay="400">
+          <div className="hero__info" data-aos="zoom-out" data-aos-delay="400">
             <Ptext>
-              I am computer engineering student having keen interest in
-              competitive programming and web development.
+              Passionate Competitive Coder and Full Stack Developer having good
+              knowledge of DSA, OOP and C++.
             </Ptext>
             <Button
               btnLink="/about"

@@ -43,12 +43,12 @@ export default function DosSection() {
           <ServicesSectionItem
             icon={<VscGraphLine />}
             title="CP"
-            desc="I love problem solving. I am doing competitive coding from 5th semester."
+            desc="I am a competitive programmer. I like solving algorithmic problems."
           />
           <ServicesSectionItem
             icon={<FaGraduationCap />}
             title="Engineering"
-            desc="I am a computer engineering student. I am currently exploring web technologies."
+            desc="I am a third year computer engineering student studying at PICT college."
           />
         </div>
       </div>

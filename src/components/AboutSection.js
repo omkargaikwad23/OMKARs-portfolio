@@ -3,10 +3,10 @@ import styled from "styled-components";
 import Button from "./Button";
 import PText from "./PText";
 import SectionTitle from "./SectionTitle";
-import AboutImg from "../assets/images/meLamp.jpg";
+import AboutImg from "../assets/images/omkarLapi.jpeg";
 
 const AboutSectionStyles = styled.div`
-padding: 5rem 0rem;
+  padding-top: 5rem;
   .container {
     display: flex;
     align-items: center;
@@ -32,14 +32,12 @@ padding: 5rem 0rem;
     margin-top: 2rem;
   }
   .aboutSection__right {
-    padding: 12rem;
+    padding: 15rem;
   }
   .aboutImg {
     border: 2px solid var(--gray-1);
-    /* height: auto; */
+    height: auto;
     object-fit: contain;
-    height: 90%;
-    /* padding: 3rem; */
   }
   @media only screen and (max-width: 950px) {
     .aboutSection__left {

@@ -116,3 +116,36 @@ export const VolunteersData = [
     ]
   }
 ];
+
+export const SkillsData = [
+  {
+    id: 1,
+    title: "Languages",
+    items: ["C++", "Python", "Java"],
+  },
+  {
+    id: 2,
+    title: "Frontend",
+    items: ["HTML", "CSS", "JavaScript", "React"],
+  },
+  {
+    id: 3,
+    title: "Backend",
+    items: ["Node", "Express.js"],
+  },
+  {
+    id: 4,
+    title: "Database",
+    items: ["NoSQL", "MongoDB"],
+  },
+  {
+    id: 5,
+    title: "Design",
+    items: ["Figma"],
+  },
+  {
+    id: 6,
+    title: "Tools",
+    items: ["VS code", "Github", "Postman", "Eclipse"]
+  }
+];

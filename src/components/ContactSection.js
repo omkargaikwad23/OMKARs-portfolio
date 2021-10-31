@@ -57,12 +57,12 @@ export default function ContactSection() {
       <div className="container">
         <SectionTitle heading="contact" subheading="get in touch" />
         <div className="contactSection__wrapper">
-          <div className="left">
+          <div className="left" data-aos="zoom-out" data-aos-delay="400">
             <ContactInfoItem icon={<MdLocalPhone />} text="+919579714193" />
             <ContactInfoItem icon={<MdEmail />} text="omkargaikwad9552@gmail.com" />
             <ContactInfoItem text="Pune, India" />
           </div>
-          <div className="right">
+          <div className="right" data-aos="zoom-out" data-aos-delay="400">
             <ContactForm />
           </div>
         </div>

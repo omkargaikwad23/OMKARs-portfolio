@@ -51,7 +51,8 @@ export default function Projects() {
     if (searchText === '') return;
     setProjectsData(() =>
       ProjectsInfo.filter((item) =>
-        item.name.toLowerCase().match(searchText.toLowerCase())
+        item.name.toLowerCase().match(searchText.toLowerCase()) || 
+        item.desc.toLowerCase().match(searchText.toLowerCase())
       )
     );
   }, [searchText]);
