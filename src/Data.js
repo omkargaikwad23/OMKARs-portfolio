@@ -146,6 +146,6 @@ export const SkillsData = [
   {
     id: 6,
     title: "Tools",
-    items: ["VS code", "Github", "Postman", "Eclipse"]
+    items: ["VS code", "Github", "Postman"]
   }
 ];
