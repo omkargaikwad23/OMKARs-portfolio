@@ -5,7 +5,7 @@ export const CodingHandles= [
     id: 1,
     site: "Codechef",
     handleName: "omg_pict_23",
-    desc: "3 star rated with highest rating 1630",
+    desc: "Ranked 207/7k in Codechef starters18 round, 3 star rated",
     url: "https://www.codechef.com/users/omg_pict_23",
     icon: SiCodechef
   },
@@ -13,7 +13,7 @@ export const CodingHandles= [
     id: 2,
     site: "Codeforces",
     handleName: "omg_pict_23",
-    desc: "Current rating is 800 and solved over 120 problems",
+    desc: "Highest rating is 900 and solved over 150 problems",
     url: "https://codeforces.com/profile/omg_pict_23",
     icon: SiCodeforces
   },
@@ -21,7 +21,7 @@ export const CodingHandles= [
     id: 3,
     site: "Leetcode",
     handleName: "omg_pict_23",
-    desc: "Solved more than 50 problems",
+    desc: "Solved more than 150 problems",
     url: "https://leetcode.com/omg_pict_23/",
     icon: SiLeetcode
   },

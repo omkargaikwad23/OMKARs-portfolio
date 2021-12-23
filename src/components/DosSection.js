@@ -7,7 +7,7 @@ import ServicesSectionItem from './DosItem';
 import {VscGraphLine} from "react-icons/vsc";
 
 const ServicesItemsStyles = styled.div`
-  padding: 10rem 0;
+  padding: 8rem 0rem 14rem 0rem;
   .services__allItems {
     display: flex;
     flex-wrap: wrap;

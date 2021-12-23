@@ -8,7 +8,7 @@ import CodingProfiles from "../components/CodingProfiles";
 import { SkillsData } from "../Data";
 
 const AboutPageStyles = styled.div`
-  padding: 10rem 0 10rem 0;
+  padding: 10rem 0 1rem 0;
 
   .top-section {
     display: flex;
@@ -121,9 +121,8 @@ export default function About() {
                   and scalable solutions. I have a good understanding of
                   Algorithms, Data Structures, and Object-Oriented Concepts.
                   Also, I have a keen interest in web development. I have built
-                  multiple projects and worked as a web dev intern. Now, I'd
-                  like to put these skills and experience to good use, analyzing
-                  tomorrow's up-and-coming companies.
+                  multiple projects and worked as a web dev intern. 
+                  Also, I like watching movies and playing table tennis.
                 </PText>
               </div>
               <div
@@ -133,7 +132,7 @@ export default function About() {
               >
                 <a
                   target="_blank"
-                  href="https://drive.google.com/file/d/1XaNpCn2dkO0VGDafWNLpXuICbAboWaG1/view?usp=sharing"
+                  href="https://drive.google.com/file/d/177GtuT6KOqd25sWr5WZBu32YFm9mat9x/view?usp=sharing"
                   rel="noreferrer"
                 >
                   Download CV
