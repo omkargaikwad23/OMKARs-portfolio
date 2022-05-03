@@ -24,7 +24,7 @@ export default function Contact() {
           setEmail();
           setMessage("");
           alert(
-            "Thank you for contacting me. I will get back to you soon. Have a good day :)"
+            "Thank you for contacting me. I will get back to you soon. Have a good day!!😀"
           );
           console.log("send");
         },

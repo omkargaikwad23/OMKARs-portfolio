@@ -24,11 +24,13 @@ const ItemStyles = styled.div`
     width: 3.5rem;
   }
   @media only screen and (max-width: 768px) {
+    padding: 1rem;
+    gap: 1rem;
     svg {
       width: 2.4rem;
     }
     .icon {
-      padding: 1rem;
+      padding: 0.8rem;
     }
   }
 `;
