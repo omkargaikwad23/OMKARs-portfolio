@@ -114,7 +114,7 @@ export default function About() {
                 <PText>
                   Growing up in a small village in Osmanabad, I now find myself
                   across the pond' as a graduating student at Pune Institute of
-                  Computer Technology, where I aspire to learn everything, I
+                  Computer Technology, where I aspire to learn everything, which I
                   could not have gained living in a village. <br /> <br />I
                   describe myself as someone who is a persistent, hard working,
                   passionate programmer who loves problem-solving with simple
