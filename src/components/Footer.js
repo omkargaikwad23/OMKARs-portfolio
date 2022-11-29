@@ -120,7 +120,7 @@ export default function Footer() {
             heading="Contact Info"
             links={[
               {
-                title: "+919579714193",
+                title: "(+91)9579714193",
                 path: "tel:+919579714193",
               },
               {

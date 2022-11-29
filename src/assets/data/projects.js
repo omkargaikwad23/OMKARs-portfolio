@@ -10,15 +10,15 @@ const projects = [
   {
     id: uuidv4(),
     name: "Solapur Police Transfer Website",
-    desc: "A full stack Web application for the for general transfer of Solapur Police Staff.",
+    desc: "A full stack Web application for general transfer of Solapur Police Staff. This website helps to transfer records of 400-500 policemen, completing the process 80% faster than manual human effort",
     img: Police,
-    tech: ["React JS", "Node.js", "Express.js", "Firebase"],
+    tech: ["ReactJS", "Node.js", "Express.js", "Firebase"],
     url: "https://spstaffdata1.web.app",
   },
   {
     id: uuidv4(),
     name: "StartStock",
-    desc: "A learning website to learn about stock market, play quizzes, and read articles based on stock market",
+    desc: "A website which helps to learn the stock market virtually by reading articles, different case studies, playing quizzes, etc. User can read FAQs orregisterto ask their doubts",
     img: Startstock,
     tech: ["HTML", "CSS", "ReactJS", "Bootstrap", "MongoDB"],
     url: "https://startstock.netlify.app"
@@ -26,7 +26,7 @@ const projects = [
   { 
     id: uuidv4(),
     name: "Virtual Farmers Market",
-    desc: "A website that connects farmers who sell fresh vegetables and fruits, to the retailers. This allows both the interested parties to directly communicate with each other and do business",
+    desc: "Created a website that connects farmers to sell theirfruits and vegetables, to the retailers. It helps both the interested parties to make a deal and directly communicate with each other",
     img: Vfm,
     tech: ["ReactJS", "Node.js", "MongoDB"],
     url: "https://krishimitra.netlify.app"
@@ -36,7 +36,7 @@ const projects = [
     name: "Flipkart-clone 2.0",
     desc: "Developed a website Flipkart-clone using React library. It has a voice assistant feature to navigate and filter the products by voice commands",
     img: flipkart,
-    tech: ["React JS", "Material UI"],
+    tech: ["ReactJS", "Material UI"],
     url: "https://flipkart-clone-20.web.app/",
   },
   {
@@ -44,7 +44,7 @@ const projects = [
     name: "Movie Search App",
     desc: "This is a movie search app build using OMDB API",
     img: Movie,
-    tech: ["React JS", "OMDB api"],
+    tech: ["ReactJS", "OMDB api"],
     url: "https://movie-search-app-by-omg.web.app/",
   },
   {

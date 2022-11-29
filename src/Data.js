@@ -11,7 +11,7 @@ export const CodingHandles = [
     id: 1,
     site: "Codechef",
     handleName: "omg_pict_23",
-    desc: "Ranked 207/7k in Codechef starters18 round, highest 3 star rated",
+    desc: "Highest Rated 1756 (3* coder)",
     url: "https://www.codechef.com/users/omg_pict_23",
     icon: SiCodechef,
   },
@@ -19,7 +19,7 @@ export const CodingHandles = [
     id: 2,
     site: "Codeforces",
     handleName: "omg_pict_23",
-    desc: "Highest rating is 961 and solved over 300 problems",
+    desc: "Highest rated 1292 (solved over 350 problems)",
     url: "https://codeforces.com/profile/omg_pict_23",
     icon: SiCodeforces,
   },
@@ -27,7 +27,7 @@ export const CodingHandles = [
     id: 3,
     site: "Leetcode",
     handleName: "omg_pict_23",
-    desc: "Solved more than 350 problems, highest rating is 1582",
+    desc: "Solved more than 700 problems, highest rating is 1704",
     url: "https://leetcode.com/omg_pict_23/",
     icon: SiLeetcode,
   },
@@ -43,7 +43,7 @@ export const CodingHandles = [
     id: 5,
     site: "GeeksForGeeks",
     handleName: "omkargaikwad",
-    desc: "Solved more than 120 problems",
+    desc: "Solved more than 200 problems",
     url: "https://auth.geeksforgeeks.org/user/omkargaikwad/practice/",
     icon: SiGeeksforgeeks,
   },
@@ -70,7 +70,7 @@ export const EducationData = [
   {
     id: 3,
     role: "SSC School",
-    duration: "July, 2006 - March, 2017",
+    duration: "July, 2014 - March, 2017",
     org: "Shri Sant Goroba Kaka Vidyalaya",
     tasks: [
       "Stood first in the school and exam center(among 7 schools) with 96.40% in SSC board exam",
@@ -106,7 +106,7 @@ export const InternshipsData = [
     duration: "04/2022 - Present",
     org: "Interview Mocha",
     tasks: [
-      "Creating new coding questions related to data structures and algorithms",
+      "Creating new coding questions related to Data Structures and Algorithms, generating test cases forthe problems and writing effective solutions",
     ]
   }
 ];

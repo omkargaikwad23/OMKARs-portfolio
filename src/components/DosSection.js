@@ -38,17 +38,17 @@ export default function DosSection() {
           <ServicesSectionItem
             icon={<MdCode />}
             title="Web Dev"
-            desc="I am a full stack web developer. I develop fully functional and beautiful websites."
+            desc="I am a full stack web developer who loves developing websites."
           />
           <ServicesSectionItem
             icon={<VscGraphLine />}
             title="CP"
-            desc="I am a competitive programmer. I like solving algorithmic problems."
+            desc="I am a competitive programmer. I like solving problems."
           />
           <ServicesSectionItem
             icon={<FaGraduationCap />}
             title="Engineering"
-            desc="I am a third year computer engineering student studying at PICT college."
+            desc="I am a 4th year computer engineering student studying at PICT college."
           />
         </div>
       </div>
