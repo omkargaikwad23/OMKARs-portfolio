@@ -1,7 +1,7 @@
 import React from "react";
 import ExpCard from "../components/ExperienceCard";
 import styled from "styled-components";
-import { InternshipsData, VolunteersData } from "../Data";
+import { ExperienceData, VolunteersData } from "../assets/data/staticDisplayData";
 
 const ExperienceStyles = styled.div`
   padding: 6rem 0rem;
@@ -23,7 +23,7 @@ function Experience() {
       <ExperienceStyles>
         <div className="container">
           <h1 className="card__heading">Work Experience</h1>
-          {InternshipsData.map((item) => (
+          {ExperienceData.reverse().map((item) => (
             <ExpCard
               role={item.role}
               duration={item.duration}

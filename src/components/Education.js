@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import EduCard from "./ExperienceCard";
-import {EducationData} from "../Data";
+import {EducationData} from "../assets/data/staticDisplayData";
 
 const EducationStyles = styled.div`
   margin: 3rem 0rem;

@@ -5,7 +5,7 @@ import AboutImg from "../assets/images/omkarLapi.jpeg";
 import AboutInfoItem from "../components/AboutInfoItem";
 import Education from "../components/Education";
 import CodingProfiles from "../components/CodingProfiles";
-import { SkillsData } from "../Data";
+import { SkillsData } from "../assets/data/staticDisplayData";
 
 const AboutPageStyles = styled.div`
   padding: 10rem 0 1rem 0;
@@ -108,7 +108,7 @@ export default function About() {
                 Hi, I am <span>Omkar Gaikwad</span>
               </p>
               <h2 className="about__heading">
-                A Web Developer <br />& Competitive Programmer
+                A Software Engineer <br />& Competitive Programmer
               </h2>
               <div className="about__info">
                 <PText>

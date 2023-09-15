@@ -1,5 +1,5 @@
 import React from "react";
-import { CodingHandles } from "../Data";
+import { CodingHandles } from "../assets/data/staticDisplayData";
 import DosItem from "./DosItem";
 import styled from "styled-components";
 

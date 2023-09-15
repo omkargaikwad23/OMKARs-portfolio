@@ -138,17 +138,6 @@ export default function Navbar() {
         </li>
         <li>
           <NavLink
-            to="/projects"
-            onClick={() => setShowNav(!showNav)}
-            role="button"
-            onKeyDown={() => setShowNav(!showNav)}
-            tabIndex={0}
-          >
-            Projects
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
             to="/experience"
             onClick={() => setShowNav(!showNav)}
             role="button"
@@ -156,6 +145,17 @@ export default function Navbar() {
             tabIndex={0}
           >
             Experience
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/projects"
+            onClick={() => setShowNav(!showNav)}
+            role="button"
+            onKeyDown={() => setShowNav(!showNav)}
+            tabIndex={0}
+          >
+            Projects
           </NavLink>
         </li>
         <li>
