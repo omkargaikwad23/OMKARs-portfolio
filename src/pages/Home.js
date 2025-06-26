@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { MdSearch } from 'react-icons/md';
 import HeroSection from "../components/HeroSection";
 import DosSection from "../components/DosSection";
-import PText from "../components/PText";
-import AboutImg from "../assets/images/ogstanding.jpg";
 import SectionTitle from "../components/SectionTitle";
 import ExpCard from "../components/ExperienceCard";
 import ProjectItem from "../components/ProjectItem";
@@ -19,78 +16,100 @@ const HomeStyles = styled.div`
   /* About Section Styles */
   .about-section {
     padding: 10rem 0;
-    background: var(--primary-bg);
+    background: var(--secondary-bg);
 
-    .top-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6rem;
-      margin-bottom: 8rem;
+    .journey__content {
+      max-width: 800px;
+      margin: 6rem auto 0;
+      text-align: center;
     }
 
-    .left {
-      flex: 3;
+    .journey__story {
+      background: var(--primary-bg);
+      padding: 4rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
     }
 
-    .right {
-      flex: 2;
-    }
-
-    .about__subheading {
-      font-size: 2.4rem;
+    .story__title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
       margin-bottom: 2rem;
+    }
+
+    .story__text {
+      font-size: 1.7rem;
+      line-height: 1.7;
       color: var(--text-secondary);
-      
-      span {
-        background: linear-gradient(135deg, var(--accent-color), #8b5cf6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .personal__interests {
+      margin: 3rem 0;
+      text-align: left;
+
+      h4 {
+        font-size: 2rem;
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
         font-weight: 600;
       }
-    }
 
-    .about__heading {
-      font-size: 4.2rem;
-      font-weight: 700;
-      margin-bottom: 3rem;
-      color: var(--text-primary);
-      line-height: 1.2;
-    }
+      .interests__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
 
-    .about__info {
-      margin-bottom: 4rem;
-      
-      .para {
-        max-width: 100%;
-        font-size: 1.7rem;
-        line-height: 1.7;
-        color: var(--text-secondary);
+      .interest__item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        background: var(--secondary-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-sm);
+        }
+
+        .interest__icon {
+          font-size: 2rem;
+        }
+
+        .interest__text {
+          font-size: 1.4rem;
+          font-weight: 500;
+          color: var(--text-secondary);
+        }
       }
     }
 
-    .right img {
-      width: 100%;
-      height: auto;
-      border-radius: 16px;
-      box-shadow: var(--shadow-lg);
+    .cv__section {
+      margin-top: 3rem;
+      text-align: center;
     }
 
-    .about__cv_button {
+    .cv__button {
       display: inline-flex;
       align-items: center;
-      gap: 0.8rem;
-      font-size: 1.6rem;
+      gap: 1rem;
+      padding: 1.2rem 2.4rem;
       background: var(--accent-color);
       color: white;
-      padding: 1.2rem 2.4rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
       text-decoration: none;
-      font-weight: 500;
+      border-radius: 12px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
 
       &:hover {
         background: var(--accent-hover);
@@ -98,27 +117,39 @@ const HomeStyles = styled.div`
         box-shadow: var(--shadow-md);
       }
 
-      a {
-        color: white;
-        text-decoration: none;
+      .cv__icon {
+        font-size: 1.8rem;
       }
     }
 
     @media only screen and (max-width: 768px) {
       padding: 8rem 0;
 
-      .top-section {
-        flex-direction: column;
-        gap: 4rem;
-        text-align: center;
+      .journey__story {
+        padding: 3rem 2rem;
       }
 
-      .about__subheading {
-        font-size: 2rem;
+      .story__title {
+        font-size: 2.4rem;
       }
 
-      .about__heading {
-        font-size: 3.2rem;
+      .story__text {
+        font-size: 1.6rem;
+      }
+
+      .interests__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .interest__item {
+        padding: 0.8rem 1rem;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .interests__grid {
+        grid-template-columns: 1fr;
       }
     }
   }
@@ -199,58 +230,74 @@ const HomeStyles = styled.div`
     .projects__allItems {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 3rem;
+      gap: 4rem;
+      margin: 6rem 0 5rem 0;
+    }
+
+    .projects__viewAll {
+      text-align: center;
       margin-top: 4rem;
     }
 
-    .projects__searchBar {
-      position: relative;
-      max-width: 400px;
-      margin: 3rem 0;
-    }
-
-    .projects__searchBar input {
-      width: 100%;
+    .viewAll__button {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.4rem 3rem;
+      background: transparent;
+      color: var(--accent-color);
+      border: 2px solid var(--accent-color);
+      border-radius: 12px;
+      text-decoration: none;
       font-size: 1.6rem;
-      padding: 1.2rem 4rem 1.2rem 1.6rem;
-      background: var(--secondary-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      outline: none;
-      color: var(--text-primary);
+      font-weight: 600;
       transition: all 0.3s ease;
+      cursor: pointer;
 
-      &:focus {
-        border-color: var(--accent-color);
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      &:hover {
+        background: var(--accent-color);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
       }
 
-      &::placeholder {
-        color: var(--text-light);
-      }
-    }
+      &.secondary {
+        background: var(--text-secondary);
+        color: white;
+        border-color: var(--text-secondary);
 
-    .projects__searchBar .searchIcon {
-      position: absolute;
-      width: 2rem;
-      height: 2rem;
-      right: 1.2rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-light);
-      pointer-events: none;
+        &:hover {
+          background: var(--text-primary);
+          border-color: var(--text-primary);
+        }
+      }
+
+      .arrow {
+        font-size: 1.8rem;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover .arrow {
+        transform: translateX(5px);
+      }
+
+      &.secondary:hover .arrow {
+        transform: translateX(-5px);
+      }
     }
 
     @media only screen and (max-width: 768px) {
       padding: 8rem 0;
 
-      .projects__searchBar {
-        max-width: 100%;
+      .projects__allItems {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        margin: 4rem 0 3rem 0;
       }
 
-      .projects__allItems {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 2rem;
+      .viewAll__button {
+        padding: 1.2rem 2.4rem;
+        font-size: 1.4rem;
       }
     }
   }
@@ -415,29 +462,14 @@ const HomeStyles = styled.div`
 `;
 
 function Home() {
-  const [searchText, setSearchText] = useState('');
-  const [projectsData, setProjectsData] = useState(ProjectsInfo);
-
-  useEffect(() => {
-    if (searchText === '') {
-      setProjectsData(ProjectsInfo);
-      return;
-    }
-    setProjectsData(() =>
-      ProjectsInfo.filter((item) =>
-        item.name.toLowerCase().match(searchText.toLowerCase()) || 
-        item.desc.toLowerCase().match(searchText.toLowerCase())
-      )
-    );
-  }, [searchText]);
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    setSearchText(e.target.value);
-    if (!e.target.value.length > 0) {
-      setProjectsData(ProjectsInfo);
-    }
-  };
+  // State to manage whether to show all projects or just featured ones
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  
+  // Get featured projects for homepage
+  const featuredProjects = ProjectsInfo.filter(project => project.featured).slice(0, 4);
+  
+  // Decide which projects to show
+  const projectsToShow = showAllProjects ? ProjectsInfo : featuredProjects;
 
   return (
     <HomeStyles>
@@ -447,47 +479,68 @@ function Home() {
         <DosSection />
       </section>
 
-      {/* About Section */}
+      {/* About Section - Enhanced with unique content */}
       <section id="about" className="about-section">
         <div className="container">
-          <div className="top-section">
-            <div className="left" data-aos="zoom-out" data-aos-delay="400" data-aos-once>
-              <p className="about__subheading">
-                Hi, I am <span>Omkar Gaikwad</span>
+          <SectionTitle
+            badge={{ icon: "🎯", text: "About Me" }}
+            heading="My <highlight>Journey</highlight>"
+            description="From a small village in Dharashiv district to the tech industry - here's my story of continuous growth and passion for technology."
+            align="center"
+            size="large"
+          />
+          
+          <div className="journey__content">
+            <div className="journey__story">
+              <h3 className="story__title">The Journey So Far</h3>
+              <p className="story__text">
+                My path from the quiet streets of a small village to the bustling tech landscape 
+                has been one of continuous growth and discovery. After graduating from Pune Institute 
+                of Computer Technology, I've embarked on my professional career as a Software Engineer 
+                specializing in AI and Big Data, where I'm passionate about leveraging cutting-edge 
+                technologies to solve real-world problems.
               </p>
-              <h2 className="about__heading">
-                A Software Engineer <br /> AI & Big Data Enthusiast
-              </h2>
-              <div className="about__info">
-                <PText>
-                  From the quiet streets of a small village in Dharashiv district to the
-                  bustling tech landscape of today, my journey has been one of continuous growth
-                  and discovery. After graduating from Pune Institute of Computer Technology,
-                  I've embarked on my professional career as a Software Engineer specializing
-                  in AI and Big Data, where I'm passionate about leveraging cutting-edge
-                  technologies to solve real-world problems. <br /> <br />I'm a 
-                  persistent and passionate engineer who thrives on transforming complex data
-                  into meaningful insights and building intelligent solutions. With a strong
-                  foundation in algorithms, data structures, and machine learning concepts,
-                  I've expanded my expertise across web development, data engineering, and
-                  artificial intelligence. My experience spans from building scalable web
-                  applications to developing data-driven AI solutions. When I'm not immersed
-                  in code or exploring the latest in AI, you'll find me enjoying movies or
-                  competing at the table tennis table.
-                </PText>
+              
+              <p className="story__text">
+                I'm a persistent and passionate engineer who thrives on transforming complex data 
+                into meaningful insights and building intelligent solutions. With a strong foundation 
+                in algorithms, data structures, and machine learning concepts, I've expanded my expertise 
+                across web development, data engineering, and artificial intelligence.
+              </p>
+              
+              <div className="personal__interests">
+                <h4>When I'm not coding...</h4>
+                <div className="interests__grid">
+                  <div className="interest__item">
+                    <span className="interest__icon">🎬</span>
+                    <span className="interest__text">Movie Enthusiast</span>
+                  </div>
+                  <div className="interest__item">
+                    <span className="interest__icon">🏓</span>
+                    <span className="interest__text">Table Tennis Player</span>
+                  </div>
+                  <div className="interest__item">
+                    <span className="interest__icon">📚</span>
+                    <span className="interest__text">Continuous Learner</span>
+                  </div>
+                  <div className="interest__item">
+                    <span className="interest__icon">🌱</span>
+                    <span className="interest__text">Tech Explorer</span>
+                  </div>
+                </div>
               </div>
-              <div className="about__cv_button">
+              
+              <div className="cv__section">
                 <a
+                  className="cv__button"
                   target="_blank"
                   href="https://drive.google.com/file/d/177GtuT6KOqd25sWr5WZBu32YFm9mat9x/view?usp=sharing"
                   rel="noreferrer"
                 >
-                  Download CV 📄
+                  <span className="cv__icon">📄</span>
+                  Download Resume
                 </a>
               </div>
-            </div>
-            <div className="right" data-aos="zoom-out" data-aos-delay="400" data-aos-once>
-              <img src={AboutImg} alt="Omkar Gaikwad" />
             </div>
           </div>
         </div>
@@ -577,24 +630,18 @@ function Home() {
       <section id="projects" className="projects-section">
         <div className="container">
           <SectionTitle
-            heading="Projects"
-            subheading="some of my recent works"
+            badge={{ icon: "🚀", text: "Portfolio" }}
+            heading={showAllProjects ? "All <highlight>Projects</highlight>" : "Featured <highlight>Projects</highlight>"}
+            description={showAllProjects ? 
+              "Complete showcase of my work - from enterprise applications to innovative solutions that solve real-world problems." :
+              "A showcase of my best work - from enterprise applications to innovative solutions that solve real-world problems."
+            }
+            align="center"
+            size="large"
           />
           
-          <div className="projects__searchBar">
-            <form>
-              <input
-                type="text"
-                value={searchText}
-                onChange={handleChange}
-                placeholder="Search projects..."
-              />
-              <MdSearch className="searchIcon" />
-            </form>
-          </div>
-          
           <div className="projects__allItems">
-            {projectsData.map((item) => (
+            {projectsToShow.map((item) => (
               <ProjectItem
                 key={item.id}
                 title={item.name}
@@ -605,6 +652,30 @@ function Home() {
               />
             ))}
           </div>
+          
+          {!showAllProjects && (
+            <div className="projects__viewAll">
+              <button 
+                className="viewAll__button"
+                onClick={() => setShowAllProjects(true)}
+              >
+                View All Projects ({ProjectsInfo.length})
+                <span className="arrow">→</span>
+              </button>
+            </div>
+          )}
+          
+          {showAllProjects && (
+            <div className="projects__viewAll">
+              <button 
+                className="viewAll__button secondary"
+                onClick={() => setShowAllProjects(false)}
+              >
+                Show Featured Only
+                <span className="arrow">←</span>
+              </button>
+            </div>
+          )}
         </div>
       </section>
 

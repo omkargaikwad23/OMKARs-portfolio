@@ -235,19 +235,55 @@ export default function Navbar() {
           const { offsetTop, offsetHeight } = element;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveSection(section);
+            // Update URL hash to match current section
+            const currentHash = window.location.hash.replace('#', '');
+            if (currentHash !== section) {
+              window.history.replaceState(null, null, `#${section}`);
+            }
             break;
           }
         }
       }
     };
 
+    // Handle initial page load with hash
+    const handleInitialHash = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && ['home', 'about', 'experience', 'projects', 'contact'].includes(hash)) {
+        setActiveSection(hash);
+        const element = document.getElementById(hash);
+        if (element) {
+          setTimeout(() => {
+            const offsetTop = element.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }, 100);
+        }
+      } else {
+        // If no valid hash, ensure we're at home and clear any invalid hash
+        setActiveSection('home');
+        window.history.replaceState(null, null, window.location.pathname);
+      }
+    };
+
+    // Call on initial load
+    handleInitialHash();
+    
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('hashchange', handleInitialHash);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('hashchange', handleInitialHash);
+    };
   }, []);
 
   const closeNav = () => setShowNav(false);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId, event) => {
+    event.preventDefault(); // Prevent default anchor behavior
     const element = document.getElementById(sectionId);
     if (element) {
       const offsetTop = element.offsetTop - 80; // Account for fixed navbar
@@ -255,31 +291,37 @@ export default function Navbar() {
         top: offsetTop,
         behavior: 'smooth'
       });
+      // Update URL hash without triggering page jump
+      window.history.replaceState(null, null, `#${sectionId}`);
     }
     closeNav();
   };
 
-  const scrollToTop = () => {
+  const scrollToTop = (event) => {
+    if (event) event.preventDefault();
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
+    // Clear URL hash when going to top
+    window.history.replaceState(null, null, window.location.pathname);
     closeNav();
   };
 
   return (
     <NavStyles className={isScrolled ? 'scrolled' : ''}>
       <div className="nav-container">
-        <div className="logo" onClick={scrollToTop}>
+        <a href="#home" className="logo" onClick={scrollToTop}>
           Omkar.
-        </div>
+        </a>
         <ul className={showNav ? 'nav-items show' : 'nav-items'}>
           <div className="closeNavIcon" onClick={closeNav}>
             <MdClose />
           </div>
           <li>
             <a
-              onClick={() => scrollToSection('home')}
+              href="#home"
+              onClick={(e) => scrollToSection('home', e)}
               className={activeSection === 'home' ? 'active' : ''}
             >
               Home
@@ -287,7 +329,8 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              onClick={() => scrollToSection('about')}
+              href="#about"
+              onClick={(e) => scrollToSection('about', e)}
               className={activeSection === 'about' ? 'active' : ''}
             >
               About
@@ -295,7 +338,8 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              onClick={() => scrollToSection('experience')}
+              href="#experience"
+              onClick={(e) => scrollToSection('experience', e)}
               className={activeSection === 'experience' ? 'active' : ''}
             >
               Experience
@@ -303,7 +347,8 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              onClick={() => scrollToSection('projects')}
+              href="#projects"
+              onClick={(e) => scrollToSection('projects', e)}
               className={activeSection === 'projects' ? 'active' : ''}
             >
               Projects
@@ -311,7 +356,8 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              onClick={() => scrollToSection('contact')}
+              href="#contact"
+              onClick={(e) => scrollToSection('contact', e)}
               className={activeSection === 'contact' ? 'active' : ''}
             >
               Contact

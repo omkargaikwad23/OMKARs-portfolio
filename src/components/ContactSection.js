@@ -1,90 +1,179 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MdEmail, MdLocalPhone, MdLocationOn } from 'react-icons/md';
-import ContactForm from './ContactForm';
-import ContactInfoItem from './ContactInfoItem';
 import SectionTitle from './SectionTitle';
 
 const ContactSectionStyle = styled.div`
   padding: 8rem 0;
+  background: var(--secondary-bg);
   
-  .contactSection__wrapper {
-    display: flex;
-    gap: 6rem;
-    margin-top: 6rem;
-    justify-content: space-between;
-    position: relative;
+  .contact__content {
+    max-width: 700px;
+    margin: 6rem auto 0;
+    text-align: center;
   }
-  
-  .contactSection__wrapper::after {
-    position: absolute;
-    content: '';
-    width: 1px;
-    height: 60%;
-    background: linear-gradient(to bottom, transparent, var(--border-color), transparent);
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .left {
-    flex: 1;
-    max-width: 500px;
-  }
-  
-  .right {
-    flex: 1;
-    max-width: 500px;
-    background: var(--secondary-bg);
+
+  .contact__hero {
+    background: var(--primary-bg);
     border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 4rem 3rem;
-    box-shadow: var(--shadow-sm);
+    border-radius: 20px;
+    padding: 5rem 4rem;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(139, 92, 246, 0.05));
+      pointer-events: none;
+    }
   }
 
-  .contact-intro {
+  .contact__title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact__description {
+    font-size: 1.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
     margin-bottom: 4rem;
-    
-    h3 {
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 1.5rem;
-    }
-    
-    p {
-      font-size: 1.6rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
+    max-width: 50ch;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
   }
 
-  .contact-info {
+  .contact__actions {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact__primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.6rem 3.2rem;
+    background: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+
+    &:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .icon {
+      font-size: 2rem;
+    }
+  }
+
+  .contact__secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.2rem 2.4rem;
+    background: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: var(--accent-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .icon {
+      font-size: 1.8rem;
+    }
+  }
+
+  .contact__note {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(37, 99, 235, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    position: relative;
+    z-index: 1;
+
+    p {
+      font-size: 1.4rem;
+      color: var(--text-secondary);
+      margin: 0;
+      font-style: italic;
+    }
   }
   
   @media only screen and (max-width: 768px) {
     padding: 6rem 0;
     
-    .contactSection__wrapper {
-      flex-direction: column;
-      gap: 4rem;
+    .contact__content {
       margin-top: 4rem;
     }
-    
-    .contactSection__wrapper::after {
-      display: none;
+
+    .contact__hero {
+      padding: 4rem 3rem;
     }
-    
-    .left,
-    .right {
-      max-width: 100%;
+
+    .contact__title {
+      font-size: 2.8rem;
     }
-    
-    .right {
+
+    .contact__description {
+      font-size: 1.6rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact__primary {
+      padding: 1.4rem 2.8rem;
+      font-size: 1.6rem;
+    }
+
+    .contact__secondary {
+      padding: 1rem 2rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .contact__hero {
       padding: 3rem 2rem;
+    }
+
+    .contact__actions {
+      width: 100%;
+    }
+
+    .contact__primary,
+    .contact__secondary {
+      width: 100%;
+      justify-content: center;
     }
   }
 `;
@@ -94,42 +183,44 @@ export default function ContactSection() {
     <ContactSectionStyle>
       <div className="container">
         <SectionTitle 
-          heading="Send me a <highlight>message</highlight>" 
-          description="I'll get back to you within 24 hours. Looking forward to hearing from you!"
+          heading="Ready to <highlight>Collaborate</highlight>?" 
+          description="Let's discuss your next project and explore how we can work together to bring your ideas to life."
           align="center"
         />
-        <div className="contactSection__wrapper">
-          <div className="left" data-aos="fade-right" data-aos-delay="300">
-            <div className="contact-intro">
-              <h3>Let's discuss your project</h3>
+        
+        <div className="contact__content">
+          <div className="contact__hero" data-aos="fade-up" data-aos-delay="200">
+            <h3 className="contact__title">Let's Build Something Amazing</h3>
+            <p className="contact__description">
+              I'm always excited to take on new challenges and collaborate with passionate teams. 
+              Whether you're a startup with a groundbreaking idea or an established company looking 
+              to innovate, I'd love to hear about your project.
+            </p>
+            
+            <div className="contact__actions">
+              <a 
+                href="mailto:omkargaikwad9552@gmail.com?subject=Let's Work Together - Project Discussion" 
+                className="contact__primary"
+              >
+                <span className="icon">📧</span>
+                Start a Conversation
+              </a>
+              
+              <a 
+                href="tel:+919579714193" 
+                className="contact__secondary"
+              >
+                <span className="icon">📞</span>
+                Schedule a Call
+              </a>
+            </div>
+
+            <div className="contact__note">
               <p>
-                I'm always excited to hear about new opportunities and interesting projects. 
-                Whether you're a startup looking to build your MVP or an established company 
-                needing to scale your engineering team, let's connect!
+                💡 I typically respond within 24 hours and offer a free 30-minute consultation 
+                to discuss your project requirements and explore potential solutions.
               </p>
             </div>
-            
-            <div className="contact-info">
-              <ContactInfoItem 
-                icon={<MdEmail />} 
-                text="omkargaikwad9552@gmail.com"
-                label="Email"
-              />
-              <ContactInfoItem 
-                icon={<MdLocalPhone />} 
-                text="+91 9579714193"
-                label="Phone"
-              />
-              <ContactInfoItem 
-                icon={<MdLocationOn />} 
-                text="Pune, Maharashtra, India"
-                label="Location"
-              />
-            </div>
-          </div>
-          
-          <div className="right" data-aos="fade-left" data-aos-delay="300">
-            <ContactForm />
           </div>
         </div>
       </div>
