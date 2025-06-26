@@ -115,7 +115,7 @@ const NavStyles = styled.nav`
     }
   }
 
-  .navItems .closeNavIcon {
+  .nav-items .closeNavIcon {
     display: none;
   }
 
@@ -201,9 +201,7 @@ const NavStyles = styled.nav`
     }
 
     .hide-item {
-      transform: translateY(-10px);
-      opacity: 0;
-      visibility: hidden;
+      display: none;
     }
   }
 
