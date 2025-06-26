@@ -108,21 +108,24 @@ export default function About() {
                 Hi, I am <span>Omkar Gaikwad</span>
               </p>
               <h2 className="about__heading">
-                A Software Engineer <br />& Competitive Programmer
+                A Software Engineer <br /> AI & Big Data Enthusiast
               </h2>
               <div className="about__info">
                 <PText>
-                  Growing up in a small village in Osmanabad, I now find myself
-                  across the pond' as a graduating student at Pune Institute of
-                  Computer Technology, where I aspire to learn everything, which I
-                  could not have gained living in a village. <br /> <br />I
-                  describe myself as someone who is a persistent, hard working,
-                  passionate programmer who loves problem-solving with simple
-                  and scalable solutions. I have a good understanding of
-                  Algorithms, Data Structures, and Object-Oriented Concepts.
-                  Also, I have a keen interest in web development. I have built
-                  multiple projects and worked as a web dev intern. 
-                  Also, I like watching movies and playing table tennis.
+                  From the quiet streets of a small village in Dharashiv district to the
+                  bustling tech landscape of today, my journey has been one of continuous growth
+                  and discovery. After graduating from Pune Institute of Computer Technology,
+                  I've embarked on my professional career as a Software Engineer specializing
+                  in AI and Big Data, where I'm passionate about leveraging cutting-edge
+                  technologies to solve real-world problems. <br /> <br />I'm a 
+                  persistent and passionate engineer who thrives on transforming complex data
+                  into meaningful insights and building intelligent solutions. With a strong
+                  foundation in algorithms, data structures, and machine learning concepts,
+                  I've expanded my expertise across web development, data engineering, and
+                  artificial intelligence. My experience spans from building scalable web
+                  applications to developing data-driven AI solutions. When I'm not immersed
+                  in code or exploring the latest in AI, you'll find me enjoying movies or
+                  competing at the table tennis table.
                 </PText>
               </div>
               <div
