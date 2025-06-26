@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { MdClose, MdMenu } from 'react-icons/md';
 
@@ -39,6 +38,7 @@ const NavStyles = styled.nav`
     text-decoration: none;
     letter-spacing: -0.02em;
     transition: all 0.3s ease;
+    cursor: pointer;
 
     &:hover {
       color: var(--accent-color);
@@ -65,6 +65,8 @@ const NavStyles = styled.nav`
       border-radius: 8px;
       transition: all 0.3s ease;
       position: relative;
+      cursor: pointer;
+      text-decoration: none;
 
       &:hover {
         color: var(--accent-color);
@@ -199,29 +201,44 @@ const NavStyles = styled.nav`
         }
       }
     }
-
-    .hide-item {
-      display: none;
-    }
   }
 
   @media only screen and (max-width: 480px) {
+    .nav-container {
+      width: 98%;
+      padding: 0 0.5rem;
+    }
+
     .nav-items {
-      width: calc(100vw - 2rem);
-      right: 1rem;
-      left: 1rem;
+      right: 0.5rem;
+      width: calc(100vw - 1rem);
     }
   }
 `;
 
 export default function Navbar() {
   const [showNav, setShowNav] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY;
-      setScrolled(offset > 50);
+      setIsScrolled(window.scrollY > 50);
+      
+      // Update active section based on scroll position
+      const sections = ['home', 'about', 'experience', 'projects', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -230,82 +247,85 @@ export default function Navbar() {
 
   const closeNav = () => setShowNav(false);
 
-  return (
-    <NavStyles className={scrolled ? 'scrolled' : ''}>
-      <div className="nav-container">
-        <NavLink to="/" className="logo" onClick={closeNav}>
-          OG
-        </NavLink>
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 80; // Account for fixed navbar
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+    closeNav();
+  };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    closeNav();
+  };
+
+  return (
+    <NavStyles className={isScrolled ? 'scrolled' : ''}>
+      <div className="nav-container">
+        <div className="logo" onClick={scrollToTop}>
+          Omkar.
+        </div>
+        <ul className={showNav ? 'nav-items show' : 'nav-items'}>
+          <div className="closeNavIcon" onClick={closeNav}>
+            <MdClose />
+          </div>
+          <li>
+            <a
+              onClick={() => scrollToSection('home')}
+              className={activeSection === 'home' ? 'active' : ''}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={() => scrollToSection('about')}
+              className={activeSection === 'about' ? 'active' : ''}
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={() => scrollToSection('experience')}
+              className={activeSection === 'experience' ? 'active' : ''}
+            >
+              Experience
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={() => scrollToSection('projects')}
+              className={activeSection === 'projects' ? 'active' : ''}
+            >
+              Projects
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={() => scrollToSection('contact')}
+              className={activeSection === 'contact' ? 'active' : ''}
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
         <div
           className="mobile-menu-icon"
           onClick={() => setShowNav(!showNav)}
           role="button"
-          onKeyDown={(e) => e.key === 'Enter' && setShowNav(!showNav)}
           tabIndex={0}
-          aria-label="Toggle mobile menu"
         >
           <MdMenu />
         </div>
-
-        <ul className={`nav-items ${showNav ? 'show' : 'hide-item'}`}>
-          <div
-            className="closeNavIcon"
-            onClick={closeNav}
-            role="button"
-            onKeyDown={(e) => e.key === 'Enter' && closeNav()}
-            tabIndex={0}
-            aria-label="Close menu"
-          >
-            <MdClose />
-          </div>
-          <li>
-            <NavLink
-              to="/"
-              exact
-              onClick={closeNav}
-              activeClassName="active"
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/about"
-              onClick={closeNav}
-              activeClassName="active"
-            >
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/experience"
-              onClick={closeNav}
-              activeClassName="active"
-            >
-              Experience
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/projects"
-              onClick={closeNav}
-              activeClassName="active"
-            >
-              Projects
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/contact"
-              onClick={closeNav}
-              activeClassName="active"
-            >
-              Contact
-            </NavLink>
-          </li>
-        </ul>
       </div>
     </NavStyles>
   );

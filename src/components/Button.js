@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ButtonStyle = styled.div`
@@ -23,6 +22,7 @@ const ButtonStyle = styled.div`
     letter-spacing: 0.02em;
     min-width: 120px;
     text-align: center;
+    border: none;
     
     /* Primary Button Styles */
     background: ${(props) =>
@@ -215,26 +215,59 @@ export default function Button({
       e.preventDefault();
       return;
     }
+    
+    // Handle smooth scrolling for internal section links
+    if (btnLink.startsWith('/')) {
+      e.preventDefault();
+      const sectionId = btnLink.substring(1); // Remove the '/' prefix
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offsetTop = element.offsetTop - 80; // Account for fixed navbar
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    }
+    
     if (onClick) {
       onClick(e);
     }
   };
 
+  // Check if it's an external link
+  const isExternalLink = btnLink.startsWith('http') || btnLink.startsWith('mailto:') || btnLink.startsWith('tel:');
+  
   return (
     <ButtonStyle 
       outline={outline} 
       className={`button-wrapper ${buttonClasses}`}
     >
-      <Link 
-        className="button" 
-        to={btnLink}
-        onClick={handleClick}
-        aria-disabled={disabled || loading}
-        {...props}
-      >
-        {icon && <span className="button-icon">{icon}</span>}
-        {btnText}
-      </Link>
+      {isExternalLink ? (
+        <a 
+          className="button" 
+          href={btnLink}
+          onClick={handleClick}
+          aria-disabled={disabled || loading}
+          target={btnLink.startsWith('http') ? '_blank' : undefined}
+          rel={btnLink.startsWith('http') ? 'noopener noreferrer' : undefined}
+          {...props}
+        >
+          {icon && <span className="button-icon">{icon}</span>}
+          {btnText}
+        </a>
+      ) : (
+        <button 
+          className="button" 
+          onClick={handleClick}
+          aria-disabled={disabled || loading}
+          disabled={disabled || loading}
+          {...props}
+        >
+          {icon && <span className="button-icon">{icon}</span>}
+          {btnText}
+        </button>
+      )}
     </ButtonStyle>
   );
 }

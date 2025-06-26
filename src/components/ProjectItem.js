@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ProjectImg from '../assets/images/projects/mybrary.png';
 
@@ -292,38 +291,30 @@ export default function ProjectItem({
   status = 'Live',
   className = ''
 }) {
+  const isExternalLink = url.startsWith('http') || url.startsWith('https');
+
   return (
-    <ProjectItemStyles 
-      className={`${featured ? 'featured' : ''} ${className}`}
-      data-aos="fade-up" 
-      data-aos-delay="200"
-    >
-      <a 
-        href={url} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="projectItem__img"
-        aria-label={`View ${title} project`}
-      >
+    <ProjectItemStyles className={`project-item ${featured ? 'featured' : ''} ${className}`}>
+      <div className="projectItem__img">
         <img src={img} alt={title} />
-        <div className="external-link-icon">
-          ↗
-        </div>
-      </a>
+        {isExternalLink && (
+          <div className="external-link-icon">
+            🔗
+          </div>
+        )}
+      </div>
 
       <div className="projectItem__content">
         <div className="projectItem__header">
-          <Link to="#" onClick={(e) => e.preventDefault()}>
-            <h3 className="projectItem__title">{title}</h3>
-          </Link>
+          <h3 className="projectItem__title">{title}</h3>
         </div>
-
+        
         <p className="projectItem__desc">{desc}</p>
 
         <div className="projectItem__tech">
-          {tech.map((item, index) => (
+          {tech.map((techItem, index) => (
             <span key={index} className="projectItem__tech__tag">
-              {item}
+              {techItem}
             </span>
           ))}
         </div>
@@ -334,16 +325,18 @@ export default function ProjectItem({
           <div className="status-dot"></div>
           <span>{status}</span>
         </div>
-
-        <a 
-          href={url} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="projectItem__cta"
-        >
-          View Project
-          <span className="cta-icon">→</span>
-        </a>
+        
+        {url && url !== '#' && (
+          <a 
+            href={url}
+            className="projectItem__cta"
+            target={isExternalLink ? "_blank" : undefined}
+            rel={isExternalLink ? "noopener noreferrer" : undefined}
+          >
+            <span>View Project</span>
+            <span className="cta-icon">→</span>
+          </a>
+        )}
       </div>
     </ProjectItemStyles>
   );

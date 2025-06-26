@@ -1,12 +1,7 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 
 export default function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
+  // This component is no longer needed for single-page layout
+  // but keeping it to avoid breaking imports
   return null;
 }

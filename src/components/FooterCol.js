@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ColStyle = styled.div`
@@ -12,6 +11,12 @@ const ColStyle = styled.div`
   }
   a {
     font-size: 1.8rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: var(--accent-color);
+    }
   }
 `;
 
@@ -30,6 +35,24 @@ export default function FooterCol({
     },
   ],
 }) {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handleLinkClick = (item) => {
+    if (item.type === 'Link' && item.path.startsWith('/')) {
+      const sectionId = item.path.substring(1);
+      scrollToSection(sectionId);
+    }
+  };
+
   return (
     <ColStyle>
       <h2 className="heading">{heading}</h2>
@@ -37,7 +60,7 @@ export default function FooterCol({
         {links.map((item, index) => (
           <li key={index}>
             {item.type === 'Link' ? (
-              <Link to={item.path}>{item.title}</Link>
+              <a onClick={() => handleLinkClick(item)}>{item.title}</a>
             ) : (
               <a href={item.path} target="_blank" rel="noopener noreferrer">
                 {item.title}
