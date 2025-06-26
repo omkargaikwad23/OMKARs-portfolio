@@ -1,43 +1,35 @@
 import React from "react";
 import styled from "styled-components";
-import FooterCol from "../FooterCol";
-// import { BsInstagram, BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
 
 const FooterStyle = styled.footer`
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   border-top: 1px solid var(--border-color);
-  padding: 6rem 0 3rem 0;
+  padding: 4rem 0 2rem 0;
   margin-top: 4rem;
 
-  .footer-main {
-    padding-bottom: 4rem;
-  }
-
   .container {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 4rem;
     max-width: 1200px;
     margin: 0 auto;
     width: 90%;
     padding: 0 2rem;
   }
 
-  .footer__col1 {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  .footer__content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
   }
 
   .footer__brand {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .footer__logo {
     font-family: 'Montserrat Bold', sans-serif;
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     font-weight: 700;
     color: var(--text-primary);
     margin: 0;
@@ -45,10 +37,10 @@ const FooterStyle = styled.footer`
   }
 
   .footer__tagline {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     line-height: 1.6;
     color: var(--text-secondary);
-    max-width: 35ch;
+    max-width: 40ch;
     margin: 0;
   }
 
@@ -66,80 +58,48 @@ const FooterStyle = styled.footer`
     height: 4rem;
     background: var(--secondary-bg);
     border: 1px solid var(--border-color);
-    border-radius: 10px;
+    border-radius: 8px;
     color: var(--text-secondary);
     text-decoration: none;
     transition: all 0.3s ease;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    font-weight: 500;
 
     &:hover {
       background: var(--accent-color);
       border-color: var(--accent-color);
       color: white;
       transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
   }
 
-  .footer__newsletter {
-    margin-top: 2rem;
-    padding: 2rem;
-    background: var(--secondary-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-  }
-
-  .newsletter__title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0 0 0.8rem 0;
-  }
-
-  .newsletter__subtitle {
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    margin: 0 0 1.5rem 0;
-  }
-
-  .newsletter__form {
-    display: flex;
-    gap: 0.8rem;
-
-    input {
-      flex: 1;
-      padding: 1rem 1.2rem;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      font-size: 1.4rem;
-      background: var(--primary-bg);
+  .footer__section {
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
       color: var(--text-primary);
-      transition: border-color 0.3s ease;
-
-      &:focus {
-        outline: none;
-        border-color: var(--accent-color);
-      }
-
-      &::placeholder {
-        color: var(--text-light);
-      }
+      margin: 0 0 1.5rem 0;
     }
 
-    button {
-      padding: 1rem 1.5rem;
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      border-radius: 6px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+    }
+
+    a {
+      color: var(--text-secondary);
+      text-decoration: none;
       font-size: 1.4rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      transition: color 0.3s ease;
 
       &:hover {
-        background: var(--accent-hover);
-        transform: translateY(-1px);
+        color: var(--accent-color);
       }
     }
   }
@@ -147,7 +107,7 @@ const FooterStyle = styled.footer`
   .footer__divider {
     height: 1px;
     background: var(--border-color);
-    margin: 4rem 0 3rem 0;
+    margin: 3rem 0 2rem 0;
   }
 
   .footer__bottom {
@@ -159,27 +119,8 @@ const FooterStyle = styled.footer`
   }
 
   .copyright {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
     color: var(--text-light);
-    font-size: 1.4rem;
-  }
-
-  .footer__legal {
-    display: flex;
-    gap: 2rem;
-    
-    a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-size: 1.4rem;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: var(--accent-color);
-      }
-    }
+    font-size: 1.3rem;
   }
 
   .back-to-top {
@@ -191,8 +132,8 @@ const FooterStyle = styled.footer`
     border: 1px solid var(--border-color);
     border-radius: 6px;
     color: var(--text-secondary);
-    text-decoration: none;
     font-size: 1.3rem;
+    cursor: pointer;
     transition: all 0.3s ease;
 
     &:hover {
@@ -202,44 +143,34 @@ const FooterStyle = styled.footer`
     }
 
     .arrow {
-      transition: transform 0.3s ease;
-    }
-
-    &:hover .arrow {
-      transform: translateY(-2px);
+      font-size: 1.4rem;
+      font-weight: bold;
     }
   }
 
   @media only screen and (max-width: 968px) {
-    .container {
+    .footer__content {
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
     }
 
-    .footer__col1 {
+    .footer__brand {
       grid-column: 1 / -1;
     }
   }
 
   @media only screen and (max-width: 768px) {
-    padding: 4rem 0 2rem 0;
+    padding: 3rem 0 2rem 0;
     margin-top: 3rem;
 
     .container {
-      grid-template-columns: 1fr;
-      gap: 3rem;
       width: 95%;
       padding: 0 1rem;
     }
 
-    .footer__newsletter {
-      .newsletter__form {
-        flex-direction: column;
-
-        button {
-          align-self: flex-start;
-        }
-      }
+    .footer__content {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
     }
 
     .footer__bottom {
@@ -248,10 +179,6 @@ const FooterStyle = styled.footer`
       text-align: center;
       gap: 1.5rem;
     }
-
-    .footer__legal {
-      justify-content: center;
-    }
   }
 
   @media only screen and (max-width: 480px) {
@@ -259,9 +186,10 @@ const FooterStyle = styled.footer`
       justify-content: center;
     }
 
-    .footer__legal {
-      flex-direction: column;
-      gap: 1rem;
+    .social-link {
+      width: 3.5rem;
+      height: 3.5rem;
+      font-size: 1.4rem;
     }
   }
 `;
@@ -269,21 +197,35 @@ const FooterStyle = styled.footer`
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Clear URL hash when going to top
+    window.history.replaceState(null, null, window.location.pathname);
+  };
+
+  const scrollToSection = (sectionId, event) => {
+    event.preventDefault(); // Prevent default anchor behavior
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 80; // Account for fixed navbar
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+      // Update URL hash without triggering page jump
+      window.history.replaceState(null, null, `#${sectionId}`);
+    }
   };
 
   return (
     <FooterStyle>
-      <div className="footer-main">
-        <div className="container">
-          <div className="footer__col1">
-            <div className="footer__brand">
-              <h2 className="footer__logo">Omkar Gaikwad</h2>
-              <p className="footer__tagline">
-                Crafting digital solutions with precision, creativity, and cutting-edge technology. 
-                Let's build something amazing together.
-              </p>
-            </div>
-
+      <div className="container">
+        <div className="footer__content">
+          <div className="footer__brand">
+            <h2 className="footer__logo">Omkar Gaikwad</h2>
+            <p className="footer__tagline">
+              Full Stack Developer passionate about creating innovative solutions 
+              and building meaningful digital experiences.
+            </p>
+            
             <div className="footer__social">
               <a 
                 href="https://www.linkedin.com/in/omkargaikwad23/" 
@@ -292,7 +234,7 @@ export default function Footer() {
                 className="social-link"
                 aria-label="LinkedIn Profile"
               >
-                💼
+                LI
               </a>
               <a 
                 href="https://github.com/omkargaikwad23" 
@@ -301,96 +243,56 @@ export default function Footer() {
                 className="social-link"
                 aria-label="GitHub Profile"
               >
-                🔗
+                GH
               </a>
               <a 
                 href="mailto:omkargaikwad9552@gmail.com" 
                 className="social-link"
                 aria-label="Email Contact"
               >
-                ✉️
-              </a>
-              <a 
-                href="tel:+919579714193" 
-                className="social-link"
-                aria-label="Phone Contact"
-              >
-                📞
+                @
               </a>
             </div>
-
-            <div className="footer__newsletter">
-              <h3 className="newsletter__title">Stay Connected</h3>
-              <p className="newsletter__subtitle">
-                Get updates on my latest projects and tech insights
-              </p>
-              <form className="newsletter__form" onSubmit={(e) => e.preventDefault()}>
-                <input 
-                  type="email" 
-                  placeholder="Enter your email"
-                  aria-label="Email for newsletter"
-                />
-                <button type="submit">Subscribe</button>
-              </form>
-            </div>
           </div>
 
-          <div className="footer__col2">
-            <FooterCol
-              heading="Navigation"
-              links={[
-                { title: 'Home', path: '/', type: 'Link' },
-                { title: 'About', path: '/about', type: 'Link' },
-                { title: 'Experience', path: '/experience', type: 'Link' },
-                { title: 'Projects', path: '/projects', type: 'Link' },
-                { title: 'Contact', path: '/contact', type: 'Link' },
-              ]}
-            />
+          <div className="footer__section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#home" onClick={(e) => scrollToSection('home', e)}>Home</a></li>
+              <li><a href="#about" onClick={(e) => scrollToSection('about', e)}>About</a></li>
+              <li><a href="#experience" onClick={(e) => scrollToSection('experience', e)}>Experience</a></li>
+              <li><a href="#projects" onClick={(e) => scrollToSection('projects', e)}>Projects</a></li>
+              <li><a href="#contact" onClick={(e) => scrollToSection('contact', e)}>Contact</a></li>
+            </ul>
           </div>
 
-          <div className="footer__col3">
-            <FooterCol
-              heading="Contact"
-              links={[
-                { title: 'Email Me', path: 'mailto:omkargaikwad9552@gmail.com' },
-                { title: 'Call Me', path: 'tel:+919579714193' },
-                { title: 'Pune, India', path: '#' },
-              ]}
-            />
-          </div>
-
-          <div className="footer__col4">
-            <FooterCol
-              heading="Connect"
-              links={[
-                { title: 'LinkedIn', path: 'https://www.linkedin.com/in/omkargaikwad23/' },
-                { title: 'GitHub', path: 'https://github.com/omkargaikwad23' },
-                { title: 'Resume', path: '#' },
-              ]}
-            />
+          <div className="footer__section">
+            <h3>Get In Touch</h3>
+            <ul>
+              <li>
+                <a href="mailto:omkargaikwad9552@gmail.com">
+                  omkargaikwad9552@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+919579714193">
+                  +91 95797 14193
+                </a>
+              </li>
+              <li>
+                <span style={{color: 'var(--text-secondary)', fontSize: '1.4rem'}}>
+                  Pune, India
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      <div className="footer__divider"></div>
+        <div className="footer__divider"></div>
 
-      <div className="container">
         <div className="footer__bottom">
           <div className="copyright">
-            <span>© 2025 Omkar Gaikwad. All rights reserved.</span>
-          </div>
-
-          <div className="footer__legal">
-            <button style={{background: 'none', border: 'none', color: 'var(--text-light)', fontSize: '1.4rem', cursor: 'pointer', transition: 'color 0.3s ease'}} 
-                    onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} 
-                    onMouseOut={(e) => e.target.style.color = 'var(--text-light)'}>
-              Privacy Policy
-            </button>
-            <button style={{background: 'none', border: 'none', color: 'var(--text-light)', fontSize: '1.4rem', cursor: 'pointer', transition: 'color 0.3s ease'}} 
-                    onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} 
-                    onMouseOut={(e) => e.target.style.color = 'var(--text-light)'}>
-              Terms of Service
-            </button>
+            © 2025 Omkar Gaikwad. All rights reserved.
           </div>
 
           <button 
