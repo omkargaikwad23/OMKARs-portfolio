@@ -33,22 +33,22 @@ export default function DosSection() {
   return (
     <ServicesItemsStyles>
       <div className="container">
-        <SectionTitle subheading="Self proclamation" className="section__title" heading="What I do?" />
+        <SectionTitle subheading="Professional Expertise" className="section__title" heading="What I do?" />
         <div className="services__allItems">
           <ServicesSectionItem
             icon={<MdCode />}
-            title="Web Dev"
-            desc="I am a full stack web developer who loves developing websites."
+            title="Backend Engineering"
+            desc="I design and build scalable distributed systems, high-performance APIs, and robust backend architecture for large-scale applications."
           />
           <ServicesSectionItem
             icon={<VscGraphLine />}
-            title="CP"
-            desc="I am a competitive programmer. I like solving problems."
+            title="GenAI & Big Data"
+            desc="I develop intelligent AI systems and optimize big data pipelines, focusing on performance, reliability, and scalability at enterprise level."
           />
           <ServicesSectionItem
             icon={<FaGraduationCap />}
-            title="Engineering"
-            desc="I am a 4th year computer engineering student studying at PICT college."
+            title="Technical Leadership"
+            desc="I lead cross-functional initiatives, mentor engineering teams, and drive innovation in analytics and data processing solutions."
           />
         </div>
       </div>

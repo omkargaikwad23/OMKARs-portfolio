@@ -78,8 +78,8 @@ export default function Footer() {
         <div className="footer__col1">
           <h1 className="footer__col1__title">Omkar Gaikwad</h1>
           <PText>
-            A persistent, hard worker and a quick learner who loves problem-
-            solving by simple and scalable solutions.
+            A dedicated software engineer who transforms complex challenges into
+            elegant, scalable solutions through continuous learning and innovation.
           </PText>
         </div>
         <div className="footer__col2">
@@ -143,14 +143,6 @@ export default function Footer() {
                 path: "https://www.linkedin.com/in/omkargaikwad23/",
               },
               {
-                title: "Facebook",
-                path: "https://www.facebook.com/omkar.gaikwad.23/",
-              },
-              {
-                title: "Instagram",
-                path: "https://www.instagram.com/omkar.gaikwad._/",
-              },
-              {
                 title: "GitHub",
                 path: "https://github.com/omkargaikwad23"
               }
@@ -161,7 +153,7 @@ export default function Footer() {
       <div className="copyright">
         <div className="container">
           <PText className="copyright__msg">
-            © 2021 - Omkar Gaikwad
+            © 2025 - Omkar Gaikwad
           </PText>
         </div>
       </div>

@@ -31,13 +31,13 @@ export const ExperienceData = [
   },
   {
     id: 3,
-    role: "Intern",
+    role: "Project Intern",
     duration: "September 2021 - December 2021",
     org: "Tech Mahindra",
     loc: "Remote",
     tasks: [
-      "Developed a full stack web application to display and manage all the startup companies associated with the company, cut the processing time by 20 hours per week.",
-      "Participated in project requirements gathering, project planning, design, implementation, testing and deployed codebase.",
+      "Developed a high-performance system to display and manage startup companies, reducing processing time by 20 hours per week.",
+      "Contributed to requirements gathering, planning, design, implementation, testing, and deployment of the codebase.",
     ]
   },
   {
@@ -58,10 +58,12 @@ export const ExperienceData = [
     org: "PubMatic",
     loc: "Pune",
     tasks: [
-      "Working on cutting edge technologies like Python, Scala, big-data, Spark, Hadoop",
-      "Analysed 400TB+ data for different sampling approaches and found an efficient solution that reduced the time required to sample data by 50%.",
-      "Wrote efficient Scala code to read data from HDFS and write it to Amazon S3 bucket",
-      "Wrote python scripts to send email alerts about daily, monthly ETL disk sizes of all clusters across PubMatic"
+      "Developed Java API endpoints to fetch GenAI-generated summaries for the Deal Troubleshooting Dashboard, enabling seamless integration between the UI, middleware service, and GenAI agent.",
+      "Transformed a monolithic Spark job repository into a modular, microservice-inspired architecture, enabling 50% faster deployments with independent CI/CD pipelines.",
+      "Developed a robust Scala Spark pipeline to extract data from HDFS across multiple clusters and load it into S3, improving data accessibility and scalability.",
+      "Automated daily HDFS monitoring for ETL paths across PubMatic clusters using Python scripts, enabling proactive disk usage tracking with scheduled alerts.",
+      "Optimized mobile app inventory monetization through a feedback loop software solution, driving a DSP spend increase to $20K per day.",
+      "Built a GenAI library for developing AI agents, driving GenAI adoption across PubMatic."
     ]
   }
 ];
@@ -75,7 +77,7 @@ export const SkillsData = [
   {
     id: 2,
     title: "Big Data",
-    items: ["HDFS", "Hadoop", "Apache Spark"]
+    items: ["Hadoop", "HDFS", "Apache Spark", "Oozie", "Snowflake"]
   },
   {
     id: 3,
@@ -95,7 +97,7 @@ export const SkillsData = [
   {
     id: 7,
     title: "Tools",
-    items: ["Linux", "Git", "Postman"],
+    items: ["Linux", "CI/CD", "Git", "Postman"],
   }
 ];
 

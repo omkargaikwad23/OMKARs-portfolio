@@ -92,7 +92,7 @@ export default function AboutSection() {
             heading="Omkar Gaikwad"
           />
           <PText>
-            I am a software engineer with a keen interest in data structures, algorithms and software development.
+            As a software engineer, I thrive on solving complex problems by leveraging optimized data structures, advanced algorithms, and thoughtful software design.
           </PText>
           <div className="aboutSection__buttons">
             <Button btnText="Projects" btnLink="/projects" />
