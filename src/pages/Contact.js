@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import ContactSection from '../components/ContactSection';
-import SectionTitle from '../components/SectionTitle';
+import ContactSection from '../components/sections/ContactSection';
+import SectionTitle from '../components/ui/SectionTitle';
 
 const ContactPageStyles = styled.div`
   min-height: 100vh;

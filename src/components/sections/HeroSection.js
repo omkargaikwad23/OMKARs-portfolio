@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "./Button";
-import PText from "./PText";
-import SectionTitle from "./SectionTitle";
-import AboutImg from "../assets/images/ogstanding.jpg";
+import Button from "../ui/Button";
+import AboutImg from "../../assets/images/ogstanding.jpg";
 
 const HeroSectionStyles = styled.section`
   min-height: 100vh;

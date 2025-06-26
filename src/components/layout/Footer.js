@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import FooterCol from "./FooterCol";
-import PText from "./PText";
+import FooterCol from "../FooterCol";
 // import { BsInstagram, BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
 
 const FooterStyle = styled.footer`
@@ -382,8 +381,16 @@ export default function Footer() {
           </div>
 
           <div className="footer__legal">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <button style={{background: 'none', border: 'none', color: 'var(--text-light)', fontSize: '1.4rem', cursor: 'pointer', transition: 'color 0.3s ease'}} 
+                    onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} 
+                    onMouseOut={(e) => e.target.style.color = 'var(--text-light)'}>
+              Privacy Policy
+            </button>
+            <button style={{background: 'none', border: 'none', color: 'var(--text-light)', fontSize: '1.4rem', cursor: 'pointer', transition: 'color 0.3s ease'}} 
+                    onMouseOver={(e) => e.target.style.color = 'var(--accent-color)'} 
+                    onMouseOut={(e) => e.target.style.color = 'var(--text-light)'}>
+              Terms of Service
+            </button>
           </div>
 
           <button 

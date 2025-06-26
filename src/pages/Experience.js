@@ -1,6 +1,6 @@
 import React from "react";
-import ExpCard from "../components/ExperienceCard";
-import SectionTitle from "../components/SectionTitle";
+import ExpCard from "../components/cards/ExperienceCard";
+import SectionTitle from "../components/ui/SectionTitle";
 import styled from "styled-components";
 import { ExperienceData, VolunteersData } from "../assets/data/staticDisplayData";
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ProjectImg from '../assets/images/projects/mybrary.png';
+import ProjectImg from '../../assets/images/projects/mybrary.png';
 
 const ProjectItemStyles = styled.div`
   background: var(--secondary-bg);

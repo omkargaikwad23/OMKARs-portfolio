@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SectionTitle from './SectionTitle';
+import SectionTitle from '../ui/SectionTitle';
 
 const ContactSectionStyle = styled.div`
   padding: 8rem 0;

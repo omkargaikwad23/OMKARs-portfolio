@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import PText from './PText';
+import PText from './ui/PText';
 
 const AboutItemStyles = styled.div`
   display: flex;

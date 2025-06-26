@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import SectionTitle from "./SectionTitle";
-import EduCard from "./ExperienceCard";
+import SectionTitle from "./ui/SectionTitle";
+import EduCard from "./cards/ExperienceCard";
 import { EducationData } from "../assets/data/staticDisplayData";
 
 const EducationStyles = styled.div`

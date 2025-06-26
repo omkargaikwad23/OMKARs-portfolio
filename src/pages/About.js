@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import PText from "../components/PText";
+import PText from "../components/ui/PText";
 import AboutImg from "../assets/images/ogstanding.jpg";
 import AboutInfoItem from "../components/AboutInfoItem";
 import Education from "../components/Education";
