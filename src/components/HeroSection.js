@@ -158,7 +158,7 @@ const HeroSectionStyles = styled.section`
     position: relative;
     width: 100%;
     max-width: 400px;
-    aspect-ratio: 1;
+    aspect-ratio: 2/3;
     border-radius: 20px;
     overflow: hidden;
     background: var(--secondary-bg);
@@ -190,7 +190,7 @@ const HeroSectionStyles = styled.section`
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       transition: transform 0.3s ease;
     }
 
