@@ -7,23 +7,53 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   :root{
-    --dark-bg:  #071E3D;       //total bg, nav, card colors
-    --gray-1: #21E6C1;         // all text
-    --deep-dark: #1F4287;      //footer, nav, education cards
-    --gray-2: #278EA5;        // secondary text color
-    --white : white;      
-    --black: black;
+    /* Modern Professional Color Palette */
+    --primary-bg: #FAFAFA;           /* Clean white background */
+    --secondary-bg: #FFFFFF;         /* Pure white for cards */
+    --accent-color: #2563EB;         /* Modern blue accent */
+    --accent-hover: #1D4ED8;         /* Darker blue for hover states */
+    --text-primary: #111827;         /* Dark gray for primary text */
+    --text-secondary: #6B7280;       /* Medium gray for secondary text */
+    --text-light: #9CA3AF;           /* Light gray for subtle text */
+    --border-color: #E5E7EB;         /* Light border color */
+    --border-hover: #D1D5DB;         /* Darker border on hover */
+    --success-color: #10B981;        /* Green for success states */
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Dark mode support */
+    --dark-bg: #0F172A;
+    --dark-secondary: #1E293B;
+    --dark-text: #F8FAFC;
+    --dark-text-secondary: #CBD5E1;
   }
+
   html{
     font-size: 10px;
-    font-family: 'Roboto Mono';
-    background-color: var(--dark-bg);
+    font-family: 'Inter', 'Roboto Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--primary-bg);
+    scroll-behavior: smooth;
   }
+
+  body {
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   ul,li{
     list-style: none;
   }
   a{
     text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
   }
   img, svg{
     width: 100%;
@@ -31,20 +61,101 @@ const GlobalStyles = createGlobalStyle`
     object-fit: cover;
   }
   button{
-    outline: none
+    outline: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    font-family: inherit;
   }
+  
+  /* Modern Container System */
   .container {
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
+    padding: 0 2rem;
   }
+  
+  .container-wide {
+    max-width: 1400px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .container-narrow {
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Section Spacing */
+  .section {
+    padding: 8rem 0;
+  }
+  
+  .section-small {
+    padding: 4rem 0;
+  }
+
   hr{
-    border: 1px solid #21E6C1;
+    border: 1px solid var(--border-color);
+    border-radius: 1px;
   }
-  @media only screen and (max-width: 740px) {
+
+  /* Responsive Typography */
+  @media only screen and (max-width: 768px) {
     html{
-      font-size: 12px;
+      font-size: 9px;
     }
+    .container {
+      width: 95%;
+      padding: 0 1rem;
+    }
+    .section {
+      padding: 4rem 0;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    html{
+      font-size: 8px;
+    }
+    .container {
+      width: 95%;
+      padding: 0 1rem;
+    }
+  }
+
+  /* Focus styles for accessibility */
+  *:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+
+  /* Selection styles */
+  ::selection {
+    background-color: var(--accent-color);
+    color: white;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--primary-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-light);
   }
 `;
 export default GlobalStyles;
