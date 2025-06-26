@@ -7,7 +7,7 @@ const FooterStyle = styled.footer`
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   border-top: 1px solid var(--border-color);
   padding: 6rem 0 3rem 0;
-  margin-top: 8rem;
+  margin-top: 4rem;
 
   .footer-main {
     padding-bottom: 4rem;
@@ -223,7 +223,7 @@ const FooterStyle = styled.footer`
 
   @media only screen and (max-width: 768px) {
     padding: 4rem 0 2rem 0;
-    margin-top: 6rem;
+    margin-top: 3rem;
 
     .container {
       grid-template-columns: 1fr;

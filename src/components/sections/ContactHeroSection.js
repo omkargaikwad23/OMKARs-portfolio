@@ -4,7 +4,7 @@ import SectionTitle from "../ui/SectionTitle";
 import ContactSection from "./ContactSection";
 
 const ContactHeroSectionStyles = styled.section`
-  padding: 10rem 0;
+  padding: 10rem 0 6rem 0;
   background: var(--secondary-bg);
 
   .contact__hero {
@@ -141,7 +141,7 @@ const ContactHeroSectionStyles = styled.section`
   }
 
   @media only screen and (max-width: 768px) {
-    padding: 8rem 0;
+    padding: 8rem 0 5rem 0;
 
     .contact__cta {
       grid-template-columns: 1fr;
