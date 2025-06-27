@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import SectionTitle from "../ui/SectionTitle";
 import ContactSection from "./ContactSection";
+import { MdWork, MdRocket, MdWavingHand, MdEmail, MdPhone, MdChat } from "react-icons/md";
+import { FaLinkedin } from "react-icons/fa";
 
 const ContactHeroSectionStyles = styled.section`
   padding: 10rem 0 6rem 0;
@@ -36,6 +38,12 @@ const ContactHeroSectionStyles = styled.section`
     .cta__icon {
       font-size: 3.5rem;
       margin-bottom: 1.5rem;
+      color: var(--accent-color);
+      
+      svg {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
     }
 
     .cta__title {
@@ -65,6 +73,11 @@ const ContactHeroSectionStyles = styled.section`
       font-weight: 500;
       text-decoration: none;
       transition: all 0.3s ease;
+
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
 
       &:hover {
         background: var(--accent-hover);
@@ -166,9 +179,9 @@ function ContactHeroSection() {
       <div className="container">
         <div className="contact__hero">
           <SectionTitle
-            badge={{ icon: "💬", text: "Get In Touch" }}
-            heading="Let's <highlight>Connect</highlight>"
-            description="Whether you're looking to hire, collaborate on a project, or just want to say hello, I'd love to hear from you. Let's discuss how we can work together!"
+            badge={{ icon: <MdChat />, text: "Let's Work Together" }}
+            heading="Open to <highlight>Opportunities</highlight>"
+            description="Currently seeking full-time roles, exciting projects, and meaningful collaborations. Here's how we can connect based on what you're looking for."
             align="center"
             size="large"
           />
@@ -176,35 +189,41 @@ function ContactHeroSection() {
 
         <div className="contact__cta">
           <div className="cta__card">
-            <div className="cta__icon">💼</div>
-            <h3 className="cta__title">Hiring Opportunities</h3>
+            <div className="cta__icon">
+              <MdWork />
+            </div>
+            <h3 className="cta__title">Full-Time Opportunities</h3>
             <p className="cta__desc">
               Looking for a software engineer? Let's discuss how I can contribute to your team's success.
             </p>
-            <a href="mailto:omkargaikwad9552@gmail.com?subject=Job Opportunity" className="cta__button">
-              Send Email 📧
+            <a href="mailto:omkargaikwad9552@gmail.com?subject=Job Opportunity - Full Time Role" className="cta__button">
+              <MdEmail /> Discuss Role
             </a>
           </div>
 
           <div className="cta__card">
-            <div className="cta__icon">🚀</div>
+            <div className="cta__icon">
+              <MdRocket />
+            </div>
             <h3 className="cta__title">Project Collaboration</h3>
             <p className="cta__desc">
-              Have an interesting project? Let's explore how we can build something amazing together.
+              Have a freelance project or consulting opportunity? Let's explore how we can build something amazing together.
             </p>
             <a href="tel:+919579714193" className="cta__button secondary">
-              Call Me 📞
+              <MdPhone /> Quick Call
             </a>
           </div>
 
           <div className="cta__card">
-            <div className="cta__icon">👋</div>
-            <h3 className="cta__title">Just Say Hello</h3>
+            <div className="cta__icon">
+              <MdWavingHand />
+            </div>
+            <h3 className="cta__title">Networking & Mentorship</h3>
             <p className="cta__desc">
-              Want to connect or have a question? I'm always happy to meet new people and chat!
+              Want to connect professionally, discuss tech, or seeking mentorship? I love meeting fellow developers!
             </p>
-            <a href="https://www.linkedin.com/in/omkar-gaikwad-b83a80192/" target="_blank" rel="noreferrer" className="cta__button secondary">
-              Connect on LinkedIn 🔗
+            <a href="https://www.linkedin.com/in/omkargaikwad23/" target="_blank" rel="noreferrer" className="cta__button secondary">
+              <FaLinkedin /> Connect on LinkedIn
             </a>
           </div>
         </div>
@@ -217,7 +236,7 @@ function ContactHeroSection() {
           <h3 className="availability__title">Ready for New Opportunities</h3>
           <p className="availability__desc">
             I'm currently open to full-time opportunities, freelance projects, and consulting work. 
-            I typically respond to emails within 24 hours and would love to discuss how we can work together.
+            Based in Pune, India, and available for remote work worldwide.
           </p>
         </div>
 

@@ -294,6 +294,8 @@ export default function Navbar() {
       // Update URL hash without triggering page jump
       window.history.replaceState(null, null, `#${sectionId}`);
     }
+    // Remove focus from the clicked element to clear focus outline
+    event.target.blur();
     closeNav();
   };
 
@@ -305,6 +307,8 @@ export default function Navbar() {
     });
     // Clear URL hash when going to top
     window.history.replaceState(null, null, window.location.pathname);
+    // Remove focus from the clicked element to clear focus outline
+    if (event && event.target) event.target.blur();
     closeNav();
   };
 

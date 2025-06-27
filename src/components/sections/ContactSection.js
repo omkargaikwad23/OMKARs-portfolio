@@ -183,35 +183,37 @@ export default function ContactSection() {
     <ContactSectionStyle>
       <div className="container">
         <SectionTitle 
-          heading="Ready to <highlight>Collaborate</highlight>?" 
-          description="Let's discuss your next project and explore how we can work together to bring your ideas to life."
+          heading="Have a <highlight>Question</highlight>?" 
+          description="Got a specific project in mind, need technical advice, or just want to chat about tech? I'm here to help!"
           align="center"
         />
         
         <div className="contact__content">
           <div className="contact__hero" data-aos="fade-up" data-aos-delay="200">
-            <h3 className="contact__title">Let's Build Something Amazing</h3>
+            <h3 className="contact__title">Let's Discuss Your Ideas</h3>
             <p className="contact__description">
-              I'm always excited to take on new challenges and collaborate with passionate teams. 
-              Whether you're a startup with a groundbreaking idea or an established company looking 
-              to innovate, I'd love to hear about your project.
+              Whether you have a specific project requirement, need technical consultation, 
+              or want to explore innovative solutions, I'm excited to hear about your vision 
+              and see how I can help bring it to life.
             </p>
             
             <div className="contact__actions">
               <a 
-                href="mailto:omkargaikwad9552@gmail.com?subject=Let's Work Together - Project Discussion" 
+                href="mailto:omkargaikwad9552@gmail.com?subject=Project Discussion - Let's Talk" 
                 className="contact__primary"
               >
-                <span className="icon">📧</span>
-                Start a Conversation
+                <span className="icon">💬</span>
+                Start a Discussion
               </a>
               
               <a 
-                href="tel:+919579714193" 
+                href="https://calendly.com/omkargaikwad23" 
                 className="contact__secondary"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <span className="icon">📞</span>
-                Schedule a Call
+                <span className="icon">📅</span>
+                Schedule a Meeting
               </a>
             </div>
 

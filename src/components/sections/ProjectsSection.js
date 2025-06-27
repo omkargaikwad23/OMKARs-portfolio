@@ -3,6 +3,7 @@ import styled from "styled-components";
 import SectionTitle from "../ui/SectionTitle";
 import ProjectItem from "../cards/ProjectItem";
 import ProjectsInfo from "../../assets/data/projects";
+import { MdRocket } from "react-icons/md";
 
 const ProjectsSectionStyles = styled.section`
   padding: 10rem 0;
@@ -102,7 +103,7 @@ function ProjectsSection() {
     <ProjectsSectionStyles id="projects">
       <div className="container">
         <SectionTitle
-          badge={{ icon: "🚀", text: "Portfolio" }}
+          badge={{ icon: <MdRocket />, text: "Portfolio" }}
           heading={showAllProjects ? "All <highlight>Projects</highlight>" : "Featured <highlight>Projects</highlight>"}
           description={showAllProjects ? 
             "Complete showcase of my work - from enterprise applications to innovative solutions that solve real-world problems." :

@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { MdEmail, MdArrowUpward } from "react-icons/md";
 
 const FooterStyle = styled.footer`
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
@@ -65,12 +67,32 @@ const FooterStyle = styled.footer`
     font-size: 1.6rem;
     font-weight: 500;
 
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+
     &:hover {
       background: var(--accent-color);
       border-color: var(--accent-color);
       color: white;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    &.linkedin:hover {
+      background: #0077b5;
+      border-color: #0077b5;
+    }
+
+    &.github:hover {
+      background: #333;
+      border-color: #333;
+    }
+
+    &.email:hover {
+      background: #ea4335;
+      border-color: #ea4335;
     }
   }
 
@@ -143,8 +165,8 @@ const FooterStyle = styled.footer`
     }
 
     .arrow {
-      font-size: 1.4rem;
-      font-weight: bold;
+      width: 1.6rem;
+      height: 1.6rem;
     }
   }
 
@@ -195,10 +217,12 @@ const FooterStyle = styled.footer`
 `;
 
 export default function Footer() {
-  const scrollToTop = () => {
+  const scrollToTop = (event) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     // Clear URL hash when going to top
     window.history.replaceState(null, null, window.location.pathname);
+    // Remove focus from the clicked element to clear focus outline
+    if (event && event.target) event.target.blur();
   };
 
   const scrollToSection = (sectionId, event) => {
@@ -213,6 +237,8 @@ export default function Footer() {
       // Update URL hash without triggering page jump
       window.history.replaceState(null, null, `#${sectionId}`);
     }
+    // Remove focus from the clicked element to clear focus outline
+    event.target.blur();
   };
 
   return (
@@ -222,8 +248,7 @@ export default function Footer() {
           <div className="footer__brand">
             <h2 className="footer__logo">Omkar Gaikwad</h2>
             <p className="footer__tagline">
-              Full Stack Developer passionate about creating innovative solutions 
-              and building meaningful digital experiences.
+              Turning ideas into reality through code and creativity.
             </p>
             
             <div className="footer__social">
@@ -231,26 +256,26 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/omkargaikwad23/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="social-link"
+                className="social-link linkedin"
                 aria-label="LinkedIn Profile"
               >
-                LI
+                <FaLinkedin />
               </a>
               <a 
                 href="https://github.com/omkargaikwad23" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="social-link"
+                className="social-link github"
                 aria-label="GitHub Profile"
               >
-                GH
+                <FaGithub />
               </a>
               <a 
                 href="mailto:omkargaikwad9552@gmail.com" 
-                className="social-link"
+                className="social-link email"
                 aria-label="Email Contact"
               >
-                @
+                <MdEmail />
               </a>
             </div>
           </div>
@@ -275,13 +300,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:+919579714193">
-                  +91 95797 14193
-                </a>
-              </li>
-              <li>
                 <span style={{color: 'var(--text-secondary)', fontSize: '1.4rem'}}>
-                  Pune, India
+                  Pune, India • Available for Remote Work
                 </span>
               </li>
             </ul>
@@ -297,10 +317,10 @@ export default function Footer() {
 
           <button 
             className="back-to-top" 
-            onClick={scrollToTop}
+            onClick={(e) => scrollToTop(e)}
             aria-label="Back to top"
           >
-            <span className="arrow">↑</span>
+            <MdArrowUpward className="arrow" />
             Back to top
           </button>
         </div>

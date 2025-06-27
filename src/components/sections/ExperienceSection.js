@@ -3,6 +3,7 @@ import styled from "styled-components";
 import SectionTitle from "../ui/SectionTitle";
 import ExpCard from "../cards/ExperienceCard";
 import { ExperienceData, VolunteersData } from "../../assets/data/staticDisplayData";
+import { MdWork } from "react-icons/md";
 
 const ExperienceSectionStyles = styled.section`
   padding: 10rem 0;
@@ -76,7 +77,7 @@ function ExperienceSection() {
     <ExperienceSectionStyles id="experience">
       <div className="container">
         <SectionTitle
-          badge={{ icon: "💼", text: "Professional Journey" }}
+          badge={{ icon: <MdWork />, text: "Professional Journey" }}
           heading="Experience & <highlight>Growth</highlight>"
           description="My professional journey spans across innovative startups and established companies, focusing on building scalable systems and leading technical initiatives."
           align="center"
@@ -93,7 +94,7 @@ function ExperienceSection() {
             <div className="stat__label">Companies</div>
           </div>
           <div className="stat__item">
-            <div className="stat__number">10+</div>
+            <div className="stat__number">20+</div>
             <div className="stat__label">Technologies</div>
           </div>
           <div className="stat__item">

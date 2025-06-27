@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SectionTitle from "../ui/SectionTitle";
+import { MdPersonPin, MdMovie, MdSportsHandball, MdBook, MdNature, MdDownload } from "react-icons/md";
 
 const AboutSectionStyles = styled.section`
   padding: 10rem 0;
@@ -106,7 +107,8 @@ const AboutSectionStyles = styled.section`
     }
 
     .cv__icon {
-      font-size: 1.8rem;
+      width: 1.8rem;
+      height: 1.8rem;
     }
   }
 
@@ -147,7 +149,7 @@ function AboutSection() {
     <AboutSectionStyles id="about">
       <div className="container">
         <SectionTitle
-          badge={{ icon: "🎯", text: "About Me" }}
+          badge={{ icon: <MdPersonPin />, text: "About Me" }}
           heading="My <highlight>Journey</highlight>"
           description="From a small village in Dharashiv district to the tech industry - here's my story of continuous growth and passion for technology."
           align="center"
@@ -176,19 +178,19 @@ function AboutSection() {
               <h4>When I'm not coding...</h4>
               <div className="interests__grid">
                 <div className="interest__item">
-                  <span className="interest__icon">🎬</span>
+                  <span className="interest__icon"><MdMovie /></span>
                   <span className="interest__text">Movie Enthusiast</span>
                 </div>
                 <div className="interest__item">
-                  <span className="interest__icon">🏓</span>
+                  <span className="interest__icon"><MdSportsHandball /></span>
                   <span className="interest__text">Table Tennis Player</span>
                 </div>
                 <div className="interest__item">
-                  <span className="interest__icon">📚</span>
+                  <span className="interest__icon"><MdBook /></span>
                   <span className="interest__text">Continuous Learner</span>
                 </div>
                 <div className="interest__item">
-                  <span className="interest__icon">🌱</span>
+                  <span className="interest__icon"><MdNature /></span>
                   <span className="interest__text">Tech Explorer</span>
                 </div>
               </div>
@@ -201,7 +203,7 @@ function AboutSection() {
                 href="https://drive.google.com/file/d/177GtuT6KOqd25sWr5WZBu32YFm9mat9x/view?usp=sharing"
                 rel="noreferrer"
               >
-                <span className="cv__icon">📄</span>
+                <MdDownload className="cv__icon" />
                 Download Resume
               </a>
             </div>
