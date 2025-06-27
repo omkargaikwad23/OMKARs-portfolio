@@ -152,6 +152,7 @@ const HeroSectionStyles = styled.section`
       border-radius: 50%;
       animation: pulse 2s infinite;
       box-shadow: 0 0 10px rgba(79, 195, 247, 0.6);
+      flex-shrink: 0;
     }
 
     span {
@@ -160,6 +161,9 @@ const HeroSectionStyles = styled.section`
       color: #e3f2fd;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      line-height: 1;
+      display: flex;
+      align-items: center;
     }
   }
 
