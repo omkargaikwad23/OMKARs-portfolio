@@ -7,35 +7,43 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   :root{
-    /* Modern Professional Color Palette */
-    --primary-bg: #FAFAFA;           /* Clean white background */
-    --secondary-bg: #FFFFFF;         /* Pure white for cards */
-    --accent-color: #2563EB;         /* Modern blue accent */
-    --accent-hover: #1D4ED8;         /* Darker blue for hover states */
-    --text-primary: #111827;         /* Dark gray for primary text */
-    --text-secondary: #6B7280;       /* Medium gray for secondary text */
-    --text-light: #9CA3AF;           /* Light gray for subtle text */
-    --border-color: #E5E7EB;         /* Light border color */
-    --border-hover: #D1D5DB;         /* Darker border on hover */
-    --success-color: #10B981;        /* Green for success states */
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    /* Starry Luxury Theme - Dark & Elegant */
+    --primary-bg: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    --secondary-bg: rgba(30, 41, 59, 0.8);         /* Dark translucent for cards */
+    --accent-color: #4fc3f7;                       /* Stellar blue accent */
+    --accent-hover: #29b6f6;                       /* Brighter stellar blue */
+    --text-primary: #f8fafc;                       /* Bright white for primary text */
+    --text-secondary: #e1f5fe;                     /* Light blue-white for secondary */
+    --text-light: #b3e5fc;                         /* Soft blue-white for subtle text */
+    --border-color: rgba(79, 195, 247, 0.2);       /* Stellar blue border */
+    --border-hover: rgba(79, 195, 247, 0.4);       /* Brighter border on hover */
+    --success-color: #4fc3f7;                      /* Stellar blue for success */
+    --warning-color: #ffd700;                      /* Gold for luxury accents */
+    --luxury-gold: #ffd700;                        /* Pure gold for premium elements */
+    --constellation-blue: #4fc3f7;                 /* Constellation blue */
+    --nebula-purple: rgba(139, 69, 19, 0.3);       /* Nebula effect */
+    --gradient-primary: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 50%, #1976d2 100%);
+    --gradient-accent: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+    --gradient-luxury: linear-gradient(135deg, #ffd700 0%, #ffecb3 50%, #fff3e0 100%);
+    --gradient-starfield: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 30%, #16213e 60%, #0f172a 100%);
+    --shadow-sm: 0 2px 8px rgba(79, 195, 247, 0.1);
+    --shadow-md: 0 8px 25px rgba(79, 195, 247, 0.15);
+    --shadow-lg: 0 15px 35px rgba(79, 195, 247, 0.2);
+    --shadow-xl: 0 25px 50px rgba(79, 195, 247, 0.25);
+    --shadow-luxury: 0 15px 35px rgba(255, 215, 0, 0.3);
+    --glow-stellar: 0 0 20px rgba(79, 195, 247, 0.6);
+    --glow-luxury: 0 0 25px rgba(255, 215, 0, 0.5);
     
-    /* Dark mode support */
-    --dark-bg: #0F172A;
-    --dark-secondary: #1E293B;
-    --dark-text: #F8FAFC;
-    --dark-text-secondary: #CBD5E1;
+    /* Glass effects for modern look */
+    --glass-bg: rgba(248, 250, 252, 0.05);
+    --glass-border: rgba(248, 250, 252, 0.1);
+    --glass-backdrop: blur(20px);
   }
 
   html{
     font-size: 10px;
     font-family: 'Inter', 'Roboto Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background-color: var(--primary-bg);
+    background: var(--primary-bg);
     /* Remove scroll-behavior to let Lenis handle it */
     /* scroll-behavior: smooth; */
   }
@@ -47,6 +55,9 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    background: var(--primary-bg);
+    background-attachment: fixed;
+    min-height: 100vh;
   }
 
   ul,li{

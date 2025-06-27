@@ -27,25 +27,24 @@ const ButtonStyle = styled.div`
     transform-origin: center;
     backdrop-filter: blur(10px);
     
-    /* Primary Button Styles - Enhanced with gradients */
+    /* Primary Button Styles - Starry Luxury Theme */
     background: ${(props) =>
       props.outline 
-        ? 'rgba(255, 255, 255, 0.1)' 
-        : 'linear-gradient(135deg, var(--accent-color), #3B82F6, #6366F1)'};
+        ? 'var(--glass-bg)' 
+        : 'var(--gradient-primary)'};
     color: ${(props) => 
       props.outline ? 'var(--accent-color)' : 'white'};
     border: 2px solid transparent;
     background-clip: padding-box;
     box-shadow: ${(props) =>
       props.outline 
-        ? '0 4px 15px -3px rgba(37, 99, 235, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)' 
-        : '0 8px 25px -8px rgba(37, 99, 235, 0.4), 0 4px 12px -4px rgba(37, 99, 235, 0.3)'};
+        ? 'var(--shadow-md), inset 0 1px 0 var(--glass-border)' 
+        : 'var(--shadow-lg), var(--glow-stellar)'};
     
     /* Outline specific styles */
     ${(props) => props.outline && `
       border: 2px solid var(--accent-color);
-      background: rgba(37, 99, 235, 0.05);
-      backdrop-filter: blur(10px);
+      backdrop-filter: var(--glass-backdrop);
     `}
     
     /* Enhanced Hover Effects */
@@ -53,12 +52,12 @@ const ButtonStyle = styled.div`
       transform: translateY(-3px) scale(1.02);
       box-shadow: ${(props) =>
         props.outline 
-          ? '0 12px 35px -8px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)' 
-          : '0 15px 40px -10px rgba(37, 99, 235, 0.6), 0 8px 20px -8px rgba(37, 99, 235, 0.4)'};
+          ? 'var(--shadow-xl), var(--glow-stellar)' 
+          : 'var(--shadow-xl), var(--glow-stellar)'};
       background: ${(props) =>
         props.outline 
-          ? 'linear-gradient(135deg, var(--accent-color), #3B82F6)' 
-          : 'linear-gradient(135deg, var(--accent-hover), #4F46E5, #7C3AED)'};
+          ? 'var(--gradient-primary)' 
+          : 'linear-gradient(135deg, var(--accent-hover), #1976d2, #7C3AED)'};
       color: white;
       
       &::before {
@@ -83,8 +82,8 @@ const ButtonStyle = styled.div`
       outline: none;
       box-shadow: ${(props) =>
         props.outline 
-          ? '0 12px 35px -8px rgba(37, 99, 235, 0.4), 0 0 0 3px rgba(37, 99, 235, 0.3)' 
-          : '0 15px 40px -10px rgba(37, 99, 235, 0.6), 0 0 0 3px rgba(37, 99, 235, 0.3)'};
+          ? 'var(--shadow-lg), 0 0 0 3px rgba(79, 195, 247, 0.4)' 
+          : 'var(--shadow-xl), 0 0 0 3px rgba(79, 195, 247, 0.4)'};
     }
     
     /* Enhanced Ripple Effect */

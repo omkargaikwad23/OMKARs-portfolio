@@ -8,20 +8,102 @@ const HeroSectionStyles = styled.section`
   display: flex;
   align-items: center;
   padding: 12rem 0 8rem 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
   position: relative;
   overflow: hidden;
 
-  &::before {
-    content: '';
+  .starfield {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-    opacity: 0.5;
+    width: 100%;
+    height: 100%;
     z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+
+    .star {
+      position: absolute;
+      background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 30%, transparent 70%);
+      border-radius: 50%;
+      animation: twinkle 3s ease-in-out infinite;
+      
+      &.small {
+        width: 1px;
+        height: 1px;
+        box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+      }
+      
+      &.medium {
+        width: 2px;
+        height: 2px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+      }
+      
+      &.large {
+        width: 3px;
+        height: 3px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+      }
+      
+      &.constellation {
+        width: 4px;
+        height: 4px;
+        background: radial-gradient(circle, #4fc3f7 0%, #29b6f6 50%, rgba(255, 255, 255, 0.9) 100%);
+        box-shadow: 0 0 20px rgba(79, 195, 247, 0.8), 0 0 40px rgba(79, 195, 247, 0.4);
+        animation: constellationTwinkle 4s ease-in-out infinite;
+      }
+      
+      &.luxury {
+        width: 2px;
+        height: 2px;
+        background: radial-gradient(circle, #ffd700 0%, #ffecb3 50%, rgba(255, 255, 255, 0.9) 100%);
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.4);
+        animation: luxuryTwinkle 5s ease-in-out infinite;
+      }
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+      border-radius: 50%;
+      opacity: 0;
+      animation: shootingStar 3s linear infinite;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
+        transform: translateX(100%);
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent 0%, rgba(79, 195, 247, 0.6) 50%, transparent 100%);
+        transform: translateX(100%);
+      }
+    }
+
+    .nebula {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(139, 69, 19, 0.1) 0%, rgba(75, 0, 130, 0.05) 50%, transparent 100%);
+      border-radius: 50%;
+      animation: nebulaDrift 20s ease-in-out infinite;
+      filter: blur(2px);
+    }
   }
 
   .container {
@@ -49,30 +131,33 @@ const HeroSectionStyles = styled.section`
     align-items: center;
     gap: 0.8rem;
     padding: 0.8rem 1.6rem;
-    background: rgba(37, 99, 235, 0.1);
-    border: 1px solid rgba(37, 99, 235, 0.2);
+    background: rgba(79, 195, 247, 0.15);
+    border: 1px solid rgba(79, 195, 247, 0.3);
     border-radius: 50px;
     width: fit-content;
     margin-bottom: 1rem;
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 
     &:hover {
-      background: rgba(37, 99, 235, 0.15);
+      background: rgba(79, 195, 247, 0.25);
       transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(79, 195, 247, 0.2);
     }
 
     .badge-dot {
       width: 8px;
       height: 8px;
-      background: var(--success-color);
+      background: #4fc3f7;
       border-radius: 50%;
       animation: pulse 2s infinite;
+      box-shadow: 0 0 10px rgba(79, 195, 247, 0.6);
     }
 
     span {
       font-size: 1.4rem;
       font-weight: 500;
-      color: var(--accent-color);
+      color: #e3f2fd;
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
@@ -200,17 +285,19 @@ const HeroSectionStyles = styled.section`
   .hero__subtitle {
     font-size: 2.4rem;
     font-weight: 600;
-    color: var(--text-secondary);
+    color: #b3e5fc;
     margin: 1rem 0 1.5rem 0;
     line-height: 1.4;
+    text-shadow: 0 0 20px rgba(179, 229, 252, 0.3);
   }
 
   .hero__description {
     font-size: 1.8rem;
     line-height: 1.7;
-    color: var(--text-secondary);
+    color: #e1f5fe;
     margin-bottom: 3rem;
     max-width: 50ch;
+    text-shadow: 0 0 10px rgba(225, 245, 254, 0.2);
   }
 
   .hero__stats {
@@ -227,17 +314,19 @@ const HeroSectionStyles = styled.section`
       .stat-number {
         font-size: 2.8rem;
         font-weight: 700;
-        color: var(--accent-color);
+        color: #4fc3f7;
         line-height: 1;
         margin-bottom: 0.5rem;
+        text-shadow: 0 0 15px rgba(79, 195, 247, 0.4);
       }
       
       .stat-label {
         font-size: 1.4rem;
-        color: var(--text-light);
+        color: #81d4fa;
         text-transform: uppercase;
         letter-spacing: 0.1em;
         font-weight: 500;
+        text-shadow: 0 0 10px rgba(129, 212, 250, 0.3);
       }
     }
   }
@@ -461,6 +550,86 @@ const HeroSectionStyles = styled.section`
     }
   }
 
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes constellationTwinkle {
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1);
+      filter: hue-rotate(0deg);
+    }
+    25% {
+      opacity: 1;
+      transform: scale(1.3);
+      filter: hue-rotate(90deg);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.1);
+      filter: hue-rotate(180deg);
+    }
+    75% {
+      opacity: 1;
+      transform: scale(1.2);
+      filter: hue-rotate(270deg);
+    }
+  }
+
+  @keyframes luxuryTwinkle {
+    0%, 100% {
+      opacity: 0.7;
+      transform: scale(1) rotate(0deg);
+      filter: brightness(1);
+    }
+    33% {
+      opacity: 1;
+      transform: scale(1.4) rotate(120deg);
+      filter: brightness(1.5);
+    }
+    66% {
+      opacity: 0.9;
+      transform: scale(1.1) rotate(240deg);
+      filter: brightness(1.2);
+    }
+  }
+
+  @keyframes shootingStar {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px) translateY(-100px);
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100vw) translateY(100px);
+    }
+  }
+
+  @keyframes nebulaDrift {
+    0%, 100% {
+      transform: translateX(-50px) translateY(-20px) rotate(0deg);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translateX(50px) translateY(20px) rotate(180deg);
+      opacity: 0.6;
+    }
+  }
+
   @media only screen and (max-width: 968px) {
     .container {
       grid-template-columns: 1fr;
@@ -538,10 +707,60 @@ const HeroSectionStyles = styled.section`
 
 export default function HeroSection() {
   const titleRef = useRef(null);
+  const starfieldRef = useRef(null);
 
   useEffect(() => {
     const title = titleRef.current;
-    if (!title) return;
+    const starfield = starfieldRef.current;
+    
+    if (!title || !starfield) return;
+
+    // Create starfield effect
+    const createStarfield = () => {
+      starfield.innerHTML = '';
+
+      // Create different types of stars
+      const starTypes = [
+        { class: 'small', count: 150 },
+        { class: 'medium', count: 80 },
+        { class: 'large', count: 40 },
+        { class: 'constellation', count: 15 },
+        { class: 'luxury', count: 10 }
+      ];
+
+      starTypes.forEach(({ class: starClass, count }) => {
+        for (let i = 0; i < count; i++) {
+          const star = document.createElement('div');
+          star.className = `star ${starClass}`;
+          star.style.left = `${Math.random() * 100}%`;
+          star.style.top = `${Math.random() * 100}%`;
+          star.style.animationDelay = `${Math.random() * 3}s`;
+          star.style.animationDuration = `${2 + Math.random() * 4}s`;
+          starfield.appendChild(star);
+        }
+      });
+
+      // Create shooting stars
+      for (let i = 0; i < 3; i++) {
+        const shootingStar = document.createElement('div');
+        shootingStar.className = 'shooting-star';
+        shootingStar.style.top = `${Math.random() * 50}%`;
+        shootingStar.style.left = '-100px';
+        shootingStar.style.animationDelay = `${Math.random() * 10}s`;
+        shootingStar.style.animationDuration = `${2 + Math.random() * 2}s`;
+        starfield.appendChild(shootingStar);
+      }
+
+      // Create nebula effects
+      for (let i = 0; i < 2; i++) {
+        const nebula = document.createElement('div');
+        nebula.className = 'nebula';
+        nebula.style.left = `${Math.random() * 80}%`;
+        nebula.style.top = `${Math.random() * 80}%`;
+        nebula.style.animationDelay = `${Math.random() * 5}s`;
+        starfield.appendChild(nebula);
+      }
+    };
 
     // Split text into letters for animation
     const text = "Hi, I'm ";
@@ -596,10 +815,26 @@ export default function HeroSection() {
     title.appendChild(animatedContainer);
     title.appendChild(particleContainer);
 
+    // Initialize starfield
+    createStarfield();
+
+    // Recreate shooting stars periodically
+    const shootingStarInterval = setInterval(() => {
+      const shootingStars = starfield.querySelectorAll('.shooting-star');
+      shootingStars.forEach(star => {
+        star.style.animationDelay = `${Math.random() * 2}s`;
+      });
+    }, 8000);
+
+    return () => {
+      clearInterval(shootingStarInterval);
+    };
+
   }, []);
 
   return (
     <HeroSectionStyles>
+      <div className="starfield" ref={starfieldRef}></div>
       <div className="container">
         <div className="hero__content" data-aos="fade-up" data-aos-delay="200">
           <div className="hero__badge">

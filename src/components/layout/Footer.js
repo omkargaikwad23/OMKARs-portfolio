@@ -5,16 +5,34 @@ import { MdEmail, MdArrowUpward } from "react-icons/md";
 import { scrollToSection, scrollToTop } from '../../utils/smoothScroll';
 
 const FooterStyle = styled.footer`
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  background: var(--gradient-starfield);
   border-top: 1px solid var(--border-color);
   padding: 4rem 0 2rem 0;
   margin-top: 4rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(79, 195, 247, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
     width: 90%;
     padding: 0 2rem;
+    position: relative;
+    z-index: 2;
   }
 
   .footer__content {
@@ -34,9 +52,23 @@ const FooterStyle = styled.footer`
     font-family: 'Montserrat Bold', sans-serif;
     font-size: 2.4rem;
     font-weight: 700;
-    color: var(--text-primary);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin: 0;
     letter-spacing: -0.02em;
+    position: relative;
+    
+    &::after {
+      content: '⭐';
+      position: absolute;
+      right: -3rem;
+      top: 0;
+      font-size: 1.6rem;
+      color: var(--luxury-gold);
+      animation: starPulse 3s ease-in-out infinite;
+    }
   }
 
   .footer__tagline {
@@ -45,6 +77,12 @@ const FooterStyle = styled.footer`
     color: var(--text-secondary);
     max-width: 40ch;
     margin: 0;
+    text-shadow: 0 0 10px rgba(225, 245, 254, 0.2);
+  }
+
+  @keyframes starPulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
   }
 
   .footer__social {
@@ -59,41 +97,69 @@ const FooterStyle = styled.footer`
     justify-content: center;
     width: 4rem;
     height: 4rem;
-    background: var(--secondary-bg);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 12px;
     color: var(--text-secondary);
     text-decoration: none;
     transition: all 0.3s ease;
     font-size: 1.6rem;
     font-weight: 500;
+    position: relative;
+    overflow: hidden;
 
     svg {
       width: 1.8rem;
       height: 1.8rem;
     }
 
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
     &:hover {
-      background: var(--accent-color);
-      border-color: var(--accent-color);
       color: white;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-color);
+      
+      &::before {
+        opacity: 1;
+      }
     }
 
     &.linkedin:hover {
-      background: #0077b5;
-      border-color: #0077b5;
+      box-shadow: 0 8px 25px rgba(0, 119, 181, 0.4);
+      
+      &::before {
+        background: linear-gradient(135deg, #0077b5, #005582);
+      }
     }
 
     &.github:hover {
-      background: #333;
-      border-color: #333;
+      box-shadow: 0 8px 25px rgba(51, 51, 51, 0.4);
+      
+      &::before {
+        background: linear-gradient(135deg, #333, #1a1a1a);
+      }
     }
 
     &.email:hover {
-      background: #ea4335;
-      border-color: #ea4335;
+      box-shadow: 0 8px 25px rgba(234, 67, 53, 0.4);
+      
+      &::before {
+        background: linear-gradient(135deg, #ea4335, #d23021);
+      }
     }
   }
 
@@ -103,6 +169,7 @@ const FooterStyle = styled.footer`
       font-weight: 600;
       color: var(--text-primary);
       margin: 0 0 1.5rem 0;
+      text-shadow: var(--glow-stellar);
     }
 
     ul {
@@ -119,18 +186,48 @@ const FooterStyle = styled.footer`
       color: var(--text-secondary);
       text-decoration: none;
       font-size: 1.4rem;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--gradient-primary);
+        transition: width 0.3s ease;
+      }
 
       &:hover {
         color: var(--accent-color);
+        text-shadow: 0 0 8px rgba(79, 195, 247, 0.4);
+        
+        &::after {
+          width: 100%;
+        }
       }
     }
   }
 
   .footer__divider {
     height: 1px;
-    background: var(--border-color);
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
     margin: 3rem 0 2rem 0;
+    position: relative;
+    
+    &::after {
+      content: '✨';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient-starfield);
+      padding: 0 1rem;
+      color: var(--luxury-gold);
+      font-size: 1rem;
+    }
   }
 
   .footer__bottom {
@@ -144,6 +241,7 @@ const FooterStyle = styled.footer`
   .copyright {
     color: var(--text-light);
     font-size: 1.3rem;
+    text-shadow: 0 0 8px rgba(179, 229, 252, 0.3);
   }
 
   .back-to-top {
@@ -151,23 +249,49 @@ const FooterStyle = styled.footer`
     align-items: center;
     gap: 0.5rem;
     padding: 0.8rem 1.2rem;
-    background: transparent;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 12px;
     color: var(--text-secondary);
     font-size: 1.3rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
 
     &:hover {
       border-color: var(--accent-color);
-      color: var(--accent-color);
-      background: rgba(37, 99, 235, 0.05);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      
+      &::before {
+        opacity: 1;
+      }
     }
 
     .arrow {
       width: 1.6rem;
       height: 1.6rem;
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover .arrow {
+      transform: translateY(-2px);
     }
   }
 
