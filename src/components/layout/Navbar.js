@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { MdClose, MdMenu } from 'react-icons/md';
+import { scrollToSection, scrollToTop } from '../../utils/smoothScroll';
 
 const NavStyles = styled.nav`
   position: fixed;
@@ -282,32 +283,16 @@ export default function Navbar() {
 
   const closeNav = () => setShowNav(false);
 
-  const scrollToSection = (sectionId, event) => {
-    event.preventDefault(); // Prevent default anchor behavior
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offsetTop = element.offsetTop - 80; // Account for fixed navbar
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
-      // Update URL hash without triggering page jump
-      window.history.replaceState(null, null, `#${sectionId}`);
-    }
-    // Remove focus from the clicked element to clear focus outline
+  const handleScrollToSection = (sectionId, event) => {
+    event.preventDefault();
+    scrollToSection(sectionId);
     event.target.blur();
     closeNav();
   };
 
-  const scrollToTop = (event) => {
+  const handleScrollToTop = (event) => {
     if (event) event.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-    // Clear URL hash when going to top
-    window.history.replaceState(null, null, window.location.pathname);
-    // Remove focus from the clicked element to clear focus outline
+    scrollToTop();
     if (event && event.target) event.target.blur();
     closeNav();
   };
@@ -315,7 +300,7 @@ export default function Navbar() {
   return (
     <NavStyles className={isScrolled ? 'scrolled' : ''}>
       <div className="nav-container">
-        <a href="#home" className="logo" onClick={scrollToTop}>
+        <a href="#home" className="logo" onClick={handleScrollToTop}>
           Omkar.
         </a>
         <ul className={showNav ? 'nav-items show' : 'nav-items'}>
@@ -325,7 +310,7 @@ export default function Navbar() {
           <li>
             <a
               href="#home"
-              onClick={(e) => scrollToSection('home', e)}
+              onClick={(e) => handleScrollToSection('home', e)}
               className={activeSection === 'home' ? 'active' : ''}
             >
               Home
@@ -334,7 +319,7 @@ export default function Navbar() {
           <li>
             <a
               href="#about"
-              onClick={(e) => scrollToSection('about', e)}
+              onClick={(e) => handleScrollToSection('about', e)}
               className={activeSection === 'about' ? 'active' : ''}
             >
               About
@@ -343,7 +328,7 @@ export default function Navbar() {
           <li>
             <a
               href="#experience"
-              onClick={(e) => scrollToSection('experience', e)}
+              onClick={(e) => handleScrollToSection('experience', e)}
               className={activeSection === 'experience' ? 'active' : ''}
             >
               Experience
@@ -352,7 +337,7 @@ export default function Navbar() {
           <li>
             <a
               href="#projects"
-              onClick={(e) => scrollToSection('projects', e)}
+              onClick={(e) => handleScrollToSection('projects', e)}
               className={activeSection === 'projects' ? 'active' : ''}
             >
               Projects
@@ -361,7 +346,7 @@ export default function Navbar() {
           <li>
             <a
               href="#contact"
-              onClick={(e) => scrollToSection('contact', e)}
+              onClick={(e) => handleScrollToSection('contact', e)}
               className={activeSection === 'contact' ? 'active' : ''}
             >
               Contact

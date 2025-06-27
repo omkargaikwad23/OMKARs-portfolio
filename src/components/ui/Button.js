@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { scrollToSection } from '../../utils/smoothScroll';
 
 const ButtonStyle = styled.div`
   display: inline-block;
@@ -220,14 +221,7 @@ export default function Button({
     if (btnLink.startsWith('/')) {
       e.preventDefault();
       const sectionId = btnLink.substring(1); // Remove the '/' prefix
-      const element = document.getElementById(sectionId);
-      if (element) {
-        const offsetTop = element.offsetTop - 80; // Account for fixed navbar
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
-        });
-      }
+      scrollToSection(sectionId);
     }
     
     if (onClick) {

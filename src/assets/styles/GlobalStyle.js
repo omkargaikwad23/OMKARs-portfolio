@@ -36,7 +36,8 @@ const GlobalStyles = createGlobalStyle`
     font-size: 10px;
     font-family: 'Inter', 'Roboto Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     background-color: var(--primary-bg);
-    scroll-behavior: smooth;
+    /* Remove scroll-behavior to let Lenis handle it */
+    /* scroll-behavior: smooth; */
   }
 
   body {
@@ -45,6 +46,7 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   ul,li{
@@ -245,6 +247,66 @@ const GlobalStyles = createGlobalStyle`
 
   ::-webkit-scrollbar-thumb:hover {
     background: var(--text-light);
+  }
+
+  /* Scroll Progress Indicator */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), #8b5cf6);
+    transform: scaleX(var(--scroll-progress));
+    transform-origin: left;
+    z-index: 1000;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Scroll-driven animations */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Parallax effects */
+  .parallax {
+    will-change: transform;
+  }
+
+  .parallax-slow {
+    transform: translateY(calc(var(--scroll-progress) * -20px));
+  }
+
+  .parallax-medium {
+    transform: translateY(calc(var(--scroll-progress) * -40px));
+  }
+
+  .parallax-fast {
+    transform: translateY(calc(var(--scroll-progress) * -60px));
+  }
+
+  /* Velocity-based effects */
+  .velocity-blur {
+    filter: blur(calc(var(--scroll-velocity) * 0.1px));
+    transition: filter 0.3s ease-out;
+  }
+
+  /* Enhanced hover effects with scroll momentum */
+  .card, .project-item, .experience-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card:hover, .project-item:hover, .experience-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
 `;
 export default GlobalStyles;

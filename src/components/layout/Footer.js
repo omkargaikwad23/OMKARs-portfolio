@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { MdEmail, MdArrowUpward } from "react-icons/md";
+import { scrollToSection, scrollToTop } from '../../utils/smoothScroll';
 
 const FooterStyle = styled.footer`
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
@@ -217,26 +218,15 @@ const FooterStyle = styled.footer`
 `;
 
 export default function Footer() {
-  const scrollToTop = (event) => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Clear URL hash when going to top
-    window.history.replaceState(null, null, window.location.pathname);
+  const handleScrollToTop = (event) => {
+    scrollToTop();
     // Remove focus from the clicked element to clear focus outline
     if (event && event.target) event.target.blur();
   };
 
-  const scrollToSection = (sectionId, event) => {
+  const handleScrollToSection = (sectionId, event) => {
     event.preventDefault(); // Prevent default anchor behavior
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offsetTop = element.offsetTop - 80; // Account for fixed navbar
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
-      // Update URL hash without triggering page jump
-      window.history.replaceState(null, null, `#${sectionId}`);
-    }
+    scrollToSection(sectionId);
     // Remove focus from the clicked element to clear focus outline
     event.target.blur();
   };
@@ -283,11 +273,11 @@ export default function Footer() {
           <div className="footer__section">
             <h3>Quick Links</h3>
             <ul>
-              <li><a href="#home" onClick={(e) => scrollToSection('home', e)}>Home</a></li>
-              <li><a href="#about" onClick={(e) => scrollToSection('about', e)}>About</a></li>
-              <li><a href="#experience" onClick={(e) => scrollToSection('experience', e)}>Experience</a></li>
-              <li><a href="#projects" onClick={(e) => scrollToSection('projects', e)}>Projects</a></li>
-              <li><a href="#contact" onClick={(e) => scrollToSection('contact', e)}>Contact</a></li>
+              <li><a href="#home" onClick={(e) => handleScrollToSection('home', e)}>Home</a></li>
+              <li><a href="#about" onClick={(e) => handleScrollToSection('about', e)}>About</a></li>
+              <li><a href="#experience" onClick={(e) => handleScrollToSection('experience', e)}>Experience</a></li>
+              <li><a href="#projects" onClick={(e) => handleScrollToSection('projects', e)}>Projects</a></li>
+              <li><a href="#contact" onClick={(e) => handleScrollToSection('contact', e)}>Contact</a></li>
             </ul>
           </div>
 
@@ -317,7 +307,7 @@ export default function Footer() {
 
           <button 
             className="back-to-top" 
-            onClick={(e) => scrollToTop(e)}
+            onClick={(e) => handleScrollToTop(e)}
             aria-label="Back to top"
           >
             <MdArrowUpward className="arrow" />

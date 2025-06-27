@@ -330,7 +330,7 @@ export default function HeroSection() {
             <span>Available for work</span>
           </div>
           
-          <h1 className="hero__title">
+          <h1 className="hero__title parallax-slow">
             Hi, I'm <span className="gradient-text">Omkar</span>
           </h1>
           
@@ -365,11 +365,11 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="hero__image" data-aos="fade-left" data-aos-delay="400">
+        <div className="hero__image parallax-medium" data-aos="fade-left" data-aos-delay="400">
           <div className="image-wrapper">
             <img src={AboutImg} alt="Omkar Gaikwad - Software Engineer" />
           </div>
-          <div className="floating-elements">
+          <div className="floating-elements parallax-fast">
             <div className="floating-icon">⚡</div>
             <div className="floating-icon">🚀</div>
             <div className="floating-icon">💡</div>

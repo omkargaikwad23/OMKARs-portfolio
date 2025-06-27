@@ -1,8 +1,24 @@
 * {
-  scroll-behavior: smooth;
+  /* Remove this to let Lenis handle smooth scrolling */
+  /* scroll-behavior: smooth; */
 }
 
 .App {
   overflow-x: hidden;
   min-height: 100vh;
+}
+
+/* Add scroll-driven effects using CSS custom properties */
+:root {
+  --scroll-progress: 0;
+  --scroll-velocity: 0;
+}
+
+/* Optional: Add subtle parallax effects */
+.parallax-slow {
+  transform: translateY(calc(var(--scroll-progress) * -50px));
+}
+
+.parallax-fast {
+  transform: translateY(calc(var(--scroll-progress) * -100px));
 }
