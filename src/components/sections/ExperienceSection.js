@@ -41,48 +41,120 @@ const ExperienceSectionStyles = styled.section`
   }
 
   .experience__tabs {
+    position: relative;
     display: flex;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 0.5rem;
-    gap: 0.5rem;
+    background: var(--primary-bg);
+    border-radius: 20px;
+    padding: 0.8rem;
+    gap: 0;
     margin: 4rem 0 6rem 0;
-    max-width: 400px;
+    max-width: 480px;
     margin-left: auto;
     margin-right: auto;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--border-color);
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0.8rem;
+      left: 0.8rem;
+      width: calc(50% - 0.8rem);
+      height: calc(100% - 1.6rem);
+      background: linear-gradient(135deg, var(--accent-color), #8b5cf6);
+      border-radius: 14px;
+      transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+      box-shadow: 
+        0 4px 20px rgba(37, 99, 235, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+      z-index: 1;
+    }
+    
+    &.volunteer-active::before {
+      transform: translateX(100%);
+    }
   }
 
   .tab-button-wrapper {
     flex: 1;
+    position: relative;
+    z-index: 2;
     
-    .button-wrapper {
+    .tab-button {
       width: 100%;
+      padding: 1.6rem 2.4rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      border-radius: 14px;
+      background: transparent;
+      color: var(--text-secondary);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       
-      .button {
-        width: 100%;
-        padding: 1rem 2rem;
-        font-size: 1.5rem;
-        font-weight: 600;
-        border-radius: 12px;
-        background: transparent;
-        color: var(--text-secondary);
-        border: none;
-        box-shadow: none;
+      .tab-icon {
+        font-size: 1.8rem;
+        transition: all 0.3s ease;
+      }
+      
+      .tab-text {
+        transition: all 0.3s ease;
+      }
+      
+      &:hover:not(.active) {
+        color: var(--accent-color);
+        transform: translateY(-1px);
         
-        &:hover {
-          background: rgba(37, 99, 235, 0.08);
-          color: var(--accent-color);
-          transform: none;
+        .tab-icon {
+          transform: scale(1.1);
         }
       }
+      
+      &.active {
+        color: white;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        
+        .tab-icon {
+          transform: scale(1.05);
+          filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+        }
+        
+        .tab-text {
+          font-weight: 800;
+        }
+      }
+      
+      &:focus {
+        outline: none;
+      }
+      
+      &:active {
+        transform: translateY(0);
+      }
     }
+  }
+
+  .tab-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 50%;
+    background: linear-gradient(90deg, var(--accent-color), #8b5cf6);
+    border-radius: 2px 2px 0 0;
+    transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    z-index: 3;
     
-    &.active .button-wrapper .button {
-      background: var(--accent-color);
-      color: white;
-      box-shadow: var(--shadow-sm);
+    &.volunteer-active {
+      transform: translateX(100%);
     }
   }
 
@@ -399,8 +471,26 @@ const ExperienceSectionStyles = styled.section`
 
     .experience__tabs {
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.8rem;
       max-width: 100%;
+      padding: 1rem;
+      
+      &::before {
+        width: calc(100% - 2rem);
+        height: calc(50% - 1rem);
+        top: 1rem;
+        left: 1rem;
+        transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+      }
+      
+      &.volunteer-active::before {
+        transform: translateY(100%);
+      }
+    }
+    
+    .tab-button-wrapper .tab-button {
+      padding: 1.4rem 2rem;
+      font-size: 1.5rem;
     }
 
     .timeline__card {
@@ -513,24 +603,26 @@ function ExperienceSection() {
           </div>
         </div>
 
-        <div className="experience__tabs">
-          <div className={`tab-button-wrapper ${activeTab === 'professional' ? 'active' : ''}`}>
-            <Button 
-              btnText="Professional"
+        <div className={`experience__tabs ${activeTab === 'volunteer' ? 'volunteer-active' : ''}`}>
+          <div className="tab-button-wrapper">
+            <button 
+              className={`tab-button ${activeTab === 'professional' ? 'active' : ''}`}
               onClick={() => setActiveTab('professional')}
-              variant={activeTab === 'professional' ? 'primary' : 'glass'}
-              fullWidth
-            />
+            >
+              <span className="tab-icon"><MdWork /></span>
+              <span className="tab-text">Professional</span>
+            </button>
           </div>
-          <div className={`tab-button-wrapper ${activeTab === 'volunteer' ? 'active' : ''}`}>
-            <Button 
-              btnText="Volunteer"
+          <div className="tab-button-wrapper">
+            <button 
+              className={`tab-button ${activeTab === 'volunteer' ? 'active' : ''}`}
               onClick={() => setActiveTab('volunteer')}
-              variant={activeTab === 'volunteer' ? 'primary' : 'glass'}
-              icon={<MdVolunteerActivism />}
-              fullWidth
-            />
+            >
+              <span className="tab-icon"><MdVolunteerActivism /></span>
+              <span className="tab-text">Volunteer</span>
+            </button>
           </div>
+          <div className={`tab-indicator ${activeTab === 'volunteer' ? 'volunteer-active' : ''}`}></div>
         </div>
 
         <div className="timeline__container">
