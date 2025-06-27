@@ -4,6 +4,7 @@ import SectionTitle from "../ui/SectionTitle";
 import ContactSection from "./ContactSection";
 import { MdWork, MdRocket, MdWavingHand, MdEmail, MdPhone, MdChat } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
+import Button from '../ui/Button';
 
 const ContactHeroSectionStyles = styled.section`
   padding: 10rem 0 6rem 0;
@@ -22,27 +23,51 @@ const ContactHeroSectionStyles = styled.section`
   }
 
   .cta__card {
-    background: var(--primary-bg);
-    padding: 3rem 2rem;
-    border-radius: 16px;
+    background: var(--secondary-bg);
     border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 3rem;
     text-align: center;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
     &:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
-      border-color: var(--border-hover);
+      border-color: var(--accent-color);
+
+      &::before {
+        opacity: 1;
+      }
     }
 
     .cta__icon {
-      font-size: 3.5rem;
-      margin-bottom: 1.5rem;
-      color: var(--accent-color);
-      
+      width: 6rem;
+      height: 6rem;
+      background: linear-gradient(135deg, var(--accent-color), #3B82F6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem auto;
+      color: white;
+
       svg {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 2.8rem;
+        height: 2.8rem;
       }
     }
 
@@ -60,40 +85,9 @@ const ContactHeroSectionStyles = styled.section`
       margin-bottom: 2rem;
     }
 
-    .cta__button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 1rem 2rem;
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.4rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.3s ease;
-
-      svg {
-        width: 1.6rem;
-        height: 1.6rem;
-      }
-
-      &:hover {
-        background: var(--accent-hover);
-        transform: translateY(-1px);
-      }
-
-      &.secondary {
-        background: transparent;
-        color: var(--accent-color);
-        border: 1px solid var(--accent-color);
-
-        &:hover {
-          background: var(--accent-color);
-          color: white;
-        }
-      }
+    .cta__button-wrapper {
+      display: flex;
+      justify-content: center;
     }
   }
 
@@ -196,9 +190,13 @@ function ContactHeroSection() {
             <p className="cta__desc">
               Looking for a software engineer? Let's discuss how I can contribute to your team's success.
             </p>
-            <a href="mailto:omkargaikwad9552@gmail.com?subject=Job Opportunity - Full Time Role" className="cta__button">
-              <MdEmail /> Discuss Role
-            </a>
+            <div className="cta__button-wrapper">
+              <Button
+                icon={<MdEmail />}
+                btnText="Discuss Role"
+                btnLink="mailto:omkargaikwad9552@gmail.com?subject=Job Opportunity - Full Time Role"
+              />
+            </div>
           </div>
 
           <div className="cta__card">
@@ -209,9 +207,14 @@ function ContactHeroSection() {
             <p className="cta__desc">
               Have a freelance project or consulting opportunity? Let's explore how we can build something amazing together.
             </p>
-            <a href="tel:+919579714193" className="cta__button secondary">
-              <MdPhone /> Quick Call
-            </a>
+            <div className="cta__button-wrapper">
+              <Button
+                icon={<MdPhone />}
+                btnText="Quick Call"
+                btnLink="tel:+919579714193"
+                variant="secondary"
+              />
+            </div>
           </div>
 
           <div className="cta__card">
@@ -222,9 +225,14 @@ function ContactHeroSection() {
             <p className="cta__desc">
               Want to connect professionally, discuss tech, or seeking mentorship? I love meeting fellow developers!
             </p>
-            <a href="https://www.linkedin.com/in/omkargaikwad23/" target="_blank" rel="noreferrer" className="cta__button secondary">
-              <FaLinkedin /> Connect on LinkedIn
-            </a>
+            <div className="cta__button-wrapper">
+              <Button
+                icon={<FaLinkedin />}
+                btnText="Connect on LinkedIn"
+                btnLink="https://www.linkedin.com/in/omkargaikwad23/"
+                variant="secondary"
+              />
+            </div>
           </div>
         </div>
 

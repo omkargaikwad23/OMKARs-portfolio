@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import SectionTitle from '../ui/SectionTitle';
+import Button from '../ui/Button';
+import { MdEmail, MdCalendarToday } from 'react-icons/md';
 
 const ContactSectionStyle = styled.div`
   padding: 8rem 0;
@@ -63,55 +65,7 @@ const ContactSectionStyle = styled.div`
     z-index: 1;
   }
 
-  .contact__primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.6rem 3.2rem;
-    background: var(--accent-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 12px;
-    font-size: 1.8rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-md);
 
-    &:hover {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .icon {
-      font-size: 2rem;
-    }
-  }
-
-  .contact__secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 1.2rem 2.4rem;
-    background: transparent;
-    color: var(--accent-color);
-    border: 2px solid var(--accent-color);
-    text-decoration: none;
-    border-radius: 12px;
-    font-size: 1.6rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background: var(--accent-color);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .icon {
-      font-size: 1.8rem;
-    }
-  }
 
   .contact__note {
     margin-top: 3rem;
@@ -150,15 +104,7 @@ const ContactSectionStyle = styled.div`
       margin-bottom: 3rem;
     }
 
-    .contact__primary {
-      padding: 1.4rem 2.8rem;
-      font-size: 1.6rem;
-    }
 
-    .contact__secondary {
-      padding: 1rem 2rem;
-      font-size: 1.4rem;
-    }
   }
 
   @media only screen and (max-width: 480px) {
@@ -168,12 +114,7 @@ const ContactSectionStyle = styled.div`
 
     .contact__actions {
       width: 100%;
-    }
-
-    .contact__primary,
-    .contact__secondary {
-      width: 100%;
-      justify-content: center;
+      gap: 1rem;
     }
   }
 `;
@@ -198,23 +139,21 @@ export default function ContactSection() {
             </p>
             
             <div className="contact__actions">
-              <a 
-                href="mailto:omkargaikwad9552@gmail.com?subject=Project Discussion - Let's Talk" 
-                className="contact__primary"
-              >
-                <span className="icon">💬</span>
-                Start a Discussion
-              </a>
+              <Button
+                btnText="Start a Discussion"
+                btnLink="mailto:omkargaikwad9552@gmail.com?subject=Project Discussion - Let's Talk"
+                icon={<MdEmail />}
+                size="large"
+                floating
+              />
               
-              <a 
-                href="https://calendly.com/omkargaikwad23" 
-                className="contact__secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">📅</span>
-                Schedule a Meeting
-              </a>
+              <Button
+                btnText="Schedule a Meeting"
+                btnLink="https://calendly.com/omkargaikwad23"
+                icon={<MdCalendarToday />}
+                variant="secondary"
+                size="large"
+              />
             </div>
 
             <div className="contact__note">

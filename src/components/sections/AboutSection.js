@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import SectionTitle from "../ui/SectionTitle";
 import { MdPersonPin, MdMovie, MdSportsHandball, MdBook, MdNature, MdDownload } from "react-icons/md";
+import Button from '../ui/Button';
 
 const AboutSectionStyles = styled.section`
   padding: 10rem 0;
@@ -84,32 +85,8 @@ const AboutSectionStyles = styled.section`
   .cv__section {
     margin-top: 3rem;
     text-align: center;
-  }
-
-  .cv__button {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.2rem 2.4rem;
-    background: var(--accent-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 12px;
-    font-size: 1.6rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
-
-    &:hover {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .cv__icon {
-      width: 1.8rem;
-      height: 1.8rem;
-    }
+    display: flex;
+    justify-content: center;
   }
 
   @media only screen and (max-width: 768px) {
@@ -197,15 +174,13 @@ function AboutSection() {
             </div>
             
             <div className="cv__section">
-              <a
-                className="cv__button"
-                target="_blank"
-                href="https://drive.google.com/file/d/177GtuT6KOqd25sWr5WZBu32YFm9mat9x/view?usp=sharing"
-                rel="noreferrer"
-              >
-                <MdDownload className="cv__icon" />
-                Download Resume
-              </a>
+              <Button
+                btnText="Download Resume"
+                btnLink="https://drive.google.com/file/d/177GtuT6KOqd25sWr5WZBu32YFm9mat9x/view?usp=sharing"
+                icon={<MdDownload />}
+                size="large"
+                variant="success"
+              />
             </div>
           </div>
         </div>

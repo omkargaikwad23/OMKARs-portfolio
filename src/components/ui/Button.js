@@ -13,9 +13,9 @@ const ButtonStyle = styled.div`
     font-size: 1.6rem;
     font-weight: 600;
     padding: 1.2rem 2.4rem;
-    border-radius: 8px;
+    border-radius: 12px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -24,41 +24,70 @@ const ButtonStyle = styled.div`
     min-width: 120px;
     text-align: center;
     border: none;
+    transform-origin: center;
+    backdrop-filter: blur(10px);
     
-    /* Primary Button Styles */
+    /* Primary Button Styles - Enhanced with gradients */
     background: ${(props) =>
-      props.outline ? 'transparent' : 'var(--accent-color)'};
+      props.outline 
+        ? 'rgba(255, 255, 255, 0.1)' 
+        : 'linear-gradient(135deg, var(--accent-color), #3B82F6, #6366F1)'};
     color: ${(props) => 
       props.outline ? 'var(--accent-color)' : 'white'};
-    border: 2px solid var(--accent-color);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    box-shadow: ${(props) =>
+      props.outline 
+        ? '0 4px 15px -3px rgba(37, 99, 235, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)' 
+        : '0 8px 25px -8px rgba(37, 99, 235, 0.4), 0 4px 12px -4px rgba(37, 99, 235, 0.3)'};
     
-    /* Hover Effects */
+    /* Outline specific styles */
+    ${(props) => props.outline && `
+      border: 2px solid var(--accent-color);
+      background: rgba(37, 99, 235, 0.05);
+      backdrop-filter: blur(10px);
+    `}
+    
+    /* Enhanced Hover Effects */
     &:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px) scale(1.02);
       box-shadow: ${(props) =>
         props.outline 
-          ? 'var(--shadow-md)' 
-          : '0 8px 25px -8px rgba(37, 99, 235, 0.5)'};
+          ? '0 12px 35px -8px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)' 
+          : '0 15px 40px -10px rgba(37, 99, 235, 0.6), 0 8px 20px -8px rgba(37, 99, 235, 0.4)'};
       background: ${(props) =>
         props.outline 
-          ? 'var(--accent-color)' 
-          : 'var(--accent-hover)'};
+          ? 'linear-gradient(135deg, var(--accent-color), #3B82F6)' 
+          : 'linear-gradient(135deg, var(--accent-hover), #4F46E5, #7C3AED)'};
       color: white;
+      
+      &::before {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      
+      &::after {
+        opacity: 0.8;
+        transform: rotate(180deg);
+      }
     }
     
-    /* Active State */
+    /* Active State with spring animation */
     &:active {
-      transform: translateY(0);
-      transition: transform 0.1s ease;
+      transform: translateY(-1px) scale(0.98);
+      transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
-    /* Focus State for Accessibility */
+    /* Enhanced Focus State for Accessibility */
     &:focus {
-      outline: 2px solid var(--accent-color);
-      outline-offset: 2px;
+      outline: none;
+      box-shadow: ${(props) =>
+        props.outline 
+          ? '0 12px 35px -8px rgba(37, 99, 235, 0.4), 0 0 0 3px rgba(37, 99, 235, 0.3)' 
+          : '0 15px 40px -10px rgba(37, 99, 235, 0.6), 0 0 0 3px rgba(37, 99, 235, 0.3)'};
     }
     
-    /* Ripple Effect */
+    /* Enhanced Ripple Effect */
     &::before {
       content: '';
       position: absolute;
@@ -67,55 +96,140 @@ const ButtonStyle = styled.div`
       width: 0;
       height: 0;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      transform: translate(-50%, -50%);
-      transition: width 0.3s ease, height 0.3s ease;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+      transform: translate(-50%, -50%) scale(0);
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      opacity: 0;
+      z-index: 1;
     }
     
-    &:hover::before {
-      width: 100%;
-      height: 100%;
+    /* Shimmer Effect */
+    &::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 70%
+      );
+      transform: rotate(45deg);
+      transition: transform 0.6s ease;
+      opacity: 0;
+      z-index: 1;
     }
     
-    /* Icon Support */
+    /* Hover Shimmer Animation */
+    &:hover::after {
+      animation: shimmer 1.5s ease-in-out;
+    }
+    
+    /* Text and Icon Container */
+    .button-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    /* Icon Support with enhanced animations */
     .button-icon {
       width: 1.8rem;
       height: 1.8rem;
-      transition: transform 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     &:hover .button-icon {
-      transform: translateX(2px);
+      transform: translateX(3px) rotate(5deg) scale(1.1);
     }
   }
   
   /* Secondary Button Variant */
   &.secondary .button {
-    background: var(--border-color);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8));
     color: var(--text-primary);
-    border-color: var(--border-color);
+    border: 2px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6);
     
     &:hover {
-      background: var(--border-hover);
-      border-color: var(--border-hover);
-      color: var(--text-primary);
-      box-shadow: var(--shadow-md);
+      background: linear-gradient(135deg, var(--secondary-bg), rgba(243, 244, 246, 0.9));
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      box-shadow: 0 12px 35px -8px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+  }
+  
+  /* Success Button Variant */
+  &.success .button {
+    background: linear-gradient(135deg, var(--success-color), #059669, #047857);
+    color: white;
+    box-shadow: 0 8px 25px -8px rgba(16, 185, 129, 0.4), 0 4px 12px -4px rgba(16, 185, 129, 0.3);
+    
+    &:hover {
+      background: linear-gradient(135deg, #059669, #047857, #065f46);
+      box-shadow: 0 15px 40px -10px rgba(16, 185, 129, 0.6), 0 8px 20px -8px rgba(16, 185, 129, 0.4);
+    }
+  }
+  
+  /* Danger Button Variant */
+  &.danger .button {
+    background: linear-gradient(135deg, #EF4444, #DC2626, #B91C1C);
+    color: white;
+    box-shadow: 0 8px 25px -8px rgba(239, 68, 68, 0.4), 0 4px 12px -4px rgba(239, 68, 68, 0.3);
+    
+    &:hover {
+      background: linear-gradient(135deg, #DC2626, #B91C1C, #991B1B);
+      box-shadow: 0 15px 40px -10px rgba(239, 68, 68, 0.6), 0 8px 20px -8px rgba(239, 68, 68, 0.4);
+    }
+  }
+  
+  /* Glass Button Variant */
+  &.glass .button {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4);
     }
   }
   
   /* Large Button Size */
   &.large .button {
     font-size: 1.8rem;
-    padding: 1.5rem 3rem;
-    border-radius: 10px;
+    padding: 1.6rem 3.2rem;
+    border-radius: 16px;
+    
+    .button-icon {
+      width: 2rem;
+      height: 2rem;
+    }
   }
   
   /* Small Button Size */
   &.small .button {
     font-size: 1.4rem;
     padding: 0.8rem 1.6rem;
-    border-radius: 6px;
+    border-radius: 8px;
     min-width: 80px;
+    
+    .button-icon {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
   }
   
   /* Full Width Button */
@@ -126,9 +240,10 @@ const ButtonStyle = styled.div`
   
   /* Disabled State */
   &.disabled .button {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
+    filter: grayscale(50%);
     
     &:hover {
       transform: none;
@@ -136,53 +251,101 @@ const ButtonStyle = styled.div`
     }
   }
   
-  /* Loading State */
+  /* Enhanced Loading State */
   &.loading .button {
     color: transparent;
     position: relative;
+    cursor: wait;
     
-    &::after {
+    &::before {
       content: '';
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 16px;
-      height: 16px;
-      margin: -8px 0 0 -8px;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
       border: 2px solid transparent;
       border-top-color: currentColor;
       border-radius: 50%;
       animation: spin 1s linear infinite;
+      opacity: 0.8;
+    }
+    
+    .button-content {
+      opacity: 0;
     }
   }
   
+  /* Keyframe Animations */
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes shimmer {
+    0% { transform: rotate(45deg) translateX(-200%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: rotate(45deg) translateX(200%); opacity: 0; }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 8px 25px -8px rgba(37, 99, 235, 0.4); }
+    50% { box-shadow: 0 8px 25px -8px rgba(37, 99, 235, 0.8); }
+  }
+  
+  /* Floating Animation for CTA buttons */
+  &.floating .button {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
   }
   
   /* Mobile Responsive */
   @media only screen and (max-width: 768px) {
     .button {
       font-size: 1.5rem;
-      padding: 1.1rem 2rem;
+      padding: 1.2rem 2.2rem;
+      
+      &:hover {
+        transform: translateY(-2px) scale(1.01);
+      }
     }
     
     &.large .button {
-      font-size: 1.6rem;
-      padding: 1.3rem 2.5rem;
+      font-size: 1.7rem;
+      padding: 1.4rem 2.8rem;
     }
     
     &.small .button {
       font-size: 1.3rem;
-      padding: 0.7rem 1.4rem;
+      padding: 0.8rem 1.4rem;
     }
   }
   
   @media only screen and (max-width: 480px) {
     .button {
       font-size: 1.4rem;
-      padding: 1rem 1.8rem;
+      padding: 1.1rem 2rem;
+    }
+  }
+  
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .button {
+      transition: none;
+      animation: none;
+      
+      &:hover {
+        transform: none;
+      }
+      
+      &::before, &::after {
+        display: none;
+      }
     }
   }
 `;
@@ -196,70 +359,66 @@ export default function Button({
   fullWidth = false,
   disabled = false,
   loading = false,
+  floating = false,
   icon = null,
   onClick = null,
-  className = '',
   ...props
 }) {
-  const buttonClasses = `
-    ${variant === 'secondary' ? 'secondary' : ''}
-    ${size === 'large' ? 'large' : ''}
-    ${size === 'small' ? 'small' : ''}
-    ${fullWidth ? 'full-width' : ''}
-    ${disabled ? 'disabled' : ''}
-    ${loading ? 'loading' : ''}
-    ${className}
-  `.trim();
-
   const handleClick = (e) => {
     if (disabled || loading) {
       e.preventDefault();
       return;
     }
     
-    // Handle smooth scrolling for internal section links
-    if (btnLink.startsWith('/')) {
-      e.preventDefault();
-      const sectionId = btnLink.substring(1); // Remove the '/' prefix
-      scrollToSection(sectionId);
-    }
-    
     if (onClick) {
       onClick(e);
+    } else if (btnLink.startsWith('#')) {
+      e.preventDefault();
+      scrollToSection(btnLink.substring(1));
     }
   };
 
-  // Check if it's an external link
-  const isExternalLink = btnLink.startsWith('http') || btnLink.startsWith('mailto:') || btnLink.startsWith('tel:');
-  
+  const buttonClasses = `
+    ${variant} 
+    ${size} 
+    ${outline ? 'outline' : ''} 
+    ${fullWidth ? 'full-width' : ''} 
+    ${disabled ? 'disabled' : ''} 
+    ${loading ? 'loading' : ''} 
+    ${floating ? 'floating' : ''}
+  `.trim();
+
+  const buttonContent = (
+    <span className="button-content">
+      {btnText}
+      {icon && <span className="button-icon">{icon}</span>}
+    </span>
+  );
+
   return (
-    <ButtonStyle 
-      outline={outline} 
+    <ButtonStyle
+      outline={outline}
       className={`button-wrapper ${buttonClasses}`}
+      {...props}
     >
-      {isExternalLink ? (
-        <a 
-          className="button" 
+      {btnLink && !onClick ? (
+        <a
           href={btnLink}
+          className="button"
           onClick={handleClick}
-          aria-disabled={disabled || loading}
-          target={btnLink.startsWith('http') ? '_blank' : undefined}
-          rel={btnLink.startsWith('http') ? 'noopener noreferrer' : undefined}
-          {...props}
+          aria-disabled={disabled}
+          tabIndex={disabled ? -1 : 0}
         >
-          {icon && <span className="button-icon">{icon}</span>}
-          {btnText}
+          {buttonContent}
         </a>
       ) : (
-        <button 
-          className="button" 
+        <button
+          className="button"
           onClick={handleClick}
-          aria-disabled={disabled || loading}
           disabled={disabled || loading}
-          {...props}
+          aria-label={loading ? 'Loading...' : btnText}
         >
-          {icon && <span className="button-icon">{icon}</span>}
-          {btnText}
+          {buttonContent}
         </button>
       )}
     </ButtonStyle>

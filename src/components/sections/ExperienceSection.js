@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import SectionTitle from "../ui/SectionTitle";
 import { ExperienceData, VolunteersData } from "../../assets/data/staticDisplayData";
-import { MdWork, MdLocationOn, MdSchedule, MdExpandMore, MdExpandLess } from "react-icons/md";
+import { MdWork, MdLocationOn, MdSchedule, MdExpandMore, MdExpandLess, MdVolunteerActivism } from "react-icons/md";
+import Button from '../ui/Button';
 
 const ExperienceSectionStyles = styled.section`
   padding: 10rem 0;
@@ -41,39 +42,47 @@ const ExperienceSectionStyles = styled.section`
 
   .experience__tabs {
     display: flex;
-    justify-content: center;
-    margin: 4rem 0 3rem 0;
-    background: var(--primary-bg);
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
     padding: 0.5rem;
-    border: 1px solid var(--border-color);
+    gap: 0.5rem;
+    margin: 4rem 0 6rem 0;
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .tab__button {
+  .tab-button-wrapper {
     flex: 1;
-    padding: 1rem 2rem;
-    background: transparent;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-
-    &.active {
+    
+    .button-wrapper {
+      width: 100%;
+      
+      .button {
+        width: 100%;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--text-secondary);
+        border: none;
+        box-shadow: none;
+        
+        &:hover {
+          background: rgba(37, 99, 235, 0.08);
+          color: var(--accent-color);
+          transform: none;
+        }
+      }
+    }
+    
+    &.active .button-wrapper .button {
       background: var(--accent-color);
       color: white;
       box-shadow: var(--shadow-sm);
-    }
-
-    &:hover:not(.active) {
-      background: rgba(37, 99, 235, 0.08);
-      color: var(--accent-color);
     }
   }
 
@@ -391,6 +400,7 @@ const ExperienceSectionStyles = styled.section`
     .experience__tabs {
       flex-direction: column;
       gap: 0.5rem;
+      max-width: 100%;
     }
 
     .timeline__card {
@@ -504,18 +514,23 @@ function ExperienceSection() {
         </div>
 
         <div className="experience__tabs">
-          <button 
-            className={`tab__button ${activeTab === 'professional' ? 'active' : ''}`}
-            onClick={() => setActiveTab('professional')}
-          >
-            Professional
-          </button>
-          <button 
-            className={`tab__button ${activeTab === 'volunteer' ? 'active' : ''}`}
-            onClick={() => setActiveTab('volunteer')}
-          >
-            Volunteer
-          </button>
+          <div className={`tab-button-wrapper ${activeTab === 'professional' ? 'active' : ''}`}>
+            <Button 
+              btnText="Professional"
+              onClick={() => setActiveTab('professional')}
+              variant={activeTab === 'professional' ? 'primary' : 'glass'}
+              fullWidth
+            />
+          </div>
+          <div className={`tab-button-wrapper ${activeTab === 'volunteer' ? 'active' : ''}`}>
+            <Button 
+              btnText="Volunteer"
+              onClick={() => setActiveTab('volunteer')}
+              variant={activeTab === 'volunteer' ? 'primary' : 'glass'}
+              icon={<MdVolunteerActivism />}
+              fullWidth
+            />
+          </div>
         </div>
 
         <div className="timeline__container">

@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import ContactSection from '../components/sections/ContactSection';
 import SectionTitle from '../components/ui/SectionTitle';
+import Button from '../components/ui/Button';
+import { MdEmail, MdPhone, MdChat } from 'react-icons/md';
 
 const ContactPageStyles = styled.div`
   min-height: 100vh;
@@ -22,21 +24,40 @@ const ContactPageStyles = styled.div`
 
   .cta__card {
     background: var(--secondary-bg);
-    padding: 3rem 2rem;
-    border-radius: 16px;
     border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 3rem;
     text-align: center;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
     &:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
-      border-color: var(--border-hover);
+      border-color: var(--accent-color);
+
+      &::before {
+        opacity: 1;
+      }
     }
 
     .cta__icon {
       font-size: 3.5rem;
       margin-bottom: 1.5rem;
+      color: var(--accent-color);
     }
 
     .cta__title {
@@ -53,35 +74,9 @@ const ContactPageStyles = styled.div`
       margin-bottom: 2rem;
     }
 
-    .cta__button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 1rem 2rem;
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.4rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background: var(--accent-hover);
-        transform: translateY(-1px);
-      }
-
-      &.secondary {
-        background: transparent;
-        color: var(--accent-color);
-        border: 1px solid var(--accent-color);
-
-        &:hover {
-          background: var(--accent-color);
-          color: white;
-        }
-      }
+    .cta__button-wrapper {
+      display: flex;
+      justify-content: center;
     }
   }
 
@@ -184,9 +179,13 @@ function Contact() {
             <p className="cta__desc">
               Looking for a software engineer? Let's discuss how I can contribute to your team's success.
             </p>
-            <a href="mailto:omkargaikwad9552@gmail.com?subject=Job Opportunity" className="cta__button">
-              Send Email 📧
-            </a>
+            <div className="cta__button-wrapper">
+              <Button
+                icon={<MdEmail />}
+                btnText="Send Email"
+                btnLink="mailto:omkargaikwad9552@gmail.com?subject=Job Opportunity"
+              />
+            </div>
           </div>
 
           <div className="cta__card">
@@ -195,9 +194,14 @@ function Contact() {
             <p className="cta__desc">
               Have an interesting project? Let's explore how we can build something amazing together.
             </p>
-            <a href="tel:+919579714193" className="cta__button secondary">
-              Call Me 📞
-            </a>
+            <div className="cta__button-wrapper">
+              <Button
+                icon={<MdPhone />}
+                btnText="Call Me"
+                btnLink="tel:+919579714193"
+                variant="secondary"
+              />
+            </div>
           </div>
 
           <div className="cta__card">
@@ -206,9 +210,14 @@ function Contact() {
             <p className="cta__desc">
               Questions about my work, want to connect, or just say hello? Use the form below!
             </p>
-            <a href="#contact-form" className="cta__button secondary">
-              Message Me 💬
-            </a>
+            <div className="cta__button-wrapper">
+              <Button
+                icon={<MdChat />}
+                btnText="Message Me"
+                btnLink="#contact-form"
+                variant="secondary"
+              />
+            </div>
           </div>
         </div>
 

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import SectionTitle from "../ui/SectionTitle";
 import ProjectItem from "../cards/ProjectItem";
 import ProjectsInfo from "../../assets/data/projects";
+import Button from "../ui/Button";
 import { MdRocket } from "react-icons/md";
 
 const ProjectsSectionStyles = styled.section`
@@ -19,51 +20,10 @@ const ProjectsSectionStyles = styled.section`
   .projects__viewAll {
     text-align: center;
     margin-top: 4rem;
-  }
-
-  .viewAll__button {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.4rem 3rem;
-    background: transparent;
-    color: var(--accent-color);
-    border: 2px solid var(--accent-color);
-    border-radius: 12px;
-    font-size: 1.6rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-
-    &:hover {
-      background: var(--accent-color);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    &.secondary {
-      background: var(--accent-color);
-      color: white;
-
-      &:hover {
-        background: var(--accent-hover);
-      }
-    }
-
-    .arrow {
-      font-size: 1.8rem;
-      transition: transform 0.3s ease;
-    }
-
-    &:hover .arrow {
-      transform: translateX(3px);
-    }
-
-    &.secondary:hover .arrow {
-      transform: translateX(-3px);
-    }
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
   }
 
   @media only screen and (max-width: 768px) {
@@ -74,17 +34,17 @@ const ProjectsSectionStyles = styled.section`
       gap: 3rem;
       margin: 4rem 0 3rem 0;
     }
-
-    .viewAll__button {
-      padding: 1.2rem 2.4rem;
-      font-size: 1.5rem;
-    }
   }
 
   @media only screen and (max-width: 480px) {
     .projects__allItems {
       grid-template-columns: 1fr;
       gap: 2.5rem;
+    }
+
+    .projects__viewAll {
+      flex-direction: column;
+      align-items: center;
     }
   }
 `;
@@ -126,29 +86,25 @@ function ProjectsSection() {
           ))}
         </div>
         
-        {!showAllProjects && (
-          <div className="projects__viewAll">
-            <button 
-              className="viewAll__button"
+        <div className="projects__viewAll">
+          {!showAllProjects ? (
+            <Button
+              btnText={`View All Projects (${ProjectsInfo.length})`}
               onClick={() => setShowAllProjects(true)}
-            >
-              View All Projects ({ProjectsInfo.length})
-              <span className="arrow">→</span>
-            </button>
-          </div>
-        )}
-        
-        {showAllProjects && (
-          <div className="projects__viewAll">
-            <button 
-              className="viewAll__button secondary"
+              icon={<span>→</span>}
+              size="large"
+              floating
+            />
+          ) : (
+            <Button
+              btnText="Show Featured Only"
               onClick={() => setShowAllProjects(false)}
-            >
-              Show Featured Only
-              <span className="arrow">←</span>
-            </button>
-          </div>
-        )}
+              icon={<span>←</span>}
+              variant="secondary"
+              size="large"
+            />
+          )}
+        </div>
       </div>
     </ProjectsSectionStyles>
   );
