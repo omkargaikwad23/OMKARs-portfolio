@@ -1,9 +1,98 @@
-@import "~antd/dist/antd.less";
 * {
-  scroll-behavior: smooth;
+  /* Remove this to let Lenis handle smooth scrolling */
+  /* scroll-behavior: smooth; */
 }
 
 .App {
-  text-align: center;
   overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom cursor styles - hide default cursor on desktop */
+@media (min-width: 769px) {
+  /* macOS and cross-platform cursor hiding */
+  * {
+    cursor: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'), none !important;
+  }
+  
+  *::before,
+  *::after {
+    cursor: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'), none !important;
+  }
+  
+  html {
+    cursor: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'), none !important;
+  }
+  
+  body {
+    cursor: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'), none !important;
+  }
+  
+  body.cursor-none {
+    cursor: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'), none !important;
+  }
+  
+  /* Hide cursor on all interactive elements - macOS compatible */
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  div,
+  span,
+  p,
+  h1, h2, h3, h4, h5, h6,
+  [role="button"],
+  [onclick],
+  [data-testid],
+  .nav-items,
+  .timeline__card,
+  .cta__card,
+  .project__item,
+  .card__container,
+  .cta__button,
+  .cv__button,
+  .hero__actions,
+  .tab__button,
+  .logo,
+  .skill__tag,
+  .stat__item,
+  .interest__item {
+    cursor: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'), none !important;
+  }
+  
+  /* Override any framework or library cursor styles */
+  [style*="cursor"] {
+    cursor: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'), none !important;
+  }
+  
+  /* Additional macOS Safari fix */
+  body:not(.no-custom-cursor) {
+    cursor: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'), none !important;
+  }
+}
+
+/* Show default cursor on mobile/tablet */
+@media (max-width: 768px) {
+  *,
+  *::before,
+  *::after {
+    cursor: auto !important;
+  }
+}
+
+/* Add scroll-driven effects using CSS custom properties */
+:root {
+  --scroll-progress: 0;
+  --scroll-velocity: 0;
+}
+
+/* Optional: Add subtle parallax effects */
+.parallax-slow {
+  transform: translateY(calc(var(--scroll-progress) * -50px));
+}
+
+.parallax-fast {
+  transform: translateY(calc(var(--scroll-progress) * -100px));
 }

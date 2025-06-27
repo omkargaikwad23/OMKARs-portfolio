@@ -2,8 +2,8 @@ import React from 'react';
 import { MdCode } from 'react-icons/md';
 import {FaGraduationCap} from 'react-icons/fa';
 import styled from 'styled-components';
-import SectionTitle from './SectionTitle';
-import ServicesSectionItem from './DosItem';
+import SectionTitle from '../ui/SectionTitle';
+import ServicesSectionItem from '../cards/DosItem';
 import {VscGraphLine} from "react-icons/vsc";
 
 const ServicesItemsStyles = styled.div`

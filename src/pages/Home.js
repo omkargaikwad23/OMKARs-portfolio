@@ -1,13 +1,38 @@
 import React from "react";
-import DosSection from "../components/DosSection";
-import HeroSection from "../components/HeroSection";
+import styled from "styled-components";
+import HeroSection from "../components/sections/HeroSection";
+import DosSection from "../components/sections/DosSection";
+import AboutSection from "../components/sections/AboutSection";
+import ExperienceSection from "../components/sections/ExperienceSection";
+import ProjectsSection from "../components/sections/ProjectsSection";
+import ContactHeroSection from "../components/sections/ContactHeroSection";
+
+const HomeStyles = styled.div`
+  min-height: 100vh;
+  background: var(--primary-bg);
+`;
 
 function Home() {
   return (
-    <div>
-      <HeroSection/>
-      <DosSection/>
-    </div>
+    <HomeStyles>
+      {/* Hero Section */}
+      <section id="home">
+        <HeroSection />
+        <DosSection />
+      </section>
+
+      {/* About Section */}
+      <AboutSection />
+
+      {/* Experience Section */}
+      <ExperienceSection />
+
+      {/* Projects Section */}
+      <ProjectsSection />
+
+      {/* Contact Section */}
+      <ContactHeroSection />
+    </HomeStyles>
   );
 }
 

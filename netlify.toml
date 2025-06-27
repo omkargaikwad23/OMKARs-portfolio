@@ -1,0 +1,32 @@
+[build]
+  # Directory to change to before starting a build
+  base = "."
+  
+  # Directory that contains the deploy-ready HTML files and assets
+  publish = "build"
+  
+  # Default build command
+  command = "npm run build"
+
+[build.environment]
+  # Set Node.js version to 18.x (LTS)
+  NODE_VERSION = "18"
+  
+  # Optimize for production
+  NODE_ENV = "production"
+  
+  # Enable build optimizations
+  GENERATE_SOURCEMAP = "false"
+  
+  # Don't treat warnings as errors in CI
+  CI = "false"
+
+# SPA redirect for React Router
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Optional: Configure functions if you add serverless functions later
+[functions]
+  node_bundler = "esbuild" 

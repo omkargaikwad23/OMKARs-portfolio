@@ -1,50 +1,43 @@
 import React, {useEffect} from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Projects from "./pages/Projects";
-import Experience from "./pages/Experience";
-import Contact from "./pages/Contact";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import ScrollToTop from "./components/ScrollToTop";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+import ScrollToTop from "./components/layout/ScrollToTop";
+import ScrollProgress from "./components/layout/ScrollProgress";
+import CustomCursor from "./components/ui/CustomCursor";
+import { useSmoothScroll } from "./hooks/useSmoothScroll";
 import Aos from 'aos';
 import "./Style.less";
 import 'aos/dist/aos.css';
 
-
-//auto import alt + space
 function App() {
+  // Initialize smooth scroll
+  useSmoothScroll();
+
   useEffect(() => {
-    Aos.init();
+    // Initialize AOS with optimized settings for smooth scroll
+    Aos.init({
+      duration: 800,           // Animation duration
+      easing: 'ease-out-cubic', // Smoother easing
+      once: true,              // Animate only once
+      mirror: false,           // Don't animate on scroll up
+      offset: 120,             // Trigger animations earlier
+      delay: 50,               // Slight delay for better performance
+    });
+    
+    // Refresh AOS on route changes or dynamic content
     Aos.refresh();
   }, [])
   
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Navbar />
-        <ScrollToTop />
-        <Switch>
-          <Route exact path="/">
-            <Home/>
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/experience">
-            <Experience />
-          </Route>
-          <Route path="/projects">
-            <Projects />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-        </Switch>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <CustomCursor />
+      <ScrollProgress />
+      <Navbar />
+      <ScrollToTop />
+      <Home />
+      <Footer />
+    </div>
   );
 }
 
