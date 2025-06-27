@@ -230,7 +230,7 @@ function ContactHeroSection() {
                 icon={<FaLinkedin />}
                 btnText="Connect on LinkedIn"
                 btnLink="https://www.linkedin.com/in/omkargaikwad23/"
-                variant="secondary"
+                variant="tertiary"
               />
             </div>
           </div>

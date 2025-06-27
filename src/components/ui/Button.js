@@ -34,7 +34,8 @@ const ButtonStyle = styled.div`
         : 'var(--gradient-primary)'};
     color: ${(props) => 
       props.outline ? 'var(--accent-color)' : 'white'};
-    border: 2px solid transparent;
+    border: ${(props) => 
+      props.outline ? '2px solid var(--accent-color)' : 'none'};
     background-clip: padding-box;
     box-shadow: ${(props) =>
       props.outline 
@@ -43,7 +44,6 @@ const ButtonStyle = styled.div`
     
     /* Outline specific styles */
     ${(props) => props.outline && `
-      border: 2px solid var(--accent-color);
       backdrop-filter: var(--glass-backdrop);
     `}
     
@@ -80,10 +80,6 @@ const ButtonStyle = styled.div`
     /* Enhanced Focus State for Accessibility */
     &:focus {
       outline: none;
-      box-shadow: ${(props) =>
-        props.outline 
-          ? 'var(--shadow-lg), 0 0 0 3px rgba(79, 195, 247, 0.4)' 
-          : 'var(--shadow-xl), 0 0 0 3px rgba(79, 195, 247, 0.4)'};
     }
     
     /* Enhanced Ripple Effect */
@@ -151,19 +147,20 @@ const ButtonStyle = styled.div`
     }
   }
   
-  /* Secondary Button Variant */
+  /* Secondary Button Variant - Stellar Theme */
   &.secondary .button {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8));
+    background: var(--glass-bg);
     color: var(--text-primary);
     border: 2px solid var(--border-color);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    backdrop-filter: var(--glass-backdrop);
+    box-shadow: var(--shadow-md);
     
     &:hover {
-      background: linear-gradient(135deg, var(--secondary-bg), rgba(243, 244, 246, 0.9));
+      background: var(--secondary-bg);
       border-color: var(--accent-color);
       color: var(--accent-color);
-      box-shadow: 0 12px 35px -8px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      box-shadow: var(--shadow-lg), var(--glow-stellar);
+      transform: translateY(-3px) scale(1.02);
     }
   }
   
@@ -191,6 +188,23 @@ const ButtonStyle = styled.div`
     }
   }
   
+  /* Tertiary Button Variant - For different actions */
+  &.tertiary .button {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(99, 102, 241, 0.1));
+    color: #8B5CF6;
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    backdrop-filter: var(--glass-backdrop);
+    box-shadow: var(--shadow-sm);
+    
+    &:hover {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(99, 102, 241, 0.15));
+      border-color: #8B5CF6;
+      color: #8B5CF6;
+      box-shadow: var(--shadow-md), 0 0 20px rgba(139, 92, 246, 0.4);
+      transform: translateY(-3px) scale(1.02);
+    }
+  }
+
   /* Glass Button Variant */
   &.glass .button {
     background: rgba(255, 255, 255, 0.15);

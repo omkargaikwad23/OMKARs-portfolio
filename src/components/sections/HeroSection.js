@@ -872,8 +872,8 @@ export default function HeroSection() {
           </div>
 
           <div className="hero__actions">
-            <Button btnText="View Projects" btnLink="/projects" size="large" floating />
-            <Button btnText="Get In Touch" btnLink="/contact" outline size="large" />
+            <Button btnText="View Projects" btnLink="#projects" size="large" floating />
+            <Button btnText="Get In Touch" btnLink="#contact" outline size="large" />
           </div>
         </div>
 
