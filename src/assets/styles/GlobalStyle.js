@@ -134,10 +134,99 @@ const GlobalStyles = createGlobalStyle`
     outline-offset: 2px;
   }
 
-  /* Selection styles */
+  /* Enhanced Selection Styles */
   ::selection {
-    background-color: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color), #8b5cf6);
     color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  ::-moz-selection {
+    background: linear-gradient(135deg, var(--accent-color), #8b5cf6);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Special selection styles for different content types */
+  h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  h1::-moz-selection, h2::-moz-selection, h3::-moz-selection, h4::-moz-selection, h5::-moz-selection, h6::-moz-selection {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Code and monospace selection */
+  code::selection, pre::selection, .code::selection {
+    background: rgba(45, 212, 191, 0.3);
+    color: var(--text-primary);
+    backdrop-filter: blur(2px);
+  }
+
+  code::-moz-selection, pre::-moz-selection, .code::-moz-selection {
+    background: rgba(45, 212, 191, 0.3);
+    color: var(--text-primary);
+  }
+
+  /* Link selection */
+  a::selection {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  a::-moz-selection {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Button text selection */
+  button::selection {
+    background: rgba(255, 255, 255, 0.2);
+    color: inherit;
+  }
+
+  button::-moz-selection {
+    background: rgba(255, 255, 255, 0.2);
+    color: inherit;
+  }
+
+  /* Animated selection highlight effect */
+  @keyframes selectionGlow {
+    0% { box-shadow: 0 0 0 rgba(37, 99, 235, 0.4); }
+    50% { box-shadow: 0 0 8px rgba(37, 99, 235, 0.6); }
+    100% { box-shadow: 0 0 0 rgba(37, 99, 235, 0.4); }
+  }
+
+  /* Special selection for important elements */
+  .hero-title::selection, .section-title::selection {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    animation: selectionGlow 2s ease-in-out infinite;
+  }
+
+  .hero-title::-moz-selection, .section-title::-moz-selection {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Subtle selection for navigation items */
+  nav a::selection, .nav-link::selection {
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--accent-color);
+    backdrop-filter: blur(1px);
+  }
+
+  nav a::-moz-selection, .nav-link::-moz-selection {
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--accent-color);
   }
 
   /* Scrollbar styling */

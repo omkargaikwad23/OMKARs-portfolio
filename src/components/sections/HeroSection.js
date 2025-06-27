@@ -350,11 +350,11 @@ export default function HeroSection() {
               <div className="stat-label">Years Experience</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">750+</div>
-              <div className="stat-label">Problems Solved</div>
+              <div className="stat-number">1000+</div>
+              <div className="stat-label">DSA Problems Solved</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">10+</div>
+              <div className="stat-number">15+</div>
               <div className="stat-label">Projects Built</div>
             </div>
           </div>

@@ -292,7 +292,7 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <div className="copyright">
-            © 2025 Omkar Gaikwad. All rights reserved.
+            © 2022 - present Omkar Gaikwad. All rights reserved.
           </div>
 
           <button 
