@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SectionTitle from "../ui/SectionTitle";
-import { MdPersonPin, MdMovie, MdSportsHandball, MdBook, MdNature, MdDownload } from "react-icons/md";
+import { MdPersonPin, MdMovie, MdSportsHandball, MdBook, MdNature, MdDownload, MdTerrain, MdBrush } from "react-icons/md";
 import Button from '../ui/Button';
 
 const AboutSectionStyles = styled.section`
@@ -169,6 +169,14 @@ function AboutSection() {
                 <div className="interest__item">
                   <span className="interest__icon"><MdNature /></span>
                   <span className="interest__text">Tech Explorer</span>
+                </div>
+                <div className="interest__item">
+                  <span className="interest__icon"><MdTerrain /></span>
+                  <span className="interest__text">Trekking Enthusiast</span>
+                </div>
+                <div className="interest__item">
+                  <span className="interest__icon"><MdBrush /></span>
+                  <span className="interest__text">Sketching Artist</span>
                 </div>
               </div>
             </div>
