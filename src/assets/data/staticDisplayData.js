@@ -1,7 +1,5 @@
 import {
   SiCodechef,
-  SiHackerrank,
-  SiCodeforces,
   SiLeetcode,
   SiGeeksforgeeks,
 } from "react-icons/si";

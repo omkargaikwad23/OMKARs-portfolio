@@ -3,7 +3,6 @@ import styled from "styled-components";
 import SectionTitle from "../ui/SectionTitle";
 import { ExperienceData, VolunteersData } from "../../assets/data/staticDisplayData";
 import { MdWork, MdLocationOn, MdSchedule, MdExpandMore, MdExpandLess, MdVolunteerActivism } from "react-icons/md";
-import Button from '../ui/Button';
 
 const ExperienceSectionStyles = styled.section`
   padding: 10rem 0;

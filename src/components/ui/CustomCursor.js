@@ -170,7 +170,7 @@ const CursorStyles = styled.div`
 
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [trailPosition, setTrailPosition] = useState({ x: 0, y: 0 });
+  const [trailPosition] = useState({ x: 0, y: 0 });
   const [cursorState, setCursorState] = useState('');
   const [isVisible, setIsVisible] = useState(true);
 
