@@ -4,6 +4,7 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import ScrollProgress from "./components/layout/ScrollProgress";
+import CustomCursor from "./components/ui/CustomCursor";
 import { useSmoothScroll } from "./hooks/useSmoothScroll";
 import Aos from 'aos';
 import "./Style.less";
@@ -30,6 +31,7 @@ function App() {
   
   return (
     <div className="App">
+      <CustomCursor />
       <ScrollProgress />
       <Navbar />
       <ScrollToTop />
