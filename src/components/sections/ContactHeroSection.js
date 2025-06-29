@@ -5,6 +5,8 @@ import ContactSection from "./ContactSection";
 import { MdWork, MdRocket, MdWavingHand, MdEmail, MdPhone, MdChat } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import Button from '../ui/Button';
+import ScrollReveal from '../ui/ScrollReveal';
+import StaggeredReveal from '../ui/StaggeredReveal';
 
 const ContactHeroSectionStyles = styled.section`
   padding: 10rem 0 6rem 0;
@@ -172,16 +174,18 @@ function ContactHeroSection() {
     <ContactHeroSectionStyles id="contact">
       <div className="container">
         <div className="contact__hero">
-          <SectionTitle
-            badge={{ icon: <MdChat />, text: "Let's Work Together" }}
-            heading="Open to <highlight>Opportunities</highlight>"
-            description="Currently seeking full-time roles, exciting projects, and meaningful collaborations. Here's how we can connect based on what you're looking for."
-            align="center"
-            size="large"
-          />
+          <ScrollReveal animation="fadeUp" delay={100}>
+            <SectionTitle
+              badge={{ icon: <MdChat />, text: "Let's Work Together" }}
+              heading="Open to <highlight>Opportunities</highlight>"
+              description="Currently seeking full-time roles, exciting projects, and meaningful collaborations. Here's how we can connect based on what you're looking for."
+              align="center"
+              size="large"
+            />
+          </ScrollReveal>
         </div>
 
-        <div className="contact__cta">
+        <StaggeredReveal animation="scaleIn" staggerDelay={200} className="contact__cta">
           <div className="cta__card">
             <div className="cta__icon">
               <MdWork />
@@ -234,19 +238,21 @@ function ContactHeroSection() {
               />
             </div>
           </div>
-        </div>
+        </StaggeredReveal>
 
-        <div className="availability__section">
-          <div className="availability__badge">
-            <div className="status-dot"></div>
-            <span>Available for work</span>
+        <ScrollReveal animation="fadeUp" delay={400}>
+          <div className="availability__section">
+            <div className="availability__badge">
+              <div className="status-dot"></div>
+              <span>Available for work</span>
+            </div>
+            <h3 className="availability__title">Ready for New Opportunities</h3>
+            <p className="availability__desc">
+              I'm currently open to full-time opportunities, freelance projects, and consulting work. 
+              Based in Pune, India, and available for remote work worldwide.
+            </p>
           </div>
-          <h3 className="availability__title">Ready for New Opportunities</h3>
-          <p className="availability__desc">
-            I'm currently open to full-time opportunities, freelance projects, and consulting work. 
-            Based in Pune, India, and available for remote work worldwide.
-          </p>
-        </div>
+        </ScrollReveal>
 
         <ContactSection />
       </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import Button from "../ui/Button";
+import ScrollReveal from "../ui/ScrollReveal";
 import AboutImg from "../../assets/images/ogstanding.jpg";
 
 const HeroSectionStyles = styled.section`
@@ -152,6 +153,7 @@ const HeroSectionStyles = styled.section`
       border-radius: 50%;
       animation: pulse 2s infinite;
       box-shadow: 0 0 10px rgba(79, 195, 247, 0.6);
+      flex-shrink: 0;
     }
 
     span {
@@ -160,6 +162,9 @@ const HeroSectionStyles = styled.section`
       color: #e3f2fd;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      line-height: 1;
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -836,7 +841,7 @@ export default function HeroSection() {
     <HeroSectionStyles>
       <div className="starfield" ref={starfieldRef}></div>
       <div className="container">
-        <div className="hero__content" data-aos="fade-up" data-aos-delay="200">
+        <ScrollReveal animation="fadeUp" delay={200} className="hero__content">
           <div className="hero__badge">
             <div className="badge-dot"></div>
             <span>Available for work</span>
@@ -875,9 +880,9 @@ export default function HeroSection() {
             <Button btnText="View Projects" btnLink="#projects" size="large" floating />
             <Button btnText="Get In Touch" btnLink="#contact" outline size="large" />
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="hero__image parallax-medium" data-aos="fade-left" data-aos-delay="400">
+        <ScrollReveal animation="slideInRight" delay={400} className="hero__image parallax-medium">
           <div className="image-wrapper">
             <img src={AboutImg} alt="Omkar Gaikwad - Software Engineer" />
           </div>
@@ -886,7 +891,7 @@ export default function HeroSection() {
             <div className="floating-icon">🚀</div>
             <div className="floating-icon">💡</div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </HeroSectionStyles>
   );

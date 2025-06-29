@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import SectionTitle from "../ui/SectionTitle";
+import ScrollReveal from "../ui/ScrollReveal";
 import { ExperienceData, VolunteersData } from "../../assets/data/staticDisplayData";
 import { MdWork, MdLocationOn, MdSchedule, MdExpandMore, MdExpandLess, MdVolunteerActivism } from "react-icons/md";
 
@@ -512,12 +513,21 @@ function ExperienceSection() {
     setExpandedCards(newExpanded);
   };
 
-  const renderTimelineItem = (item, type) => {
+  const renderTimelineItem = (item, type, index) => {
     const isExpanded = expandedCards.has(`${type}-${item.id}`);
     const summary = item.tasks[0]; // Use first task as summary
+    const isEven = index % 2 === 1; // Adjust for 0-based index
+    const animationType = isEven ? 'slideInRight' : 'slideInLeft';
+    const delay = index * 100 + 100; // Much faster: 100ms, 200ms, 300ms, etc.
     
-    return (
-      <div key={item.id} className="timeline__item">
+          return (
+        <ScrollReveal 
+          key={item.id} 
+          animation={animationType} 
+          delay={delay}
+          threshold={0.1}
+          className="timeline__item"
+        >
         <div className="timeline__content">
           <div 
             className={`timeline__card ${isExpanded ? 'expanded' : ''}`}
@@ -566,7 +576,7 @@ function ExperienceSection() {
         </div>
         <div className="timeline__dot"></div>
         <div className="timeline__spacer"></div>
-      </div>
+      </ScrollReveal>
     );
   };
 
@@ -575,59 +585,67 @@ function ExperienceSection() {
   return (
     <ExperienceSectionStyles id="experience">
       <div className="container">
-        <SectionTitle
-          badge={{ icon: <MdWork />, text: "Professional Journey" }}
-          heading="Experience & <highlight>Growth</highlight>"
-          description="My career journey showcasing professional growth, technical achievements, and community contributions through an interactive timeline."
-          align="center"
-          size="large"
-        />
+        <ScrollReveal animation="fadeIn" delay={0}>
+          <SectionTitle
+            badge={{ icon: <MdWork />, text: "Professional Journey" }}
+            heading="Experience & <highlight>Growth</highlight>"
+            description="My career journey showcasing professional growth, technical achievements, and community contributions through an interactive timeline."
+            align="center"
+            size="large"
+          />
+        </ScrollReveal>
 
-        <div className="experience__stats">
-          <div className="stat__item">
-            <div className="stat__number">3+</div>
-            <div className="stat__label">Years Experience</div>
+        <ScrollReveal animation="scaleIn" delay={100}>
+          <div className="experience__stats">
+            <div className="stat__item">
+              <div className="stat__number">3+</div>
+              <div className="stat__label">Years Experience</div>
+            </div>
+            <div className="stat__item">
+              <div className="stat__number">5</div>
+              <div className="stat__label">Companies</div>
+            </div>
+            <div className="stat__item">
+              <div className="stat__number">20+</div>
+              <div className="stat__label">Technologies</div>
+            </div>
+            <div className="stat__item">
+              <div className="stat__number">200+</div>
+              <div className="stat__label">Students Impacted</div>
+            </div>
           </div>
-          <div className="stat__item">
-            <div className="stat__number">5</div>
-            <div className="stat__label">Companies</div>
-          </div>
-          <div className="stat__item">
-            <div className="stat__number">20+</div>
-            <div className="stat__label">Technologies</div>
-          </div>
-          <div className="stat__item">
-            <div className="stat__number">200+</div>
-            <div className="stat__label">Students Impacted</div>
-          </div>
-        </div>
+        </ScrollReveal>
 
-        <div className={`experience__tabs ${activeTab === 'volunteer' ? 'volunteer-active' : ''}`}>
-          <div className="tab-button-wrapper">
-            <button 
-              className={`tab-button ${activeTab === 'professional' ? 'active' : ''}`}
-              onClick={() => setActiveTab('professional')}
-            >
-              <span className="tab-icon"><MdWork /></span>
-              <span className="tab-text">Professional</span>
-            </button>
+        <ScrollReveal animation="fadeUp" delay={200}>
+          <div className={`experience__tabs ${activeTab === 'volunteer' ? 'volunteer-active' : ''}`}>
+            <div className="tab-button-wrapper">
+              <button 
+                className={`tab-button ${activeTab === 'professional' ? 'active' : ''}`}
+                onClick={() => setActiveTab('professional')}
+              >
+                <span className="tab-icon"><MdWork /></span>
+                <span className="tab-text">Professional</span>
+              </button>
+            </div>
+            <div className="tab-button-wrapper">
+              <button 
+                className={`tab-button ${activeTab === 'volunteer' ? 'active' : ''}`}
+                onClick={() => setActiveTab('volunteer')}
+              >
+                <span className="tab-icon"><MdVolunteerActivism /></span>
+                <span className="tab-text">Volunteer</span>
+              </button>
+            </div>
+            <div className={`tab-indicator ${activeTab === 'volunteer' ? 'volunteer-active' : ''}`}></div>
           </div>
-          <div className="tab-button-wrapper">
-            <button 
-              className={`tab-button ${activeTab === 'volunteer' ? 'active' : ''}`}
-              onClick={() => setActiveTab('volunteer')}
-            >
-              <span className="tab-icon"><MdVolunteerActivism /></span>
-              <span className="tab-text">Volunteer</span>
-            </button>
-          </div>
-          <div className={`tab-indicator ${activeTab === 'volunteer' ? 'volunteer-active' : ''}`}></div>
-        </div>
+        </ScrollReveal>
 
-        <div className="timeline__container">
-          <div className="timeline__line"></div>
-          {currentData.map((item) => renderTimelineItem(item, activeTab))}
-        </div>
+        <ScrollReveal animation="fadeIn" delay={0}>
+          <div className="timeline__container">
+            <div className="timeline__line"></div>
+            {currentData.map((item, index) => renderTimelineItem(item, activeTab, index))}
+          </div>
+        </ScrollReveal>
       </div>
     </ExperienceSectionStyles>
   );

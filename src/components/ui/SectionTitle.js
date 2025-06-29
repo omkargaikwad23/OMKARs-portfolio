@@ -32,6 +32,10 @@ const SectionTitleStyle = styled.div`
 
     .badge-icon {
       font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
     }
   }
 
