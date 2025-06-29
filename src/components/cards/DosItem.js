@@ -144,7 +144,7 @@ export default function WhatIdoItem({
 }) {
   return (
     <ItemStyles>
-      <div className="doesItem" data-aos="fade-up" data-aos-delay="200" data-aos-once>
+      <div className="doesItem">
         <div className="doesItem__icon">{icon}</div>
         <h3 className="doesItem__title">{title}</h3>
         <p className="doesItem__desc">{desc}</p>

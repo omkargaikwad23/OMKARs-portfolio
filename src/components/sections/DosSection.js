@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import SectionTitle from '../ui/SectionTitle';
 import ServicesSectionItem from '../cards/DosItem';
 import {VscGraphLine} from "react-icons/vsc";
+import ScrollReveal from '../ui/ScrollReveal';
+import StaggeredReveal from '../ui/StaggeredReveal';
 
 const ServicesItemsStyles = styled.div`
   padding: 8rem 0rem 14rem 0rem;
@@ -33,8 +35,11 @@ export default function DosSection() {
   return (
     <ServicesItemsStyles>
       <div className="container">
-        <SectionTitle subheading="Professional Expertise" className="section__title" heading="What I do?" />
-        <div className="services__allItems">
+        <ScrollReveal animation="fadeUp" delay={100}>
+          <SectionTitle subheading="Professional Expertise" className="section__title" heading="What I do?" />
+        </ScrollReveal>
+        
+        <StaggeredReveal animation="scaleIn" staggerDelay={200} className="services__allItems">
           <ServicesSectionItem
             icon={<MdCode />}
             title="Backend Engineering"
@@ -50,7 +55,7 @@ export default function DosSection() {
             title="Technical Leadership"
             desc="I lead cross-functional initiatives, mentor engineering teams, and drive innovation in analytics and data processing solutions."
           />
-        </div>
+        </StaggeredReveal>
       </div>
     </ServicesItemsStyles>
   );

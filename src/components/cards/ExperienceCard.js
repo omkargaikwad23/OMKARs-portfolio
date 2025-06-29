@@ -266,7 +266,7 @@ export default function ExperienceCard({
 }) {
   return (
     <CardStyles>
-      <div className="card__container" data-aos="fade-up" data-aos-delay="200">
+      <div className="card__container">
         <div className="card__header">
           <div className="card__left">
             <h3 className="card__role">{role}</h3>

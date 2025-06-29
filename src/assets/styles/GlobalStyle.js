@@ -275,16 +275,37 @@ const GlobalStyles = createGlobalStyle`
     transition: opacity 0.3s ease;
   }
 
-  /* Scroll-driven animations */
+  /* Enhanced scroll reveal animations */
   .scroll-reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
   }
 
-  .scroll-reveal.revealed {
-    opacity: 1;
-    transform: translateY(0);
+  .staggered-reveal {
+    position: relative;
+  }
+
+  .staggered-item {
+    will-change: transform, opacity;
+  }
+
+  /* Smooth scroll performance optimizations */
+  * {
+    scroll-behavior: auto; /* Let Lenis handle smooth scrolling */
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal,
+    .staggered-item {
+      transition: none !important;
+      animation: none !important;
+    }
+    
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   /* Parallax effects */

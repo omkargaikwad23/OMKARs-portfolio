@@ -4,6 +4,8 @@ import SectionTitle from "../ui/SectionTitle";
 import ProjectItem from "../cards/ProjectItem";
 import ProjectsInfo from "../../assets/data/projects";
 import Button from "../ui/Button";
+import ScrollReveal from "../ui/ScrollReveal";
+import StaggeredReveal from "../ui/StaggeredReveal";
 import { MdRocket } from "react-icons/md";
 
 const ProjectsSectionStyles = styled.section`
@@ -62,18 +64,24 @@ function ProjectsSection() {
   return (
     <ProjectsSectionStyles id="projects">
       <div className="container">
-        <SectionTitle
-          badge={{ icon: <MdRocket />, text: "Portfolio" }}
-          heading={showAllProjects ? "All <highlight>Projects</highlight>" : "Featured <highlight>Projects</highlight>"}
-          description={showAllProjects ? 
-            "Complete showcase of my work - from enterprise applications to innovative solutions that solve real-world problems." :
-            "A showcase of my best work - from enterprise applications to innovative solutions that solve real-world problems."
-          }
-          align="center"
-          size="large"
-        />
+        <ScrollReveal animation="fadeIn" delay={100}>
+          <SectionTitle
+            badge={{ icon: <MdRocket />, text: "Portfolio" }}
+            heading={showAllProjects ? "All <highlight>Projects</highlight>" : "Featured <highlight>Projects</highlight>"}
+            description={showAllProjects ? 
+              "Complete showcase of my work - from enterprise applications to innovative solutions that solve real-world problems." :
+              "A showcase of my best work - from enterprise applications to innovative solutions that solve real-world problems."
+            }
+            align="center"
+            size="large"
+          />
+        </ScrollReveal>
         
-        <div className="projects__allItems">
+        <StaggeredReveal 
+          className="projects__allItems"
+          animation="scaleIn"
+          staggerDelay={200}
+        >
           {projectsToShow.map((item) => (
             <ProjectItem
               key={item.id}
@@ -84,27 +92,29 @@ function ProjectsSection() {
               url={item.url}
             />
           ))}
-        </div>
+        </StaggeredReveal>
         
-        <div className="projects__viewAll">
-          {!showAllProjects ? (
-            <Button
-              btnText={`View All Projects (${ProjectsInfo.length})`}
-              onClick={() => setShowAllProjects(true)}
-              icon={<span>→</span>}
-              size="large"
-              floating
-            />
-          ) : (
-            <Button
-              btnText="Show Featured Only"
-              onClick={() => setShowAllProjects(false)}
-              icon={<span>←</span>}
-              variant="secondary"
-              size="large"
-            />
-          )}
-        </div>
+        <ScrollReveal animation="fadeUp" delay={300}>
+          <div className="projects__viewAll">
+            {!showAllProjects ? (
+              <Button
+                btnText={`View All Projects (${ProjectsInfo.length})`}
+                onClick={() => setShowAllProjects(true)}
+                icon={<span>→</span>}
+                size="large"
+                floating
+              />
+            ) : (
+              <Button
+                btnText="Show Featured Only"
+                onClick={() => setShowAllProjects(false)}
+                icon={<span>←</span>}
+                variant="secondary"
+                size="large"
+              />
+            )}
+          </div>
+        </ScrollReveal>
       </div>
     </ProjectsSectionStyles>
   );

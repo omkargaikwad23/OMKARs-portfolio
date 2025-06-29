@@ -3,6 +3,8 @@ import styled from "styled-components";
 import SectionTitle from "../ui/SectionTitle";
 import { MdPersonPin, MdMovie, MdSportsHandball, MdBook, MdNature, MdDownload, MdTerrain, MdBrush } from "react-icons/md";
 import Button from '../ui/Button';
+import ScrollReveal from '../ui/ScrollReveal';
+import StaggeredReveal from '../ui/StaggeredReveal';
 
 const AboutSectionStyles = styled.section`
   padding: 10rem 0;
@@ -125,72 +127,78 @@ function AboutSection() {
   return (
     <AboutSectionStyles id="about">
       <div className="container">
-        <SectionTitle
-          badge={{ icon: <MdPersonPin />, text: "About Me" }}
-          heading="My <highlight>Journey</highlight>"
-          description="From a small village in Dharashiv district to the tech industry - here's my story of continuous growth and passion for technology."
-          align="center"
-          size="large"
-        />
+        <ScrollReveal animation="fadeUp" delay={100}>
+          <SectionTitle
+            badge={{ icon: <MdPersonPin />, text: "About Me" }}
+            heading="My <highlight>Journey</highlight>"
+            description="From a small village in Dharashiv district to the tech industry - here's my story of continuous growth and passion for technology."
+            align="center"
+            size="large"
+          />
+        </ScrollReveal>
         
         <div className="journey__content">
-          <div className="journey__story">
-            <h3 className="story__title">The Journey So Far</h3>
-            <p className="story__text">
-              My path from the quiet streets of a small village to the bustling tech landscape 
-              has been one of continuous growth and discovery. After graduating from Pune Institute 
-              of Computer Technology, I've embarked on my professional career as a Software Engineer 
-              specializing in AI and Big Data, where I'm passionate about leveraging cutting-edge 
-              technologies to solve real-world problems.
-            </p>
-            
-            <p className="story__text">
-              I'm a persistent and passionate engineer who thrives on transforming complex data 
-              into meaningful insights and building intelligent solutions. With a strong foundation 
-              in algorithms, data structures, and machine learning concepts, I've expanded my expertise 
-              across web development, data engineering, and artificial intelligence.
-            </p>
-            
-            <div className="personal__interests">
-              <h4>When I'm not coding...</h4>
-              <div className="interests__grid">
-                <div className="interest__item">
-                  <span className="interest__icon"><MdMovie /></span>
-                  <span className="interest__text">Movie Enthusiast</span>
-                </div>
-                <div className="interest__item">
-                  <span className="interest__icon"><MdSportsHandball /></span>
-                  <span className="interest__text">Table Tennis Player</span>
-                </div>
-                <div className="interest__item">
-                  <span className="interest__icon"><MdBook /></span>
-                  <span className="interest__text">Continuous Learner</span>
-                </div>
-                <div className="interest__item">
-                  <span className="interest__icon"><MdNature /></span>
-                  <span className="interest__text">Tech Explorer</span>
-                </div>
-                <div className="interest__item">
-                  <span className="interest__icon"><MdTerrain /></span>
-                  <span className="interest__text">Trekking Enthusiast</span>
-                </div>
-                <div className="interest__item">
-                  <span className="interest__icon"><MdBrush /></span>
-                  <span className="interest__text">Sketching Artist</span>
+          <ScrollReveal animation="scaleIn" delay={300}>
+            <div className="journey__story">
+              <h3 className="story__title">The Journey So Far</h3>
+              
+              <p className="story__text">
+                My path from the quiet streets of a small village to the bustling tech landscape 
+                has been one of continuous growth and discovery. After graduating from Pune Institute 
+                of Computer Technology, I've embarked on my professional career as a Software Engineer 
+                specializing in AI and Big Data, where I'm passionate about leveraging cutting-edge 
+                technologies to solve real-world problems.
+              </p>
+              
+              <p className="story__text">
+                I'm a persistent and passionate engineer who thrives on transforming complex data 
+                into meaningful insights and building intelligent solutions. With a strong foundation 
+                in algorithms, data structures, and machine learning concepts, I've expanded my expertise 
+                across web development, data engineering, and artificial intelligence.
+              </p>
+              
+              <div className="personal__interests">
+                <h4>When I'm not coding...</h4>
+                
+                <div className="interests__grid">
+                  <div className="interest__item">
+                    <span className="interest__icon"><MdMovie /></span>
+                    <span className="interest__text">Movie Enthusiast</span>
+                  </div>
+                  <div className="interest__item">
+                    <span className="interest__icon"><MdSportsHandball /></span>
+                    <span className="interest__text">Table Tennis Player</span>
+                  </div>
+                  <div className="interest__item">
+                    <span className="interest__icon"><MdBook /></span>
+                    <span className="interest__text">Continuous Learner</span>
+                  </div>
+                  <div className="interest__item">
+                    <span className="interest__icon"><MdNature /></span>
+                    <span className="interest__text">Tech Explorer</span>
+                  </div>
+                  <div className="interest__item">
+                    <span className="interest__icon"><MdTerrain /></span>
+                    <span className="interest__text">Trekking Enthusiast</span>
+                  </div>
+                  <div className="interest__item">
+                    <span className="interest__icon"><MdBrush /></span>
+                    <span className="interest__text">Sketching Artist</span>
+                  </div>
                 </div>
               </div>
+              
+              <div className="cv__section">
+                <Button
+                  btnText="Download Resume"
+                  btnLink="https://drive.google.com/file/d/177GtuT6KOqd25sWr5WZBu32YFm9mat9x/view?usp=sharing"
+                  icon={<MdDownload />}
+                  size="large"
+                  variant="success"
+                />
+              </div>
             </div>
-            
-            <div className="cv__section">
-              <Button
-                btnText="Download Resume"
-                btnLink="https://drive.google.com/file/d/177GtuT6KOqd25sWr5WZBu32YFm9mat9x/view?usp=sharing"
-                icon={<MdDownload />}
-                size="large"
-                variant="success"
-              />
-            </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </AboutSectionStyles>

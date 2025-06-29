@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SectionTitle from '../ui/SectionTitle';
+import ScrollReveal from '../ui/ScrollReveal';
 import Button from '../ui/Button';
 import { MdEmail, MdCalendarToday } from 'react-icons/md';
 
@@ -123,47 +124,60 @@ export default function ContactSection() {
   return (
     <ContactSectionStyle>
       <div className="container">
-        <SectionTitle 
-          heading="Have a <highlight>Question</highlight>?" 
-          description="Got a specific project in mind, need technical advice, or just want to chat about tech? I'm here to help!"
-          align="center"
-        />
+        <ScrollReveal animation="fadeIn" delay={100}>
+          <SectionTitle 
+            heading="Have a <highlight>Question</highlight>?" 
+            description="Got a specific project in mind, need technical advice, or just want to chat about tech? I'm here to help!"
+            align="center"
+          />
+        </ScrollReveal>
         
-        <div className="contact__content">
-          <div className="contact__hero" data-aos="fade-up" data-aos-delay="200">
-            <h3 className="contact__title">Let's Discuss Your Ideas</h3>
-            <p className="contact__description">
-              Whether you have a specific project requirement, need technical consultation, 
-              or want to explore innovative solutions, I'm excited to hear about your vision 
-              and see how I can help bring it to life.
-            </p>
-            
-            <div className="contact__actions">
-              <Button
-                btnText="Start a Discussion"
-                btnLink="mailto:omkargaikwad9552@gmail.com?subject=Project Discussion - Let's Talk"
-                icon={<MdEmail />}
-                size="large"
-                floating
-              />
+        <ScrollReveal animation="scaleIn" delay={200}>
+          <div className="contact__content">
+            <div className="contact__hero">
+              <ScrollReveal animation="fadeUp" delay={300}>
+                <h3 className="contact__title">Let's Discuss Your Ideas</h3>
+              </ScrollReveal>
               
-              <Button
-                btnText="Schedule a Meeting"
-                btnLink="https://calendly.com/omkargaikwad23"
-                icon={<MdCalendarToday />}
-                variant="secondary"
-                size="large"
-              />
-            </div>
+              <ScrollReveal animation="fadeUp" delay={400}>
+                <p className="contact__description">
+                  Whether you have a specific project requirement, need technical consultation, 
+                  or want to explore innovative solutions, I'm excited to hear about your vision 
+                  and see how I can help bring it to life.
+                </p>
+              </ScrollReveal>
+              
+              <ScrollReveal animation="fadeUp" delay={500}>
+                <div className="contact__actions">
+                  <Button
+                    btnText="Start a Discussion"
+                    btnLink="mailto:omkargaikwad9552@gmail.com?subject=Project Discussion - Let's Talk"
+                    icon={<MdEmail />}
+                    size="large"
+                    floating
+                  />
+                  
+                  <Button
+                    btnText="Schedule a Meeting"
+                    btnLink="https://calendly.com/omkargaikwad23"
+                    icon={<MdCalendarToday />}
+                    variant="secondary"
+                    size="large"
+                  />
+                </div>
+              </ScrollReveal>
 
-            <div className="contact__note">
-              <p>
-                💡 I typically respond within 24 hours and offer a free 30-minute consultation 
-                to discuss your project requirements and explore potential solutions.
-              </p>
+              <ScrollReveal animation="fadeUp" delay={550}>
+                <div className="contact__note">
+                  <p>
+                    💡 I typically respond within 24 hours and offer a free 30-minute consultation 
+                    to discuss your project requirements and explore potential solutions.
+                  </p>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </ContactSectionStyle>
   );
