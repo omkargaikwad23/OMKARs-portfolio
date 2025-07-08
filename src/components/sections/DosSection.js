@@ -1,10 +1,8 @@
 import React from 'react';
-import { MdCode } from 'react-icons/md';
-import {FaGraduationCap} from 'react-icons/fa';
+import { MdStorage, MdPsychology, MdSupervisorAccount } from 'react-icons/md';
 import styled from 'styled-components';
 import SectionTitle from '../ui/SectionTitle';
 import ServicesSectionItem from '../cards/DosItem';
-import {VscGraphLine} from "react-icons/vsc";
 import ScrollReveal from '../ui/ScrollReveal';
 import StaggeredReveal from '../ui/StaggeredReveal';
 
@@ -41,17 +39,17 @@ export default function DosSection() {
         
         <StaggeredReveal animation="scaleIn" staggerDelay={200} className="services__allItems">
           <ServicesSectionItem
-            icon={<MdCode />}
+            icon={<MdStorage />}
             title="Backend Engineering"
             desc="I design and build scalable distributed systems, high-performance APIs, and robust backend architecture for large-scale applications."
           />
           <ServicesSectionItem
-            icon={<VscGraphLine />}
+            icon={<MdPsychology />}
             title="GenAI & Big Data"
             desc="I develop intelligent AI systems and optimize big data pipelines, focusing on performance, reliability, and scalability at enterprise level."
           />
           <ServicesSectionItem
-            icon={<FaGraduationCap />}
+            icon={<MdSupervisorAccount />}
             title="Technical Leadership"
             desc="I lead cross-functional initiatives, mentor engineering teams, and drive innovation in analytics and data processing solutions."
           />
