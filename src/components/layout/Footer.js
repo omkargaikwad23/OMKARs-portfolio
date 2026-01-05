@@ -58,17 +58,6 @@ const FooterStyle = styled.footer`
     background-clip: text;
     margin: 0;
     letter-spacing: -0.02em;
-    position: relative;
-    
-    &::after {
-      content: '⭐';
-      position: absolute;
-      right: -3rem;
-      top: 0;
-      font-size: 1.6rem;
-      color: var(--luxury-gold);
-      animation: starPulse 3s ease-in-out infinite;
-    }
   }
 
   .footer__tagline {
@@ -77,12 +66,6 @@ const FooterStyle = styled.footer`
     color: var(--text-secondary);
     max-width: 40ch;
     margin: 0;
-    text-shadow: 0 0 10px rgba(225, 245, 254, 0.2);
-  }
-
-  @keyframes starPulse {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); }
   }
 
   .footer__social {
@@ -169,7 +152,6 @@ const FooterStyle = styled.footer`
       font-weight: 600;
       color: var(--text-primary);
       margin: 0 0 1.5rem 0;
-      text-shadow: var(--glow-stellar);
     }
 
     ul {
@@ -215,19 +197,6 @@ const FooterStyle = styled.footer`
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border-color), transparent);
     margin: 3rem 0 2rem 0;
-    position: relative;
-    
-    &::after {
-      content: '✨';
-      position: absolute;
-      top: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--gradient-starfield);
-      padding: 0 1rem;
-      color: var(--luxury-gold);
-      font-size: 1rem;
-    }
   }
 
   .footer__bottom {

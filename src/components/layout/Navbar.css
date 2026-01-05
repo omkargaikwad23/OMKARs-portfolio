@@ -50,22 +50,8 @@
   gap: 0.5rem;
 }
 
-.nav-logo::before {
-  content: '✨';
-  font-size: 1.8rem;
-  opacity: 0;
-  transform: scale(0.8) rotate(-10deg);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .nav-logo:hover {
-  transform: translateY(-2px);
-  filter: drop-shadow(var(--glow-stellar));
-}
-
-.nav-logo:hover::before {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
+  opacity: 0.8;
 }
 
 .nav-items {
@@ -90,7 +76,7 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0.9;
   z-index: 0;
-  box-shadow: var(--glow-stellar);
+  box-shadow: var(--shadow-sm);
 }
 
 .nav-items li {
@@ -304,7 +290,7 @@
   .nav-link.active {
     background: var(--gradient-primary);
     color: var(--text-primary);
-    box-shadow: var(--glow-stellar);
+    box-shadow: var(--shadow-sm);
   }
 
   .nav-link.active .nav-icon {

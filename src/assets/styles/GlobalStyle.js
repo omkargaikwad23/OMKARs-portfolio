@@ -7,37 +7,37 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   :root{
-    /* Starry Luxury Theme - Dark & Elegant */
-    --primary-bg: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
-    --secondary-bg: rgba(30, 41, 59, 0.8);         /* Dark translucent for cards */
-    --accent-color: #4fc3f7;                       /* Stellar blue accent */
-    --accent-hover: #29b6f6;                       /* Brighter stellar blue */
-    --text-primary: #f8fafc;                       /* Bright white for primary text */
-    --text-secondary: #e1f5fe;                     /* Light blue-white for secondary */
-    --text-light: #b3e5fc;                         /* Soft blue-white for subtle text */
-    --border-color: rgba(79, 195, 247, 0.2);       /* Stellar blue border */
-    --border-hover: rgba(79, 195, 247, 0.4);       /* Brighter border on hover */
-    --success-color: #4fc3f7;                      /* Stellar blue for success */
-    --warning-color: #ffd700;                      /* Gold for luxury accents */
-    --luxury-gold: #ffd700;                        /* Pure gold for premium elements */
-    --constellation-blue: #4fc3f7;                 /* Constellation blue */
-    --nebula-purple: rgba(139, 69, 19, 0.3);       /* Nebula effect */
-    --gradient-primary: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 50%, #1976d2 100%);
-    --gradient-accent: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
-    --gradient-luxury: linear-gradient(135deg, #ffd700 0%, #ffecb3 50%, #fff3e0 100%);
-    --gradient-starfield: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 30%, #16213e 60%, #0f172a 100%);
-    --shadow-sm: 0 2px 8px rgba(79, 195, 247, 0.1);
-    --shadow-md: 0 8px 25px rgba(79, 195, 247, 0.15);
-    --shadow-lg: 0 15px 35px rgba(79, 195, 247, 0.2);
-    --shadow-xl: 0 25px 50px rgba(79, 195, 247, 0.25);
-    --shadow-luxury: 0 15px 35px rgba(255, 215, 0, 0.3);
-    --glow-stellar: 0 0 20px rgba(79, 195, 247, 0.6);
-    --glow-luxury: 0 0 25px rgba(255, 215, 0, 0.5);
+    /* Professional Dark Theme - Clean & Understated */
+    --primary-bg: #0a0a0a;                         /* Pure dark */
+    --secondary-bg: rgba(24, 24, 27, 0.95);        /* Dark card backgrounds */
+    --accent-color: #3b82f6;                       /* Professional blue */
+    --accent-hover: #2563eb;                       /* Deeper blue on hover */
+    --text-primary: #fafafa;                       /* Clean white */
+    --text-secondary: #a1a1aa;                     /* Muted gray */
+    --text-light: #71717a;                         /* Subtle gray */
+    --border-color: rgba(63, 63, 70, 0.5);         /* Neutral border */
+    --border-hover: rgba(82, 82, 91, 0.8);         /* Slightly brighter border */
+    --success-color: #22c55e;                      /* Clean green */
+    --warning-color: #a1a1aa;                      /* Muted (was gold) */
+    --luxury-gold: #a1a1aa;                        /* Removed gold - now gray */
+    --constellation-blue: #3b82f6;                 /* Professional blue */
+    --nebula-purple: rgba(139, 92, 246, 0.1);      /* Subtle purple */
+    --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    --gradient-luxury: linear-gradient(135deg, #fafafa 0%, #e4e4e7 100%);
+    --gradient-starfield: #0a0a0a;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+    --shadow-luxury: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --glow-stellar: none;                          /* Removed glow */
+    --glow-luxury: none;                           /* Removed glow */
     
-    /* Glass effects for modern look */
-    --glass-bg: rgba(248, 250, 252, 0.05);
-    --glass-border: rgba(248, 250, 252, 0.1);
-    --glass-backdrop: blur(20px);
+    /* Glass effects - more subtle */
+    --glass-bg: rgba(24, 24, 27, 0.8);
+    --glass-border: rgba(63, 63, 70, 0.5);
+    --glass-backdrop: blur(16px);
   }
 
   html{
@@ -266,12 +266,12 @@ const GlobalStyles = createGlobalStyle`
     top: 0;
     left: 0;
     width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-color), #8b5cf6);
+    height: 2px;
+    background: var(--accent-color);
     transform: scaleX(var(--scroll-progress));
     transform-origin: left;
     z-index: 1000;
-    opacity: 0.8;
+    opacity: 0.9;
     transition: opacity 0.3s ease;
   }
 
@@ -331,14 +331,14 @@ const GlobalStyles = createGlobalStyle`
     transition: filter 0.3s ease-out;
   }
 
-  /* Enhanced hover effects with scroll momentum */
+  /* Subtle hover effects */
   .card, .project-item, .experience-card {
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s ease;
   }
 
   .card:hover, .project-item:hover, .experience-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
   }
 `;
 export default GlobalStyles;

@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import SectionTitle from "../ui/SectionTitle";
-import { MdPersonPin, MdMovie, MdSportsHandball, MdBook, MdNature, MdDownload, MdTerrain, MdBrush } from "react-icons/md";
+import { MdPersonPin, MdDownload } from "react-icons/md";
 import Button from '../ui/Button';
 import ScrollReveal from '../ui/ScrollReveal';
-import StaggeredReveal from '../ui/StaggeredReveal';
 
 const AboutSectionStyles = styled.section`
   padding: 10rem 0;
@@ -39,51 +38,6 @@ const AboutSectionStyles = styled.section`
     text-align: left;
   }
 
-  .personal__interests {
-    margin: 3rem 0;
-    text-align: left;
-
-    h4 {
-      font-size: 2rem;
-      color: var(--text-primary);
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-    }
-
-    .interests__grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .interest__item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.5rem;
-      background: var(--secondary-bg);
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      transition: all 0.3s ease;
-
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-sm);
-      }
-
-      .interest__icon {
-        font-size: 2rem;
-      }
-
-      .interest__text {
-        font-size: 1.4rem;
-        font-weight: 500;
-        color: var(--text-secondary);
-      }
-    }
-  }
-
   .cv__section {
     margin-top: 3rem;
     text-align: center;
@@ -104,21 +58,6 @@ const AboutSectionStyles = styled.section`
 
     .story__text {
       font-size: 1.6rem;
-    }
-
-    .interests__grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-
-    .interest__item {
-      padding: 0.8rem 1rem;
-    }
-  }
-
-  @media only screen and (max-width: 480px) {
-    .interests__grid {
-      grid-template-columns: 1fr;
     }
   }
 `;
@@ -158,37 +97,6 @@ function AboutSection() {
                 that great engineering isn't just about writing code — it's about understanding systems, optimizing 
                 performance, and delivering measurable business impact.
               </p>
-              
-              <div className="personal__interests">
-                <h4>When I'm not coding...</h4>
-                
-                <div className="interests__grid">
-                  <div className="interest__item">
-                    <span className="interest__icon"><MdMovie /></span>
-                    <span className="interest__text">Movie Enthusiast</span>
-                  </div>
-                  <div className="interest__item">
-                    <span className="interest__icon"><MdSportsHandball /></span>
-                    <span className="interest__text">Table Tennis Player</span>
-                  </div>
-                  <div className="interest__item">
-                    <span className="interest__icon"><MdBook /></span>
-                    <span className="interest__text">Continuous Learner</span>
-                  </div>
-                  <div className="interest__item">
-                    <span className="interest__icon"><MdNature /></span>
-                    <span className="interest__text">Tech Explorer</span>
-                  </div>
-                  <div className="interest__item">
-                    <span className="interest__icon"><MdTerrain /></span>
-                    <span className="interest__text">Trekking Enthusiast</span>
-                  </div>
-                  <div className="interest__item">
-                    <span className="interest__icon"><MdBrush /></span>
-                    <span className="interest__text">Sketching Artist</span>
-                  </div>
-                </div>
-              </div>
               
               <div className="cv__section">
                 <Button

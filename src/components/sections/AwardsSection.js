@@ -162,12 +162,12 @@ const AwardsSectionStyles = styled.section`
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: rgba(245, 158, 11, 0.1);
-    border: 1px solid rgba(245, 158, 11, 0.3);
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
     border-radius: 20px;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #f59e0b;
+    color: var(--accent-color);
     margin-top: 1.5rem;
   }
 
@@ -247,22 +247,22 @@ const awards = [
   {
     id: 1,
     icon: <MdEmojiEvents />,
-    iconClass: 'gold',
+    iconClass: 'blue',
     title: '1st Place - PubMatic Hackathon 2025',
     org: 'PubMatic',
     year: '2025',
     desc: 'Won first place for building the AI-powered Deal Debugger using LangGraph state machines, which now reduces customer support tickets by 50% in production.',
-    badge: '🏆 1st Place'
+    badge: '1st Place'
   },
   {
     id: 2,
     icon: <MdStars />,
-    iconClass: 'gold',
+    iconClass: 'blue',
     title: 'Bias Towards Action Award',
     org: 'PubMatic',
     year: '2024',
     desc: 'Recognized for exceptional initiative, ownership, and proactive problem-solving. Demonstrated consistent bias towards action in driving impactful engineering solutions.',
-    badge: '🏅 Excellence'
+    badge: 'Excellence'
   },
   {
     id: 3,
@@ -273,7 +273,7 @@ const awards = [
     year: '2023',
     desc: 'Co-authored research paper on Marathi-English code-mixed sentiment analysis, demonstrating superior SVM performance on under-resourced Indian language data.',
     link: 'https://ieeexplore.ieee.org/document/10100304',
-    badge: '📄 Published'
+    badge: 'Published'
   },
   {
     id: 4,
@@ -283,7 +283,7 @@ const awards = [
     org: 'LeetCode',
     year: 'Ongoing',
     desc: 'Achieved 1800+ rating by solving 1100+ problems across arrays, graphs, dynamic programming, trees, and greedy patterns. Consistently ranked in top 5% globally.',
-    badge: '💻 Top 5%'
+    badge: 'Top 5%'
   },
   {
     id: 5,
@@ -293,7 +293,7 @@ const awards = [
     org: 'Maharashtra State Entrance Exam',
     year: '2019',
     desc: 'Ranked 1st in batch of 130 students. Secured admission to Pune Institute of Computer Technology (PICT), one of the top engineering colleges in Maharashtra.',
-    badge: '🎓 Top 1%'
+    badge: 'Top 1%'
   }
 ];
 

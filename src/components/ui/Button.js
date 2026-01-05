@@ -39,8 +39,8 @@ const ButtonStyle = styled.div`
     background-clip: padding-box;
     box-shadow: ${(props) =>
       props.outline 
-        ? 'var(--shadow-md), inset 0 1px 0 var(--glass-border)' 
-        : 'var(--shadow-lg), var(--glow-stellar)'};
+        ? 'var(--shadow-md)' 
+        : 'var(--shadow-md)'};
     
     /* Outline specific styles */
     ${(props) => props.outline && `
@@ -49,15 +49,12 @@ const ButtonStyle = styled.div`
     
     /* Enhanced Hover Effects */
     &:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: ${(props) =>
-        props.outline 
-          ? 'var(--shadow-xl), var(--glow-stellar)' 
-          : 'var(--shadow-xl), var(--glow-stellar)'};
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
       background: ${(props) =>
         props.outline 
           ? 'var(--gradient-primary)' 
-          : 'linear-gradient(135deg, var(--accent-hover), #1976d2, #7C3AED)'};
+          : 'var(--gradient-primary)'};
       color: white;
       
       &::before {
@@ -159,8 +156,8 @@ const ButtonStyle = styled.div`
       background: var(--secondary-bg);
       border-color: var(--accent-color);
       color: var(--accent-color);
-      box-shadow: var(--shadow-lg), var(--glow-stellar);
-      transform: translateY(-3px) scale(1.02);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
     }
   }
   
