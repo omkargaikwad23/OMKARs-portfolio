@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import ProjectImg from '../../assets/images/projects/mybrary.png';
 
 const ProjectItemStyles = styled.div`
   background: var(--secondary-bg);
@@ -35,6 +34,31 @@ const ProjectItemStyles = styled.div`
 
     &:hover img {
       transform: scale(1.05);
+    }
+
+    /* Placeholder for internal projects */
+    .projectItem__placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+      gap: 1rem;
+      
+      .placeholder-icon {
+        font-size: 4rem;
+        opacity: 0.8;
+      }
+      
+      .placeholder-text {
+        font-size: 1.4rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
     }
 
     /* Overlay for better text readability */
@@ -112,14 +136,10 @@ const ProjectItemStyles = styled.div`
 
   .projectItem__desc {
     font-size: 1.6rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--text-secondary);
     margin: 0;
     flex: 1;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   .projectItem__tech {
@@ -171,7 +191,24 @@ const ProjectItemStyles = styled.div`
       height: 6px;
       border-radius: 50%;
       background: var(--success-color);
+      
+      &.internal {
+        background: #f59e0b;
+      }
     }
+  }
+
+  .projectItem__internal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #f59e0b;
   }
 
   .projectItem__cta {
@@ -246,7 +283,6 @@ const ProjectItemStyles = styled.div`
 
     .projectItem__desc {
       font-size: 1.5rem;
-      -webkit-line-clamp: 2;
     }
 
     .projectItem__tech {
@@ -282,21 +318,30 @@ const ProjectItemStyles = styled.div`
 `;
 
 export default function ProjectItem({
-  img = ProjectImg,
+  img = null,
   title = 'Project Name',
   desc = 'A modern web application built with cutting-edge technologies to solve real-world problems.',
   tech = ['React', 'Node.js', 'MongoDB'],
-  url = '#',
+  url = null,
   featured = false,
   status = 'Live',
-  className = ''
+  className = '',
+  isInternal = false
 }) {
-  const isExternalLink = url.startsWith('http') || url.startsWith('https');
+  const isExternalLink = url && (url.startsWith('http') || url.startsWith('https'));
+  const hasImage = img !== null;
 
   return (
     <ProjectItemStyles className={`project-item ${featured ? 'featured' : ''} ${className}`}>
       <div className="projectItem__img">
-        <img src={img} alt={title} />
+        {hasImage ? (
+          <img src={img} alt={title} />
+        ) : (
+          <div className="projectItem__placeholder">
+            <span className="placeholder-icon">{isInternal ? '🔒' : '📁'}</span>
+            <span className="placeholder-text">{isInternal ? 'Internal Project' : 'No Preview'}</span>
+          </div>
+        )}
         {isExternalLink && (
           <div className="external-link-icon">
             🔗
@@ -322,11 +367,11 @@ export default function ProjectItem({
 
       <div className="projectItem__footer">
         <div className="projectItem__status">
-          <div className="status-dot"></div>
+          <div className={`status-dot ${isInternal ? 'internal' : ''}`}></div>
           <span>{status}</span>
         </div>
         
-        {url && url !== '#' && (
+        {url ? (
           <a 
             href={url}
             className="projectItem__cta"
@@ -336,7 +381,11 @@ export default function ProjectItem({
             <span>View Project</span>
             <span className="cta-icon">→</span>
           </a>
-        )}
+        ) : isInternal ? (
+          <span className="projectItem__internal-badge">
+            🔒 Internal
+          </span>
+        ) : null}
       </div>
     </ProjectItemStyles>
   );

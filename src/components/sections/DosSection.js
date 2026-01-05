@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdStorage, MdPsychology, MdSupervisorAccount } from 'react-icons/md';
+import { MdCode, MdPsychology, MdNetworkCheck } from 'react-icons/md';
 import styled from 'styled-components';
 import SectionTitle from '../ui/SectionTitle';
 import ServicesSectionItem from '../cards/DosItem';
@@ -39,19 +39,19 @@ export default function DosSection() {
         
         <StaggeredReveal animation="scaleIn" staggerDelay={200} className="services__allItems">
           <ServicesSectionItem
-            icon={<MdStorage />}
+            icon={<MdCode />}
             title="Backend Engineering"
-            desc="I design and build scalable distributed systems, high-performance APIs, and robust backend architecture for large-scale applications."
+            desc="Building high-performance REST APIs, microservices, and scalable backend systems. Expert in optimizing database performance, implementing caching strategies (Redis), and designing robust API architectures that handle production-scale traffic."
           />
           <ServicesSectionItem
             icon={<MdPsychology />}
-            title="GenAI & Big Data"
-            desc="I develop intelligent AI systems and optimize big data pipelines, focusing on performance, reliability, and scalability at enterprise level."
+            title="GenAI Agents"
+            desc="Designing and deploying production-grade LLM-based systems using LangGraph state machines, LangChain, and FastAPI. Specialized in building multi-agent workflows, prompt engineering, and integrating observability tools (LangFuse, ELK) for reliable GenAI applications."
           />
           <ServicesSectionItem
-            icon={<MdSupervisorAccount />}
-            title="Technical Leadership"
-            desc="I lead cross-functional initiatives, mentor engineering teams, and drive innovation in analytics and data processing solutions."
+            icon={<MdNetworkCheck />}
+            title="Distributed Systems"
+            desc="Engineering large-scale data pipelines with Apache Spark processing 12+ TB/day across multi-cluster environments. Expertise in HDFS, S3, Kafka, and building fault-tolerant systems that power real-time analytics and data-driven decisions."
           />
         </StaggeredReveal>
       </div>

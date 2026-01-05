@@ -90,6 +90,9 @@ function ProjectsSection() {
               img={item.img}
               tech={item.tech}
               url={item.url}
+              featured={item.featured}
+              status={item.status}
+              isInternal={item.isInternal}
             />
           ))}
         </StaggeredReveal>

@@ -598,20 +598,20 @@ function ExperienceSection() {
         <ScrollReveal animation="scaleIn" delay={100}>
           <div className="experience__stats">
             <div className="stat__item">
-              <div className="stat__number">3+</div>
+              <div className="stat__number">2.5+</div>
               <div className="stat__label">Years Experience</div>
             </div>
             <div className="stat__item">
-              <div className="stat__number">5</div>
-              <div className="stat__label">Companies</div>
+              <div className="stat__number">12TB</div>
+              <div className="stat__label">Data Processed/Day</div>
             </div>
             <div className="stat__item">
-              <div className="stat__number">20+</div>
-              <div className="stat__label">Technologies</div>
+              <div className="stat__number">50%</div>
+              <div className="stat__label">Tickets Reduced</div>
             </div>
             <div className="stat__item">
-              <div className="stat__number">200+</div>
-              <div className="stat__label">Students Impacted</div>
+              <div className="stat__number">$20K</div>
+              <div className="stat__label">Daily DSP Impact</div>
             </div>
           </div>
         </ScrollReveal>

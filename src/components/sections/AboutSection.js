@@ -131,7 +131,7 @@ function AboutSection() {
           <SectionTitle
             badge={{ icon: <MdPersonPin />, text: "About Me" }}
             heading="My <highlight>Journey</highlight>"
-            description="From a small village in Dharashiv district to the tech industry - here's my story of continuous growth and passion for technology."
+            description="From solving DSA problems to building production-grade AI systems — a journey of continuous technical growth and impactful engineering."
             align="center"
             size="large"
           />
@@ -143,18 +143,20 @@ function AboutSection() {
               <h3 className="story__title">The Journey So Far</h3>
               
               <p className="story__text">
-                My path from the quiet streets of a small village to the bustling tech landscape 
-                has been one of continuous growth and discovery. After graduating from Pune Institute 
-                of Computer Technology, I've embarked on my professional career as a Software Engineer 
-                specializing in AI and Big Data, where I'm passionate about leveraging cutting-edge 
-                technologies to solve real-world problems.
+                My journey began with a strong foundation in algorithms and data structures — achieving a 
+                <strong> 1800+ LeetCode rating (Top 5%)</strong> and solving 1100+ problems. After graduating 
+                from Pune Institute of Computer Technology in 2023, I've spent the past 2.5 years at PubMatic 
+                building production systems that process <strong>12+ TB of data daily</strong> and serve millions 
+                of ad requests.
               </p>
               
               <p className="story__text">
-                I'm a persistent and passionate engineer who thrives on transforming complex data 
-                into meaningful insights and building intelligent solutions. With a strong foundation 
-                in algorithms, data structures, and machine learning concepts, I've expanded my expertise 
-                across web development, data engineering, and artificial intelligence.
+                What excites me most is solving complex technical challenges at scale. I've led development of 
+                an <strong>AI-powered Deal Debugger</strong> that reduced support tickets by 50%, architected 
+                <strong> Redis caching layers</strong> that cut database load by 90%, and engineered 
+                <strong> Spark pipelines</strong> that enabled $20K/day revenue increases. Each project taught me 
+                that great engineering isn't just about writing code — it's about understanding systems, optimizing 
+                performance, and delivering measurable business impact.
               </p>
               
               <div className="personal__interests">

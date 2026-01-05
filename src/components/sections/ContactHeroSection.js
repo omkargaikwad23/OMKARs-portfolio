@@ -177,8 +177,8 @@ function ContactHeroSection() {
           <ScrollReveal animation="fadeUp" delay={100}>
             <SectionTitle
               badge={{ icon: <MdChat />, text: "Let's Work Together" }}
-              heading="Open to <highlight>Opportunities</highlight>"
-              description="Currently seeking full-time roles, exciting projects, and meaningful collaborations. Here's how we can connect based on what you're looking for."
+              heading="Open to <highlight>Interesting Work</highlight>"
+              description="Always excited about challenging projects, innovative ideas, and meaningful collaborations. Here's how we can connect based on what you're building."
               align="center"
               size="large"
             />
@@ -190,9 +190,9 @@ function ContactHeroSection() {
             <div className="cta__icon">
               <MdWork />
             </div>
-            <h3 className="cta__title">Full-Time Opportunities</h3>
+            <h3 className="cta__title">Full-Time Roles</h3>
             <p className="cta__desc">
-              Looking for a software engineer? Let's discuss how I can contribute to your team's success.
+              Building something exciting? Let's discuss how I can contribute to your team's success.
             </p>
             <div className="cta__button-wrapper">
               <Button
@@ -227,7 +227,7 @@ function ContactHeroSection() {
             </div>
             <h3 className="cta__title">Networking & Mentorship</h3>
             <p className="cta__desc">
-              Want to connect professionally, discuss tech, or seeking mentorship? I love meeting fellow developers!
+              Want to connect professionally, discuss tech, or interested in mentorship? I love meeting fellow developers!
             </p>
             <div className="cta__button-wrapper">
               <Button
@@ -246,9 +246,9 @@ function ContactHeroSection() {
               <div className="status-dot"></div>
               <span>Available for work</span>
             </div>
-            <h3 className="availability__title">Ready for New Opportunities</h3>
+            <h3 className="availability__title">Open to Interesting Work</h3>
             <p className="availability__desc">
-              I'm currently open to full-time opportunities, freelance projects, and consulting work. 
+              Open to full-time roles, freelance projects, and consulting engagements with exciting challenges. 
               Based in Pune, India, and available for remote work worldwide.
             </p>
           </div>

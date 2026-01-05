@@ -123,7 +123,7 @@ export default function Navbar() {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <a href="#home" className="nav-logo" onClick={handleScrollToTop}>
-          Omkar.
+          OG
         </a>
         <ul className={`nav-items ${showNav ? 'show' : ''}`}>
           <div className="nav-indicator" style={indicatorStyle}></div>

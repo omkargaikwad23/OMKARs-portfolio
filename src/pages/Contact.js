@@ -175,9 +175,9 @@ function Contact() {
         <div className="contact__cta">
           <div className="cta__card">
             <div className="cta__icon">💼</div>
-            <h3 className="cta__title">Hiring Opportunities</h3>
+            <h3 className="cta__title">Full-Time Roles</h3>
             <p className="cta__desc">
-              Looking for a software engineer? Let's discuss how I can contribute to your team's success.
+              Building something exciting? Let's discuss how I can contribute to your team's success.
             </p>
             <div className="cta__button-wrapper">
               <Button
@@ -225,11 +225,11 @@ function Contact() {
         <div className="availability__section">
           <div className="availability__badge">
             <div className="status-dot"></div>
-            <span>Available for new opportunities</span>
+            <span>Open to interesting work</span>
           </div>
-          <h3 className="availability__title">Ready to Make an Impact</h3>
+          <h3 className="availability__title">Open to Interesting Work</h3>
           <p className="availability__desc">
-            I'm currently open to full-time opportunities, freelance projects, and interesting collaborations. 
+            Open to full-time roles, freelance projects, and consulting engagements with exciting challenges. 
             Based in Pune, India, and available for remote work worldwide.
           </p>
         </div>
